@@ -1,0 +1,24 @@
+
+/* ----------------------- Config file -----------------------  */
+
+//Grid size by default
+$grille: 4;
+
+// $couleur: #fff; //hexa code
+$margin: 16; //value in px
+
+//List of justify-content attributes
+$justify_c: ("sb": space-between, "c": center, "s": stretch);
+
+//List of align-items attributes
+$align-items: ("b": baseline, "c": center, "fe": flex-end, "fs": flex-start, "inh": inherit, "ini": initial, "s": stretch);
+
+//List of direction attributes
+$flex-d:(
+  "1": column,
+  "2": row,
+  "3": column-reverse,
+  "4": row-reverse,
+  "5": inherit,
+  "6": initial
+)

@@ -1,0 +1,62 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto; }
+
+.flex-fluid {
+  display: flex;
+  flex-wrap: wrap; }
+
+.flex-auto {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1; }
+
+.content {
+  flex-basis: calc(100%/4 - 16px);
+  height: 6rem;
+  background: red; }
+
+.flex-column {
+  flex-direction: "column"; }
+
+.flex-row {
+  flex-direction: "row"; }
+
+.flex-column-reverse {
+  flex-direction: "column-reverse"; }
+
+.flex-row-reverse {
+  flex-direction: "row-reverse"; }
+
+.flex-inherit {
+  flex-direction: "inherit"; }
+
+.flex-initial {
+  flex-direction: "initial"; }
+
+div[class*="item-"] {
+  margin: 16px; }
+
+.item-1 {
+  flex-basis: calc(((100%/4) / 1) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-2 {
+  flex-basis: calc(((100%/4) / 2) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-3 {
+  flex-basis: calc(((100%/4) / 3) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-4 {
+  flex-basis: calc(((100%/4) / 4) - 32px);
+  height: 6rem;
+  background: red; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,161 @@
+/* ----------------------- Config file -----------------------  */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto; }
+
+.flex-fluid {
+  display: flex;
+  flex-wrap: wrap; }
+
+.flex-auto {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1; }
+
+.content {
+  flex-basis: calc(100%/4 - 16px);
+  height: 6rem;
+  background: red; }
+
+[class*="item-"] {
+  margin: 16px; }
+
+[class*="item-"].mr-auto {
+  margin-right: auto; }
+[class*="item-"].ml-auto {
+  margin-left: auto; }
+
+.flex-full-width {
+  flex-basis: 100%; }
+
+.item-1 {
+  flex-basis: calc(((0.25%)*100) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-2 {
+  flex-basis: calc(((0.5%)*100) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-3 {
+  flex-basis: calc(((0.75%)*100) - 32px);
+  height: 6rem;
+  background: red; }
+
+.item-4 {
+  flex-basis: calc(((1%)*100) - 32px);
+  height: 6rem;
+  background: red; }
+
+.flex-jc-sb {
+  justify-content: space-between; }
+
+.flex-jc-c {
+  justify-content: center; }
+
+.flex-jc-s {
+  justify-content: stretch; }
+
+.flex-align-b {
+  align-items: baseline; }
+
+.flex-align-c {
+  align-items: center; }
+
+.flex-align-fe {
+  align-items: flex-end; }
+
+.flex-align-fs {
+  align-items: flex-start; }
+
+.flex-align-inh {
+  align-items: inherit; }
+
+.flex-align-ini {
+  align-items: initial; }
+
+.flex-align-s {
+  align-items: stretch; }
+
+.flex-dir-column {
+  flex-direction: "column"; }
+
+.flex-dir-row {
+  flex-direction: "row"; }
+
+.flex-dir-column-reverse {
+  flex-direction: "column-reverse"; }
+
+.flex-dir-row-reverse {
+  flex-direction: "row-reverse"; }
+
+.flex-dir-inherit {
+  flex-direction: "inherit"; }
+
+.flex-dir-initial {
+  flex-direction: "initial"; }
+
+.order-1 {
+  order: 1; }
+
+.order-2 {
+  order: 2; }
+
+.order-3 {
+  order: 3; }
+
+.order-4 {
+  order: 4; }
+
+.order-5 {
+  order: 5; }
+
+.order-6 {
+  order: 6; }
+
+.order-7 {
+  order: 7; }
+
+.order-8 {
+  order: 8; }
+
+.order-9 {
+  order: 9; }
+
+.order-10 {
+  order: 10; }
+
+.order-11 {
+  order: 11; }
+
+.order-12 {
+  order: 12; }
+
+.order-13 {
+  order: 13; }
+
+.order-14 {
+  order: 14; }
+
+.order-15 {
+  order: 15; }
+
+.order-16 {
+  order: 16; }
+
+.order-17 {
+  order: 17; }
+
+.order-18 {
+  order: 18; }
+
+.order-19 {
+  order: 19; }
+
+.order-20 {
+  order: 20; }
+
+/*# sourceMappingURL=main.css.map */

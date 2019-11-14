@@ -1,0 +1,85 @@
+@import "utilities/_reset.scss";
+@import "utilities/_config.scss";
+
+//.container {background: $couleur}
+$flex_basis: '100%/'$grille;
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto;
+}
+
+.flex-fluid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-auto {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.content {
+  flex-basis: calc(100%/#{$grille} - #{$margin}px);
+  height: 6rem;
+  background: red;
+}
+
+[class*="item-"]{
+  margin: #{$margin}px
+}
+
+[class*="item-"]{
+  &.mr-auto{
+    margin-right: auto;
+  }
+  &.ml-auto{
+    margin-left: auto;
+  }
+}
+
+.flex-full-width{
+  flex-basis: 100%;
+}
+
+@for $i from 1 to $grille+1{
+  .item-#{$i}{
+    //flex-basis: calc(100%/#{$grille} - #{$margin}px);
+    //flex-basis: calc(((100%/#{$i}) / #{$grille}) - #{$margin*2}px);
+    $calc: $i / $grille;
+    flex-basis: calc(((#{$calc * 1%})*100) - #{$margin*2}px);
+    height: 6rem;
+    background: red;
+  }
+}
+
+//Loop on justify-content attributes
+@each $key, $i in $justify_c {
+  .flex-jc-#{$key} {
+      justify-content: $i; 
+  }
+}
+
+//Loop on align-items attributes
+@each $key, $i in $align-items {
+  .flex-align-#{$key} {
+      align-items: $i; 
+  }
+}
+
+// Flex Direction
+@each $key,$i in $flex-d {
+  .flex-dir-#{$i} {
+    flex-direction: $i;
+  }
+}
+
+$order: 20;
+@for $i from 1 to $order+1{
+  .order-#{$i}{
+    order: #{$i};
+  }
+}
