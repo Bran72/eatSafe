@@ -1,2 +1,5 @@
 [submodule "framework"]
 	url = https://github.com/mathieudaix/framework.git
+[submodule "css_framework"]
+	path = css_framework
+	url = https://github.com/Bran72/css_framework.git
