@@ -1,0 +1,7 @@
+.content-nav > div {
+  flex-basis: 50%; }
+
+.content-nav .eat-logo {
+  height: 100%; }
+  .content-nav .eat-logo img {
+    max-height: 3rem; }

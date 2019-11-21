@@ -22,10 +22,10 @@ $flex_basis: '100%/'$grille;
   flex-grow: 1;
 }
 
-.content {
+.content-nav {
   flex-basis: calc(100%/#{$grille} - #{$margin}px);
   height: 6rem;
-  background: red;
+  //background: red;
 }
 
 [class*="item-"]{
@@ -52,21 +52,21 @@ $flex_basis: '100%/'$grille;
     $calc: $i / $grille;
     flex-basis: calc(((#{$calc * 1%})*100) - #{$margin*2}px);
     height: 6rem;
-    background: red;
+    //background: red;
   }
 }
 
 //Loop on justify-content attributes
 @each $key, $i in $justify_c {
   .flex-jc-#{$key} {
-      justify-content: $i; 
+      justify-content: $i;
   }
 }
 
 //Loop on align-items attributes
 @each $key, $i in $align-items {
   .flex-align-#{$key} {
-      align-items: $i; 
+      align-items: $i;
   }
 }
 

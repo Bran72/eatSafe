@@ -8,7 +8,7 @@ $grille: 4;
 $margin: 16; //value in px
 
 //List of justify-content attributes
-$justify_c: ("sb": space-between, "c": center, "s": stretch);
+$justify_c: ("sb": space-between, "c": center, "s": stretch, "fe": flex-end);
 
 //List of align-items attributes
 $align-items: ("b": baseline, "c": center, "fe": flex-end, "fs": flex-start, "inh": inherit, "ini": initial, "s": stretch);

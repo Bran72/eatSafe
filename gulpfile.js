@@ -1,28 +1,58 @@
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
+const imagemin = require('gulp-imagemin');
 
 const srcJS = './js';
 const srcCSS = './css';
-const destination = './src';
+const destination = './build';
 
 gulp.task('css-dev', function () {
-    return gulp.src(srcCSS + '/css_framework/sass/main.scss')
+    return gulp.src([srcCSS + '/css_framework/sass/main.scss', srcCSS + '/custom.scss'])
         .pipe(plugins.sass())
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', '> 2%']
-        }))
-        .pipe(gulp.dest(destination + '/assets/css/'));
+        .pipe(plugins.autoprefixer())
+        .pipe(gulp.dest(destination + '/css/'));
 });
 
 gulp.task('css-prod', function () {
     return gulp.src(srcCSS + '/css_framework/sass/main.scss')
         .pipe(plugins.sass())
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions', '> 2%']
-        }))
-        .pipe(plugins.csso())
+        .pipe(plugins.autoprefixer())
+        .pipe(plugins.css())
         .pipe(plugins.rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest(destination + '/assets/css/'));
+        .pipe(gulp.dest(destination + '/css/'));
 });
+
+gulp.task('watch:css', () => {
+    gulp.watch(['./css/css_framework/sass/main.scss', './css/custom.scss'], gulp.series('css-dev'));
+});
+
+gulp.task('images', function(){
+    return gulp.src('./src/assets/img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./build/assets/img'))
+});
+
+/*
+let browsersync = false;
+gulp.task('default', () => {
+    if (browsersync === false) {
+        browsersync = require('browser-sync').create();
+        browsersync.init({
+            proxy: 'localhost' + __dirname.replace('/home/ben/Docker/www',''),
+            files       : [
+                'src/!*'
+            ],
+            watchEvents : ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
+            open        : true,
+            notify      : false,
+            ghostMode   : false,
+            ui: {
+                port: 8001
+            }
+        });
+    }
+});*/
+
+gulp.task('default', gulp.parallel('watch:css','images'));
