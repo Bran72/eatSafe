@@ -34,22 +34,13 @@ gulp.task('images', function(){
         .pipe(gulp.dest('./build/assets/img'))
 });
 
-/*
-let browsersync = false;
+/*let browsersync = false;
 gulp.task('default', () => {
     if (browsersync === false) {
         browsersync = require('browser-sync').create();
         browsersync.init({
-            proxy: 'localhost' + __dirname.replace('/home/ben/Docker/www',''),
-            files       : [
-                'src/!*'
-            ],
-            watchEvents : ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
-            open        : true,
-            notify      : false,
-            ghostMode   : false,
-            ui: {
-                port: 8001
+            server: {
+                baseDir: "./"
             }
         });
     }
