@@ -29,7 +29,7 @@ gulp.task('watch:css', () => {
 });
 
 gulp.task('images', function(){
-    return gulp.src('./src/assets/img/*')
+    return gulp.src('./assets/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/assets/img'))
 });
