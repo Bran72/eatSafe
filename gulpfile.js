@@ -28,6 +28,7 @@ gulp.task('watch:css', () => {
 });
 
 gulp.task('images', function(){
+    console.log('images')
     return gulp.src('./assets/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/assets/img'))
