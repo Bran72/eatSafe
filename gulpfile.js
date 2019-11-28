@@ -3,21 +3,20 @@ const plugins = require('gulp-load-plugins')();
 const imagemin = require('gulp-imagemin');
 
 const srcJS = './js';
-const srcCSS = './css';
+const srcCSS = './assets/css';
 const destination = './build';
 
 gulp.task('css-dev', function () {
-    return gulp.src([srcCSS + '/css_framework/sass/main.scss', srcCSS + '/custom.scss'])
+    return gulp.src(['./assets/css/custom.scss', './assets/css/piodjio.css'])
         .pipe(plugins.sass())
         .pipe(plugins.autoprefixer())
         .pipe(gulp.dest(destination + '/css/'));
 });
 
 gulp.task('css-prod', function () {
-    return gulp.src(srcCSS + '/css_framework/sass/main.scss')
+    return gulp.src(srcCSS + '/custom.scss')
         .pipe(plugins.sass())
         .pipe(plugins.autoprefixer())
-        .pipe(plugins.css())
         .pipe(plugins.rename({
             suffix: '.min'
         }))
@@ -25,7 +24,7 @@ gulp.task('css-prod', function () {
 });
 
 gulp.task('watch:css', () => {
-    gulp.watch(['./css/css_framework/sass/main.scss', './css/custom.scss'], gulp.series('css-dev'));
+    gulp.watch(['./assets/css/custom.scss', './assets/css/piodjio.css'], gulp.series('css-prod'));
 });
 
 gulp.task('images', function(){
