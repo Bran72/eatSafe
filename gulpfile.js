@@ -1,49 +1,28 @@
-const gulp = require('gulp');
-const plugins = require('gulp-load-plugins')();
-const imagemin = require('gulp-imagemin');
+const
+    gulp = require( 'gulp' ),
+    plugins = require( 'gulp-load-plugins' )(),
+    imagemin = require( 'gulp-imagemin' ),
+    destination = './build/css/',
+    styles = ['./assets/css/custom.scss', './assets/css/piodjio.css']
 
-const srcJS = './js';
-const srcCSS = './assets/css';
-const destination = './build';
-
-gulp.task('css-dev', function () {
-    return gulp.src(['./assets/css/custom.scss', './assets/css/piodjio.css'])
-        .pipe(plugins.sass())
-        .pipe(plugins.autoprefixer())
-        .pipe(gulp.dest(destination + '/css/'));
-});
-
-gulp.task('css-prod', function () {
-    return gulp.src(['./assets/css/custom.scss', './assets/css/piodjio.css'])
-        .pipe(plugins.sass())
-        .pipe(plugins.autoprefixer())
-        .pipe(plugins.rename({
+gulp.task( 'css-prod', () => {
+    return gulp.src( styles )
+        .pipe( plugins.sass() )
+        .pipe( plugins.autoprefixer() )
+        .pipe( plugins.rename( {
             suffix: '.min'
-        }))
-        .pipe(gulp.dest(destination + '/css/'));
-});
+        } ) )
+        .pipe( gulp.dest( destination ) )
+} )
 
-gulp.task('watch:css', () => {
-    gulp.watch(['./assets/css/*.scss','./assets/css/*.ccs' ], gulp.series('css-prod'));
-});
+gulp.task( 'watch:css', () => {
+    gulp.watch( styles, gulp.series( 'css-prod' ) )
+} )
 
-gulp.task('images', function(){
-    console.log('images')
-    return gulp.src('./assets/img/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./build/assets/img'))
-});
+gulp.task( 'images', () => {
+    return gulp.src( './assets/img/*' )
+        .pipe( imagemin() )
+        .pipe( gulp.dest( './build/assets/img' ) )
+} )
 
-/*let browsersync = false;
-gulp.task('default', () => {
-    if (browsersync === false) {
-        browsersync = require('browser-sync').create();
-        browsersync.init({
-            server: {
-                baseDir: "./"
-            }
-        });
-    }
-});*/
-
-gulp.task('default', gulp.parallel('css-prod', 'watch:css', 'images'));
+gulp.task( 'default', gulp.parallel( 'css-prod', 'watch:css', 'images' ) )
