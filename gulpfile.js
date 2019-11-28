@@ -14,7 +14,7 @@ gulp.task('css-dev', function () {
 });
 
 gulp.task('css-prod', function () {
-    return gulp.src(srcCSS + '/custom.scss')
+    return gulp.src(['./assets/css/custom.scss', './assets/css/piodjio.css'])
         .pipe(plugins.sass())
         .pipe(plugins.autoprefixer())
         .pipe(plugins.rename({
@@ -24,7 +24,7 @@ gulp.task('css-prod', function () {
 });
 
 gulp.task('watch:css', () => {
-    gulp.watch(['./assets/css/custom.scss', './assets/css/piodjio.css'], gulp.series('css-prod'));
+    gulp.watch(['./assets/css/*.scss','./assets/css/*.ccs' ], gulp.series('css-prod'));
 });
 
 gulp.task('images', function(){
@@ -45,4 +45,4 @@ gulp.task('default', () => {
     }
 });*/
 
-gulp.task('default', gulp.parallel('watch:css','images'));
+gulp.task('default', gulp.parallel('css-prod', 'watch:css', 'images'));
