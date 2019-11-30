@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>eatSafe</title>
-    <link rel="stylesheet" href="build/css/main.css">
-    <link rel="stylesheet" href="build/css/custom.css">
+    <link rel="stylesheet" href="./build/css/piodjio.min.css">
+    <link rel="stylesheet" href="./build/css/custom.min.css">
 </head>
 
-<body>
-
+<body id="appWrapper" class="flex w-full h-screen">
+    <div class="left w-1-2 h-full">
+        <div id="headLeft">
+            <h2 class="text-center font-xl p-1">Mes recommandations</h2>
+        </div>
+    </div>
+    <div class="right w-1-2 h-full flex column">
+        <div id="headRight">
+            <h2 class="text-center font-xl p-1">Mes repas de la semaine</h2>
+        </div>
+        <div class="flex items-center justify-center h-full">
+            <div class="parent w-full h-1-2 p-48">
+                <div class="div1"></div>
+                <div class="div2"></div>
+                <div class="div3"></div>
+                <div class="div4"></div>
+                <div class="div5"></div>
+                <div class="div6"></div>
+                <div class="div7"></div>
+            </div>
+        </div>
+    </div>
+    <aside id="burgerMenu" class="absolute cursor-pointer font-xl p-1"></aside>
 </body>
 
 </html>
