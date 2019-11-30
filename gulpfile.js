@@ -3,7 +3,7 @@ const
     plugins = require( 'gulp-load-plugins' )(),
     imagemin = require( 'gulp-imagemin' ),
     destination = './build/css/',
-    styles = ['./assets/css/custom.scss', './assets/css/piodjio.css']
+    styles = ['./assets/css/custom.sass', './assets/css/piodjio.css']
 
 gulp.task( 'css-prod', () => {
     return gulp.src( styles )
