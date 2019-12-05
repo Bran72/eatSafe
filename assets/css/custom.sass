@@ -24,8 +24,16 @@
     grid-area: 3 / 1 / 4 / 2
   > .div7
     grid-area: 3 / 2 / 4 / 3
-#burgerMenu
-  top: 50%
-  left: 47%
+.burgerMenu-icon
+  top: calc(50% - 1.5rem)
+  left: calc(50% - 1.5rem)
+  font-size: 2rem
   &::before
     content: "\2630"
+#burgerMenu
+  // display: none
+  form
+    > label
+      pointer-events: none
+    > input:not(:last-child)
+      border-bottom: 2px solid

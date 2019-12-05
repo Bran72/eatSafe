@@ -32,7 +32,46 @@
             </div>
         </div>
     </div>
-    <aside id="burgerMenu" class="absolute cursor-pointer font-xl p-1"></aside>
+    <button
+        class="burgerMenu-icon absolute z100 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
+    <aside id="burgerMenu" class="absolute cursor-pointer font-xl p-1 bg-green-500 container-full h-full">
+        <section class="flex justify-center p-10"><img class="w-4-12" src="./assets/img/eatsafe.png" alt="Logo eatSafe">
+        </section>
+        <section class="flex justify-space-around p-1">
+            <section>
+                <h2 class="font-6xl text-center p-10">Sign up</h2>
+                <form action="" class="flex column">
+                    <fieldset>
+                        <label class="pt-5" for="username">Username</label>
+                        <input type="text" name="username">
+                    </fieldset>
+                    <fieldset>
+                        <label class="pt-5" for="password">Password</label>
+                        <input type="password" name="password">
+                    </fieldset>
+                    <fieldset>
+                        <label class="pt-5" for="email">E-mail</label>
+                        <input type="email" name="email">
+                    </fieldset>
+                    <input class="text-center p-10" type="submit" value="Subscribe">
+                </form>
+            </section>
+            <section>
+                <h2 class="font-6xl text-center p-10">Sign in</h2>
+                <form action="" class="flex column">
+                    <fieldset>
+                        <label class="pt-5" for="username">Username</label>
+                        <input type="text" name="username">
+                    </fieldset>
+                    <fieldset>
+                        <label class="pt-5" for="password">Password</label>
+                        <input type="password" name="password">
+                    </fieldset>
+                    <input class="text-center p-10" type="submit" value="Go !">
+                </form>
+            </section>
+        </section>
+    </aside>
 </body>
 
 </html>
