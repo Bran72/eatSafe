@@ -8,6 +8,8 @@
     <title>eatSafe</title>
     <link rel="stylesheet" href="./build/css/piodjio.min.css">
     <link rel="stylesheet" href="./build/css/custom.min.css">
+    <script src="./script/main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body id="appWrapper" class="flex w-full h-screen">
@@ -40,34 +42,39 @@
         <section class="flex justify-space-around p-1">
             <section>
                 <h2 class="font-6xl text-center p-10">Sign up</h2>
-                <form action="" class="flex column">
+                <form action="" class="">
                     <fieldset>
-                        <label class="pt-5" for="username">Username</label>
-                        <input type="text" name="username">
+                        <input type="text" name="username" required autocomplete="off">
+                        <label for="username">Username</label>
+                        <div class="bar"></div>
                     </fieldset>
                     <fieldset>
-                        <label class="pt-5" for="password">Password</label>
-                        <input type="password" name="password">
+                        <input type="password" name="password" required autocomplete="off">
+                        <label for="password">Password</label>
+                        <div class="bar"></div>
                     </fieldset>
                     <fieldset>
-                        <label class="pt-5" for="email">E-mail</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" required autocomplete="off">
+                        <label for="email">E-mail</label>
+                        <div class="bar"></div>
                     </fieldset>
-                    <input class="text-center p-10" type="submit" value="Subscribe">
+                    <input class="text-center p-10 w-full" type="submit" value="Subscribe">
                 </form>
             </section>
             <section>
                 <h2 class="font-6xl text-center p-10">Sign in</h2>
-                <form action="" class="flex column">
+                <form action="" class="">
                     <fieldset>
-                        <label class="pt-5" for="username">Username</label>
-                        <input type="text" name="username">
+                        <input type="text" name="username" required autocomplete="off">
+                        <label for="username">Username</label>
+                        <div class="bar"></div>
                     </fieldset>
                     <fieldset>
-                        <label class="pt-5" for="password">Password</label>
-                        <input type="password" name="password">
+                        <input type="password" name="password" required autocomplete="off">
+                        <label for="password">Password</label>
+                        <div class="bar"></div>
                     </fieldset>
-                    <input class="text-center p-10" type="submit" value="Go !">
+                    <input class="text-center p-10 w-full" type="submit" value="Go !">
                 </form>
             </section>
         </section>
