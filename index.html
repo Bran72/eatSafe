@@ -36,27 +36,27 @@
     </div>
     <nav id="menuWrapper">
         <button
-            id="burger" class="absolute z100 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
-        <nav id="menu">
-            <ul>
-                <li>wow - 1</li>
-                <li>wow - 2</li>
-                <li>wow - 3</li>
-                <li>wow - 4</li>
-                <li>wow - 5</li>
+            id="burger" class="absolute z10 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
+        <nav id="menu" class="bg-gray-900 white absolute left items-center select-none h-full w-full font-4xl">
+            <ul class="list-none cursor-pointer flex column h-full">
+                <li>Lien 01</li>
+                <li>Lien 02</li>
+                <li>Lien 03</li>
+                <li>Lien 04</li>
+                <li id="disconnect">Déconnection</li>
             </ul>
-            <aside>
-                <h2>About us</h2>
-                <p>Fugiat Lorem fugiat amet consectetur irure tempor irure et ex adipisicing.</p>
+            <aside class="text-right font-100">
+                <h2 class="font-900 font-6xl mb-8">About us</h2>
+                <p>Fugiat Lorem fugiat amet<br/> consectetur irure tempor<br/> irure et ex adipisicing.</p>
             </aside>
         </nav>
     </nav>
-    <aside id="SignInterface" class="absolute font-xl p-1 bg-green-500 container-full h-full">
+    <aside id="SignInterface" class="absolute font-xl p-1 bg-gray-900 w-full h-full z20">
         <section class="flex justify-center p-10"><img class="w-4-12" src="./assets/img/eatsafe.png" alt="Logo eatSafe">
         </section>
         <section class="flex justify-space-around p-1">
             <section>
-                <h2 class="font-6xl text-center p-10">Sign up</h2>
+                <h2 class="font-6xl text-center p-10 white">Sign up</h2>
                 <form action="" class="">
                     <fieldset>
                         <input type="text" name="username" required autocomplete="off">
@@ -73,11 +73,11 @@
                         <label for="email">E-mail</label>
                         <div class="bar"></div>
                     </fieldset>
-                    <input class="text-center p-10 w-full" type="submit" value="Subscribe">
+                    <input class="text-center p-10 w-full white" type="submit" value="Subscribe">
                 </form>
             </section>
             <section>
-                <h2 class="font-6xl text-center p-10">Sign in</h2>
+                <h2 class="font-6xl text-center p-10 white">Sign in</h2>
                 <form action="" class="">
                     <fieldset>
                         <input type="text" name="username" required autocomplete="off">
@@ -89,7 +89,7 @@
                         <label for="password">Password</label>
                         <div class="bar"></div>
                     </fieldset>
-                    <input class="text-center p-10 w-full" type="submit" value="Go !">
+                    <input class="text-center p-10 w-full white" type="submit" value="Go !">
                 </form>
             </section>
         </section>

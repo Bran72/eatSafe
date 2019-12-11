@@ -6,16 +6,36 @@ document.querySelectorAll( '#SignInterface input' ).forEach( el => {
     } )
 } )
 
-const burger = document.getElementById( "burger" );
+const
+    burger = document.getElementById( 'burger' ),
+    signInterface = document.getElementById( 'SignInterface' )
 
-function toggleIcon() {
+function toggleIcon( init ) {
+    if ( init !== true )
+        burger.classList.toggle( 'actif' )
     burger.classList.contains( 'actif' )
         ? burger.textContent = "⛌"
         : burger.textContent = "☰"
 }
-toggleIcon()
+toggleIcon( true )
 
-burger.addEventListener( "click", function () {
-    burger.classList.toggle( 'actif' )
-    toggleIcon()
+burger.addEventListener( "click", toggleIcon )
+
+signInterface.addEventListener( 'submit', e => {
+    e.preventDefault()
+    localStorage.setItem( 'connected', true )
+    connectivity()
+} )
+
+document.addEventListener( 'DOMContentLoaded', connectivity )
+
+function connectivity() {
+    if ( !!localStorage.getItem( 'connected' ) === true )
+        signInterface.style.bottom = '100%'
+}
+
+document.getElementById( 'disconnect' ).addEventListener( 'click', () => {
+    localStorage.setItem( 'connected', false )
+    signInterface.style.bottom = '0%'
+    setTimeout( toggleIcon, 500 )
 } )
