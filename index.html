@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./build/css/piodjio.min.css">
     <link rel="stylesheet" href="./build/css/custom.min.css">
     <script src="./script/main.js" defer></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
 </head>
 
 <body id="appWrapper" class="flex w-full h-screen">
@@ -34,9 +34,24 @@
             </div>
         </div>
     </div>
-    <button
-        class="burgerMenu-icon absolute z100 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
-    <aside id="burgerMenu" class="absolute cursor-pointer font-xl p-1 bg-green-500 container-full h-full">
+    <nav id="menuWrapper">
+        <button
+            id="burger" class="absolute z100 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
+        <nav id="menu">
+            <ul>
+                <li>wow - 1</li>
+                <li>wow - 2</li>
+                <li>wow - 3</li>
+                <li>wow - 4</li>
+                <li>wow - 5</li>
+            </ul>
+            <aside>
+                <h2>About us</h2>
+                <p>Fugiat Lorem fugiat amet consectetur irure tempor irure et ex adipisicing.</p>
+            </aside>
+        </nav>
+    </nav>
+    <aside id="SignInterface" class="absolute font-xl p-1 bg-green-500 container-full h-full">
         <section class="flex justify-center p-10"><img class="w-4-12" src="./assets/img/eatsafe.png" alt="Logo eatSafe">
         </section>
         <section class="flex justify-space-around p-1">
