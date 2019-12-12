@@ -1,5 +1,5 @@
 {
-  "name": "eatSafe",
+  "name": "eatsafe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cssbeautify": "^2.0.0",
-    "gulp-csso": "^3.0.1",
+    "gulp-csso": "^4.0.1",
     "gulp-imagemin": "^6.2.0",
     "gulp-load-plugins": "latest",
     "webpack-dev-server": "^3.9.0"
