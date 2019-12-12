@@ -1,6 +1,6 @@
 function main() {
     // Defining HappyMeals' classes / var as an object
-    let menu = new HappyMeals(recommendations, mealsPattern, weekUptake)
+    let menu = new HappyMeals( recommendations, mealsPattern, weekUptake )
     const happyMeals = {
         'jours': menu.nameDays,
         'propoMenu': menu.provideMeals(),
@@ -25,20 +25,20 @@ function main() {
     //console.log(menu.nameDays)
 
     // Methode de débug complète :
-    menu.debug();
+    // menu.debug();
 
     // Methode randomEntry : extrait une entrée au hasard d'un tableau ou d'un objet
-    menu.randomEntry(menu.nameDays); // = jours aléatoire
+    menu.randomEntry( menu.nameDays ); // = jours aléatoire
     //console.log(happyMeals.propoWeek);
 
     // Creation / Adding of content & modals
-    Object.entries(happyMeals.propoWeek).map((day, index) => {
-        let divDay = document.querySelector(`.div${index+1}`);
+    Object.entries( happyMeals.propoWeek ).map( ( day, index ) => {
+        let divDay = document.querySelector( `.div${index + 1}` );
         let divContent = `<div id="${day[0]}" class="dayName">${day[0]}</div>`;
 
         let modalDay = `<div class="modal-${day[0]}">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
-        Object.values(day[1]).map((el, index) => {
-            switch (index) {
+        Object.values( day[1] ).map( ( el, index ) => {
+            switch ( index ) {
                 case 0:
                     modalDay += '<h3>Petit-déjeuner</h3>';
                     break;
@@ -54,41 +54,82 @@ function main() {
             }
 
             modalDay += '<div class="alimentsList">';
-            el.forEach(aliment => {
+            el.forEach( aliment => {
                 modalDay += `<div class="categAli">${aliment.name}</div>`;
-            });
+            } );
             modalDay += '</div>';
-        });
+        } );
 
         modalDay += '</div>';
         modalDay += `<button>Éditer</button>`;
         modalDay += '</div>';
 
         divDay.innerHTML = divContent;
-        document.querySelector(".right").innerHTML += modalDay;
+        document.querySelector( ".right" ).innerHTML += modalDay;
 
-    });
+    } );
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
-    document.querySelectorAll('.parent > div').forEach((el) => {
-        el.addEventListener('click', () => {
-            document.querySelectorAll("div[class^='modal-']").forEach(item => {
-                item.classList.remove('modalVisible')
-            });
-            document.querySelector(".modal-"+el.firstChild.id).classList.toggle('modalVisible')
+    document.querySelectorAll( '.parent > div' ).forEach( ( el ) => {
+        el.addEventListener( 'click', () => {
+            document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
+                item.classList.remove( 'modalVisible' )
+            } );
+            document.querySelector( ".modal-" + el.firstChild.id ).classList.toggle( 'modalVisible' )
             //el.innerHTML = 'toto';
-        });
-    });
+        } );
+    } );
 
     // Click listener to close modals
-    document.querySelectorAll("div[class^='modal-'] .close-modal-aliments").forEach((el) => {
-        el.addEventListener('click', () => {
-            document.querySelectorAll("div[class^='modal-']").forEach(item => {
-                item.classList.remove('modalVisible')
-            });
-        });
-    });
+    document.querySelectorAll( "div[class^='modal-'] .close-modal-aliments" ).forEach( ( el ) => {
+        el.addEventListener( 'click', () => {
+            document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
+                item.classList.remove( 'modalVisible' )
+            } );
+        } );
+    } );
+
+
+    const weekRecos = []
+
+
+    menu.reco.forEach( el => {
+        const recos = {
+            id: el.name,
+            min: 0,
+            max: 0,
+            current: 0
+        }
+        if ( el.period === 'day' ) {
+            el.min ? recos.min = el.min * 7 : 0
+            el.max ? recos.max = el.max * 7 : 0
+        }
+        weekRecos.push( recos )
+    } )
+
+
+    console.log( menu.reco, weekRecos )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
-document.addEventListener('DOMContentLoaded', main);
+document.addEventListener( 'DOMContentLoaded', main )
