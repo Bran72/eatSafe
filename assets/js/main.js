@@ -11,7 +11,7 @@ function main() {
     //console.log(menu.weekMap)
 
     // Totaux, jour par jour et sur toute la semaine
-    //console.log(menu.totalsWeek)
+    console.log(menu.totalsWeek)
 
     // Cartographie des non cumulables (proteines animales)
     //console.log(menu.cumulativeState)
@@ -25,11 +25,12 @@ function main() {
     //console.log(menu.nameDays)
 
     // Methode de débug complète :
-    // menu.debug();
+    //menu.debug();
 
     // Methode randomEntry : extrait une entrée au hasard d'un tableau ou d'un objet
     menu.randomEntry( menu.nameDays ); // = jours aléatoire
     //console.log(happyMeals.propoWeek);
+    //console.log(menu.cumulativeState);
 
     // Creation / Adding of content & modals
     Object.entries( happyMeals.propoWeek ).map( ( day, index ) => {
@@ -93,36 +94,57 @@ function main() {
 
     const weekRecos = []
 
-
     menu.reco.forEach( el => {
         const recos = {
-            id: el.name,
+            id: el.id,
+            name: el.name,
+            totalPortionsDay: [],
             min: 0,
             max: 0,
-            current: 0
-        }
+            current: 0,
+            cumulative: el.cumulative
+        };
         if ( el.period === 'day' ) {
             el.min ? recos.min = el.min * 7 : 0
             el.max ? recos.max = el.max * 7 : 0
+        } else {
+            el.min ? recos.min = el.min  : 0
+            el.max ? recos.max = el.max : 0
         }
+        recos.totalPortionsDay.push(menu.totalsWeek[el.id]);
         weekRecos.push( recos )
-    } )
+    });
+
+    /*Object.entries(menu.totalsWeek).map((el) => {
+        weekRecos.forEach((reco) => {
+            console.log(el[0]);
+            if(reco.id === parseInt(el[0])) {
+                //console.log(el[1]);
+                reco.totalPortionsDay.push(el[1]);
+            }
+
+        })
+    });*/
+
+    weekRecos.forEach((reco) => {
+        if(!reco.totalPortionsDay[0] || reco.totalPortionsDay[0].length === 0) {
+            reco.totalPortionsDay[0] = {week: 0};
+        }
+    })
+
+    console.log( menu.reco, weekRecos );
 
 
-    console.log( menu.reco, weekRecos )
 
 
-
-
-
-
-
-
-
-
-
-
-
+    let recoContent = document.querySelector('.left .parent')
+    let nameCategAliments = '';
+    weekRecos.map((el, index) => {
+        //if(el.totalPortionsDay[0].week)
+        console.log(el.totalPortionsDay[0].week)
+        nameCategAliments += `<p>${el.name}</p>`;
+    })
+    recoContent.innerHTML = nameCategAliments
 
 
 
