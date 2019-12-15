@@ -11,7 +11,7 @@ function main() {
         CE QU'IL RESTE À FAIRE
         Il reste à prendre en compte:
             - la notion de cumulative
-            - le respect du pattern (3 portions au petit dej, 5 au dej,...)
+            - le respect du pattern (3 portions au petit dej, 5 au dej,...) --> ok pour le bouton d'ajout
             - la possibilité de supprimer / d'ajouter un aliment par repas (mais ATTENTION à la notion de cumulative et du pattern)
             - remettre les valeurs initiales lorsqu'on clique sur le bouton "Annuler"
               --> (par exemple, si on met 3 portions d'oeufs au lieu de 1, on clique sur annuler, on doit retrouver 1)
@@ -47,14 +47,14 @@ function main() {
 
     // Retrouver les arguments passés dans HappyMeals()
     //console.log(menu.reco)
-    //console.log(menu.pattern)
+    console.log(menu.pattern)
     //console.log(menu.uptake)
 
     // les jours de la semaine
     //console.log(menu.nameDays)
 
     // Methode de débug complète :
-    menu.debug();
+    //menu.debug();
 
     // Methode randomEntry : extrait une entrée au hasard d'un tableau ou d'un objet
     //menu.randomEntry( menu.nameDays ); // = jours aléatoire
@@ -132,7 +132,7 @@ function main() {
                     break;
             }
 
-            modalDay += '<div class="alimentsList flex">';
+            modalDay += '<div class="alimentsList flex wrap">';
             el.forEach( aliment => {
                 modalDay += '<div class="categAli text-center m-1">';
                 modalDay += '<div class="delete-aliment none"></div>\n';
@@ -140,6 +140,14 @@ function main() {
                 modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
                 modalDay += '</div>';
             } );
+
+            //détecter le nombre maximal d'aliments
+            if(el.length < menu.pattern[index].portions)
+                modalDay += '<button class="add-item">+</button>'
+            console.log(menu.pattern[index])
+            console.log(el)
+            console.log(el.length)
+
             modalDay += '</div>';
         } );
 
@@ -153,7 +161,7 @@ function main() {
     } );
 
     // Création des modals des recommandations de chaque jour
-    let recoModalContainer = document.querySelector('.left .modal-recos');
+    /*let recoModalContainer = document.querySelector('.left .modal-recos');
     let eachDayModal = '';
     menu.nameDays.map(day => {
         eachDayModal += `<div class="reco-${day} reco-modal flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200">`
@@ -162,7 +170,7 @@ function main() {
         })
         eachDayModal += '</div>'
     })
-    recoModalContainer.innerHTML = eachDayModal
+    recoModalContainer.innerHTML = eachDayModal*/
 
 
     /* ===== Click Listeners ===== */
@@ -250,7 +258,7 @@ function main() {
             *
             * */
             let menuStored = happyMeals.propoWeek
-            let testMapData = {
+            let dayData = {
                     0: [],
                     1: [],
                     2: [],
@@ -263,7 +271,7 @@ function main() {
                 let alimentName = '';
                 const portion = parseInt(item.value)
 
-                console.log(day, repas, aliment, portion)
+                //console.log(day, repas, aliment, portion)
                 //console.log(weekUptake[day][repas])
                 menu.reco.map(item => {
                     if(item.id === aliment)
@@ -271,9 +279,9 @@ function main() {
                 })
 
                 if(alimentName !== '')
-                    testMapData[repas].push({id: aliment, name: alimentName, portions: portion})
+                    dayData[repas].push({id: aliment, name: alimentName, portions: portion})
 
-                menuStored[day] = testMapData
+                menuStored[day] = dayData
             } );
 
             happyMeals.propoWeek = menuStored
