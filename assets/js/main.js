@@ -13,18 +13,20 @@ function main() {
             - la notion de cumulative
             - le respect du pattern (3 portions au petit dej, 5 au dej,...)
             - la possibilité de supprimer / d'ajouter un aliment par repas (mais ATTENTION à la notion de cumulative et du pattern)
+            - remettre les valeurs initiales lorsqu'on clique sur le bouton "Annuler"
+              --> (par exemple, si on met 3 portions d'oeufs au lieu de 1, on clique sur annuler, on doit retrouver 1)
      */
 
     // Defining HappyMeals' classes / variables as an object
     let menu;
     const userMenu = localStorage.getItem('userMenu');
     if(!userMenu || userMenu === null) {
-        console.log('userMenu not found')
+        console.log('Ehw, userMenu not found')
         menu = new HappyMeals(recommendations, mealsPattern, weekUptake)
         // BUG: LE SETITEM ICI NE STORE PAS UN OBJET COMPLET... IL STORE WEEKUPTAKE, MAIS POURQUOI ????
         localStorage.setItem('userMenu', JSON.stringify(menu.weekMap))
     } else {
-        console.log('userMenu founded ! :D')
+        console.log('Yay, userMenu founded in localStorage !')
         menu = new HappyMeals(recommendations, mealsPattern, JSON.parse(userMenu))
     }
 
@@ -52,7 +54,7 @@ function main() {
     //console.log(menu.nameDays)
 
     // Methode de débug complète :
-    //menu.debug();
+    menu.debug();
 
     // Methode randomEntry : extrait une entrée au hasard d'un tableau ou d'un objet
     //menu.randomEntry( menu.nameDays ); // = jours aléatoire
@@ -132,7 +134,9 @@ function main() {
 
             modalDay += '<div class="alimentsList flex">';
             el.forEach( aliment => {
-                modalDay += `<div class="categAli text-center m-1"><p class="alim-title">${aliment.name}</p>`;
+                modalDay += '<div class="categAli text-center m-1">';
+                modalDay += '<div class="delete-aliment none"></div>\n';
+                modalDay += `<p class="alim-title">${aliment.name}</p>`;
                 modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
                 modalDay += '</div>';
             } );
@@ -147,6 +151,19 @@ function main() {
         divDay.innerHTML = divContent;
         document.querySelector( ".right" ).innerHTML += modalDay;
     } );
+
+    // Création des modals des recommandations de chaque jour
+    let recoModalContainer = document.querySelector('.left .modal-recos');
+    let eachDayModal = '';
+    menu.nameDays.map(day => {
+        eachDayModal += `<div class="reco-${day} reco-modal flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200">`
+        Object.values(menu.totalsWeek).map(item => {
+            //console.log(item)
+        })
+        eachDayModal += '</div>'
+    })
+    recoModalContainer.innerHTML = eachDayModal
+
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
@@ -168,6 +185,9 @@ function main() {
             } );
             el.parentNode.querySelector('.edit-day').classList.remove('none')
             el.parentNode.querySelector('.edit-alim-actions').classList.add('none')
+            el.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.add('none')
+            })
             el.parentNode.querySelectorAll( "input" ).forEach( item => {
                 item.setAttribute('disabled', true)
             } );
@@ -179,6 +199,9 @@ function main() {
         el.addEventListener( 'click', () => {
             el.classList.add('none')
             el.parentElement.parentNode.querySelector('.edit-alim-actions').classList.remove('none')
+            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.remove('none')
+            })
             el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
                 item.removeAttribute('disabled');
             } );
@@ -190,6 +213,9 @@ function main() {
         el.addEventListener( 'click', () => {
             el.parentNode.classList.add('none')
             el.parentElement.parentNode.querySelector('.edit-day').classList.remove('none')
+            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.add('none')
+            })
             el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
                 item.setAttribute('disabled', true);
             } );
@@ -200,19 +226,56 @@ function main() {
     document.querySelectorAll( "button.edit-day-confirm" ).forEach( ( el ) => {
         el.addEventListener( 'click', () => {
             //Updating data.js
+            /*
+            * monday: {
+                0: [
+                  {id: 1, name: 'Fruits et légumes',  portions: 1},
+                  {id: 9, name: 'Produits laitiers',  portions: 1},
+                  {id: 5, name: 'Féculents et produits céréaliers',  portions: 1}
+                ],
+                1: [
+                  {id: 9, name: 'Produits laitiers',  portions: 1},
+                  {id: 1, name: 'Fruits et légumes',  portions: 1}
+                ],
+                2: [
+                  {id: 9, name: 'Produits laitiers',  portions: 1},
+                  {id: 1, name: 'Fruits et légumes',  portions: 1}
+                ],
+                3: [
+                  {id: 9, name: 'Produits laitiers',  portions: 1},
+                  {id: 1, name: 'Fruits et légumes',  portions: 1},
+                  {id: 5, name: 'Féculents et produits céréaliers',  portions: 3}
+                ]
+              },
+            *
+            * */
             let menuStored = happyMeals.propoWeek
+            let testMapData = {
+                    0: [],
+                    1: [],
+                    2: [],
+                    3: []
+                };
             el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
                 const day = item.getAttribute('data-day')
                 const repas = item.getAttribute('data-repas')
                 const aliment = parseInt(item.getAttribute('data-aliment'))
+                let alimentName = '';
                 const portion = parseInt(item.value)
-                //console.log(day, repas, aliment, portion)
+
+                console.log(day, repas, aliment, portion)
                 //console.log(weekUptake[day][repas])
-                menuStored[day][repas].map(el => {
-                    if(el.id === aliment && el.portions !== portion)
-                        el.portions = portion
+                menu.reco.map(item => {
+                    if(item.id === aliment)
+                        alimentName = item.name
                 })
+
+                if(alimentName !== '')
+                    testMapData[repas].push({id: aliment, name: alimentName, portions: portion})
+
+                menuStored[day] = testMapData
             } );
+
             happyMeals.propoWeek = menuStored
             localStorage.setItem('userMenu', JSON.stringify(happyMeals.propoWeek))
             //console.log(happyMeals.propoWeek)
@@ -224,19 +287,30 @@ function main() {
             //Toggle class, attr,...
             el.parentNode.classList.add('none')
             el.parentElement.parentNode.querySelector('.edit-day').classList.remove('none')
+            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.add('none')
+            })
             el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
                 item.setAttribute('disabled', true);
             } );
         } );
     } );
 
+    // Click listener on 'delete aliment' button
+    document.querySelectorAll( ".delete-aliment" ).forEach( ( el ) => {
+        el.addEventListener( 'click', () => {
+            const alimentToDelete = el.parentNode
+            alimentToDelete.remove()
+            console.log(alimentToDelete)
+        } );
+    } );
+
     displayRecommandations();
     function displayRecommandations() {
+        console.log('Affichage / MAJ des recommandations')
         // Ajout des recommandations dans la partie gauche
         let recoContent = document.querySelector('.left .parent-reco');
         let categAliments = '';
-        console.log('refresh reco')
-        console.log(weekRecos)
         weekRecos.map((el, index) => {
             //console.log(el)
             if(el.min !== 0) {
@@ -252,18 +326,6 @@ function main() {
         })
         recoContent.innerHTML = categAliments
     }
-
-    // Création des modals des recommandations de chaque jour
-    let recoModalContainer = document.querySelector('.left .modal-recos');
-    let eachDayModal = '';
-    menu.nameDays.map(day => {
-        eachDayModal += `<div class="reco-${day} reco-modal flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200">`
-        Object.values(menu.totalsWeek).map(item => {
-            //console.log(item)
-        })
-        eachDayModal += '</div>'
-    })
-    recoModalContainer.innerHTML = eachDayModal
 }
 
 document.addEventListener( 'DOMContentLoaded', main )
