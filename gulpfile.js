@@ -27,7 +27,7 @@ gulp.task('html', function () {
 })
 
 gulp.task('js', function () {
-    return gulp.src('./assets/js/main.js')
+    return gulp.src('./assets/js/*.js')
         .pipe(connect.reload());
 })
 
@@ -44,7 +44,7 @@ gulp.task('css-prod', () => {
 
 gulp.task('watch', () => {
     gulp.watch('./*.html', gulp.series('html'))
-    gulp.watch('./assets/js/main.js', gulp.series('js'))
+    gulp.watch('./assets/js/*.js', gulp.series('js'))
     gulp.watch(styles, gulp.series('css-prod'))
 })
 

@@ -6,4 +6,5 @@ node_modules
 framework/*
 framework
 
+./build
 build

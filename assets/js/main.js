@@ -125,7 +125,7 @@ function main() {
                     modalDay += '<h3>Déjeuner</h3>';
                     break;
                 case 2:
-                    modalDay += '<h3>Gouter</h3>';
+                    modalDay += '<h3>Goûter</h3>';
                     break;
                 case 3:
                     modalDay += '<h3>Dîner</h3>';
@@ -134,7 +134,7 @@ function main() {
 
             modalDay += '<div class="alimentsList flex wrap">';
             el.forEach( aliment => {
-                modalDay += '<div class="categAli text-center m-1">';
+                modalDay += '<div class="categAli text-center">';
                 modalDay += '<div class="delete-aliment none"></div>\n';
                 modalDay += `<p class="alim-title">${aliment.name}</p>`;
                 modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
@@ -320,10 +320,10 @@ function main() {
                 if(propoAliments.filter(aliment => (aliment.id === el.id) && !el.cumulative).length !== 0) {
                 } else {
                     if (el.min !== 0) {
-                        modalContent += '<div class="bg-green-400 w-auto-override m-1 h-auto-override">'
+                        modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
                         modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
                     } else if (el.totalPortionsDay[0].week < el.max) {
-                        modalContent += '<div class="bg-gray-400 w-auto-override m-1 h-auto-override">'
+                        modalContent += '<div class="bg-gray-400 w-auto-override h-auto-override">'
                         modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
                     } else if (el.totalPortionsDay[0].week >= el.max) {
                         modalContent += ''
@@ -370,13 +370,13 @@ function main() {
         weekRecos.map((el, index) => {
             //console.log(el)
             if(el.min !== 0) {
-                categAliments += '<div class="bg-green-400 w-auto-override m-1 h-auto-override">'
+                categAliments += '<div class="bg-green-400 w-auto-override h-auto-override">'
             }
             else if(el.totalPortionsDay[0].week < el.max) {
-                categAliments += '<div class="bg-gray-400 w-auto-override m-1 h-auto-override">'
+                categAliments += '<div class="bg-gray-400 w-auto-override h-auto-override">'
             }
             else if(el.totalPortionsDay[0].week >= el.max) {
-                categAliments += '<div class="bg-red-400 w-auto-override m-1 h-auto-override">'
+                categAliments += '<div class="bg-red-400 w-auto-override h-auto-override">'
             }
             categAliments += `<p class="p-1">${el.name}</p>\n</div>\n</div>`;
         })
