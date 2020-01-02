@@ -1,187 +1,105 @@
-.parent
-  --gap-size: 15px
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  grid-template-rows: repeat(3, 1fr)
-  grid-column-gap: var(--gap-size)
-  grid-row-gap: var(--gap-size)
-  height: 50%
-  border-left: 2rem
-  > div
-    --grid-sizing: calc(30% - var(--gap-size))
-    width: var(--grid-sizing)
-    height: var(--grid-sizing)
-    cursor: pointer
-
-  > .div1
-    grid-area: 1 / 2 / 2 / 3
-  > .div2
-    grid-area: 1 / 3 / 2 / 4
-  > .div3
-    grid-area: 2 / 1 / 3 / 2
-  > .div4
-    grid-area: 2 / 2 / 3 / 3
-  > .div5
-    grid-area: 2 / 3 / 3 / 4
-  > .div6
-    grid-area: 3 / 1 / 4 / 2
-  > .div7
-    grid-area: 3 / 2 / 4 / 3
-
-#burgerMenu
-  display: flex
-  align-items: center
-  justify-content: center
-  width: 3rem
-  height: 3rem
-  top: calc(50% - 1.5rem)
-  left: calc(50% - 1.5rem)
-  font-size: 2rem
-  border-radius: 50%
-  background: #38ad14
-  color: white
-
-  &::before
-    content: "\2630"
-
-#appWrapper
-  .dayName
-    width: 100%
-  .right
-    div[class^="modal-"]
-      position: absolute
-      margin: auto
-      opacity: 0
-      visibility: hidden
-      width: 100%
-      height: 100%
-      right: -100vw
-      background: #fff
-      padding: 2rem
-      transition: opacity .25s, visibility .25s, right .25s ease-in-out
-      &.modalVisible
-        opacity: 1
-        visibility: visible
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-      .close-modal-aliments
-        position: absolute
-        top: .25rem
-        left: .25rem
-        display: flex
-        align-items: center
-        justify-content: center
-        width: 25px
-        height: 25px
-        border-radius: 50%
-        background: red
-        cursor: pointer
-        &:before
-          content: "\2715"
-          color: #fff
-      .alimentsList
-        margin-bottom: 1rem
-        .categAli
-          position: relative
-          border: 1px solid
-          border-radius: 8px
-          max-width: 25%
-          .delete-aliment
-            position: absolute
-            top: -10px
-            right: -10px
-            align-items: center
-            justify-content: center
-            width: 20px
-            height: 20px
-            border-radius: 50%
-            background: red
-            cursor: pointer
-            &:before
-              content: "\2715"
-              font-size: .75rem
-              color: #fff
-          .alim-title
-            padding: .75rem 0
-            border-bottom: 1px solid black
-          input[type='number']
-            width: 100%
-            border: none
-
-        .add-item
-          position: relative
-          width: 25px
-          height: 25px
-          margin-top: 8%
-          text-align: center
-          border: 1px solid black
-          border-radius: 50%
-      h3
-        text-decoration: underline
-      button:not(.add-item)
-        text-align: center
-        padding: .75rem 3rem
-        border-radius: 25px
-        background: #3390ca
-        color: white
-        &.edit-day-cancel
-          background: red
-        &.edit-day-confirm
-          background: green
-
-    div.add-item-modal
-      position: absolute
-      opacity: 1
-      visibility: visible
-      top: 25%
-      right: 0
-      left: -50%
-      bottom: 0
-      max-width: 100%
-      max-height: 50%
-      background: #c4c4c4
-      border: 1px solid black
-      transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      z-index: 1
-      &.none
-        bottom: -150vh
-        opacity: 0
-        visibility: hidden
-        transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      .close-add-item-modal
-        position: absolute
-        top: -10px
-        right: -10px
-        align-items: center
-        justify-content: center
-        width: 20px
-        height: 20px
-        border-radius: 50%
-        background: red
-        cursor: pointer
-        &:before
-          content: "\2715"
-          color: #fff
-      .add-aliment-content
-        a
-          display: block
-
-div[class^="reco-modal"]
-  position: absolute
-  display: flex
-  top: 0
-  z-index: -1
-  margin: auto
-  //opacity: 0
-  //visibility: hidden
-  width: 100%
-  height: 100%
-  //right: -100vw
-  transition: opacity .25s, visibility .25s, right .25s ease-in-out
-
-.w-auto-override
-  width: auto !important
-.h-auto-override
-  height: auto !important
+html
+  font-family: 'Lato', sans-serif
+  .parent
+    --gap-size: 15px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    grid-column-gap: var(--gap-size)
+    grid-row-gap: var(--gap-size)
+    height: 50%
+    > div
+      --grid-sizing: calc(30% - var(--gap-size))
+      width: var(--grid-sizing)
+      height: var(--grid-sizing)
+    > .div1
+      grid-area: 1 / 2 / 2 / 3
+    > .div2
+      grid-area: 1 / 3 / 2 / 4
+    > .div3
+      grid-area: 2 / 1 / 3 / 2
+    > .div4
+      grid-area: 2 / 2 / 3 / 3
+    > .div5
+      grid-area: 2 / 3 / 3 / 4
+    > .div6
+      grid-area: 3 / 1 / 4 / 2
+    > .div7
+      grid-area: 3 / 2 / 4 / 3
+  #menuWrapper
+    #burger
+      top: calc(50% - 1.5rem)
+      left: calc(50% - 1.5rem)
+      font-size: 2rem
+      &.actif
+        + #menu
+          transform: scale(1)
+          border-radius: 0
+    #menu
+      transform: scale(0)
+      border-radius: 100vw
+      transition: .4s ease
+      display: grid
+      grid-template-columns: 1fr 5rem 1fr
+      padding: 0 5vw
+      ul
+        justify-content: space-evenly
+        max-height: 450px
+      aside
+        grid-column-start: 3
+  #SignInterface
+    --fill-blue: #2196F3
+    --fill-green: #00E676
+    transition: .4s ease
+    fieldset
+      height: 70px
+      margin: 0 auto
+      max-width: 350px
+      input
+        color: #888
+        border: none
+        outline: none
+        padding: 10px
+        background: transparent
+        transition: .1s ease-in-out
+        border-bottom: 1px solid #fff
+      label
+        bottom: 10px
+        transition: .1s ease-in-out
+      .bar
+        bottom: 2px
+      input
+        &.filled
+          border-bottom: 1px solid var(--fill-blue)
+        &:focus ~ label,
+        &.filled ~ label
+          bottom: 40px
+          color: var(--fill-blue)
+          font-size: 16px
+      .bar
+        &::before,
+        &::after
+          content: ''
+          width: 0
+          height: 2px
+          position: absolute
+          background: var(--fill-blue)
+          transition: .2s ease-in-out
+        &::before
+          left: 50%
+        &::after
+          right: 50%
+      input
+        &:focus ~ .bar
+          &::before,
+          &::after
+            width: 50%
+        &:valid
+          border-bottom: 1px solid var(--fill-green)
+          ~
+            .bar
+              &::before,
+              &::after
+                background: var(--fill-green)
+            label
+              color: var(--fill-green)

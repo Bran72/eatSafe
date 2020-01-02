@@ -1,6 +1,6 @@
 {
   "name": "eatsafe",
-  "version": "1.0.0",
+  "version": "1.2.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2"
   }
 }
