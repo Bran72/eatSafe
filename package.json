@@ -1,7 +1,11 @@
 {
   "name": "eatsafe",
   "version": "1.2.2",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bran72/eatSafe.git"
+  },
+  "bugs": "https://github.com/Bran72/eatSafe/issues",
   "main": "index.js",
   "scripts": {
     "gulp": "gulp"
