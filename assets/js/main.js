@@ -143,10 +143,10 @@ function main() {
 
             //détecter le nombre maximal d'aliments
             if(el.length < menu.pattern[index].portions)
-                modalDay += '<button class="add-item">+</button>'
-            console.log(menu.pattern[index])
-            console.log(el)
-            console.log(el.length)
+                modalDay += '<button class="add-item none" id="'+day[0]+'-'+index+'">+</button>'
+            //console.log(menu.pattern[index])
+            //console.log(el)
+            //console.log(el.length)
 
             modalDay += '</div>';
         } );
@@ -199,20 +199,14 @@ function main() {
             el.parentNode.querySelectorAll( "input" ).forEach( item => {
                 item.setAttribute('disabled', true)
             } );
+            hideEdit()
         } );
     } );
 
     // Click listener to edit aliments in modal day
     document.querySelectorAll( "button.edit-day" ).forEach( ( el ) => {
         el.addEventListener( 'click', () => {
-            el.classList.add('none')
-            el.parentElement.parentNode.querySelector('.edit-alim-actions').classList.remove('none')
-            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
-                item.classList.remove('none')
-            })
-            el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
-                item.removeAttribute('disabled');
-            } );
+            showEdit()
         } );
     } );
 
@@ -220,13 +214,7 @@ function main() {
     document.querySelectorAll( "button.edit-day-cancel" ).forEach( ( el ) => {
         el.addEventListener( 'click', () => {
             el.parentNode.classList.add('none')
-            el.parentElement.parentNode.querySelector('.edit-day').classList.remove('none')
-            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
-                item.classList.add('none')
-            })
-            el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
-                item.setAttribute('disabled', true);
-            } );
+            hideEdit()
         } );
     } );
 
@@ -293,14 +281,7 @@ function main() {
             displayRecommandations();
 
             //Toggle class, attr,...
-            el.parentNode.classList.add('none')
-            el.parentElement.parentNode.querySelector('.edit-day').classList.remove('none')
-            el.parentElement.parentNode.querySelectorAll('.delete-aliment').forEach( item => {
-                item.classList.add('none')
-            })
-            el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
-                item.setAttribute('disabled', true);
-            } );
+            hideEdit()
         } );
     } );
 
@@ -309,9 +290,72 @@ function main() {
         el.addEventListener( 'click', () => {
             const alimentToDelete = el.parentNode
             alimentToDelete.remove()
-            console.log(alimentToDelete)
+            //console.log(alimentToDelete)
         } );
     } );
+
+    // Click listener on the "+" button to add an aliment to the menu
+    // Click listener on the "+" button to display the modal to add an aliment to the menu
+    document.querySelectorAll(".add-item").forEach((el) => {
+        el.addEventListener('click', () => {
+            console.log('add item !')
+            console.log('/!\\ Verifiying the notion of cumulative')
+            console.log('Actuellement, si l\'aliment est déjà présent dans le repas et que le cumulative est === false, on ne l\'affiche pas dans la modal /!\\')
+            const modalAdd = document.querySelector(".add-item-modal")
+            const modalAddItem = document.querySelector(".add-item-modal .add-aliment-content")
+            const itemDatas = el.getAttribute('id').split('-');
+            const itemDay = itemDatas[0];
+            const itemMeal = parseFloat(itemDatas[1]);
+            console.log(itemDatas, itemDay, itemMeal)
+
+            let modalContent = `<div>Jour: ${itemDay} <br> Repas: ${itemMeal}</div>`;
+
+            const propoAliments = happyMeals.propoWeek[itemDay][itemMeal]
+
+            console.log(propoAliments)
+            console.log(weekRecos)
+
+            weekRecos.map((el) => {
+                //console.log(propoAliments.filter(aliment => (aliment.id === el.id) && !el.cumulative))
+                if(propoAliments.filter(aliment => (aliment.id === el.id) && !el.cumulative).length !== 0) {
+                } else {
+                    if (el.min !== 0) {
+                        modalContent += '<div class="bg-green-400 w-auto-override m-1 h-auto-override">'
+                        modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
+                    } else if (el.totalPortionsDay[0].week < el.max) {
+                        modalContent += '<div class="bg-gray-400 w-auto-override m-1 h-auto-override">'
+                        modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
+                    } else if (el.totalPortionsDay[0].week >= el.max) {
+                        modalContent += ''
+                    }
+                }
+            })
+
+            //if(cumulative === false) {
+            //} else {
+
+            //let divContent = `<div id="${day[0]}" class="dayName">${day[0]}</div>`;
+            modalAddItem.innerHTML = modalContent;
+            modalAdd.classList.remove('none');
+
+            document.querySelectorAll(".add-aliment-btn").forEach((el) => {
+                el.addEventListener('click', () => {
+                    const alimID = el.getAttribute('data-aliment')
+                    const alimDay = el.getAttribute('data-day')
+                    const alimMeal = el.getAttribute('data-meal')
+                    console.log('Add the aliment: '+alimID)
+                    console.log(alimDay)
+                    console.log(alimMeal)
+                    console.log(propoAliments)
+                })
+            })
+        })
+    });
+
+    // Click listener to close modal to add an aliment to the menu
+    document.querySelector('.close-add-item-modal').addEventListener('click', (el) => {
+        document.querySelector('.close-add-item-modal').parentElement.classList.add('none')
+    })
 
     displayRecommandations();
     function displayRecommandations() {
@@ -333,6 +377,43 @@ function main() {
             categAliments += `<p class="p-1">${el.name}</p>\n</div>\n</div>`;
         })
         recoContent.innerHTML = categAliments
+    }
+
+    // Function to hide edit buttons, add item,...
+    function hideEdit() {
+        document.querySelectorAll(".alimentsList").forEach((item) => {
+            item.parentNode.parentNode.querySelector('.edit-day').classList.remove('none')
+            item.parentNode.parentNode.parentNode.querySelector('.edit-alim-actions').classList.add('none')
+            item.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.add('none')
+            })
+            item.querySelectorAll( "input" ).forEach( item => {
+                item.setAttribute('disabled', true);
+            } );
+            item.querySelectorAll(".add-item").forEach(item => {
+                item.classList.add('none')
+            })
+            // Just to be sure it's hidden
+            const modalAddItem = document.querySelector(".add-item-modal")
+            modalAddItem.classList.add('none')
+        })
+    }
+
+    // Function to hide edit buttons, add item,...
+    function showEdit() {
+        document.querySelectorAll(".alimentsList").forEach((item) => {
+            item.parentNode.parentNode.querySelector('.edit-day').classList.add('none')
+            item.parentNode.parentNode.parentNode.querySelector('.edit-alim-actions').classList.remove('none')
+            item.querySelectorAll('.delete-aliment').forEach( item => {
+                item.classList.remove('none')
+            })
+            item.querySelectorAll( "input" ).forEach( item => {
+                item.removeAttribute('disabled');
+            } );
+            item.querySelectorAll(".add-item").forEach(item => {
+                item.classList.remove('none')
+            })
+        })
     }
 }
 
