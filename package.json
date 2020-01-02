@@ -20,7 +20,7 @@
     "gulp-livereload": "^4.0.2",
     "gulp-load-plugins": "latest",
     "gulp-open": "^3.0.1",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "gulp-rename": "^2.0.0",
