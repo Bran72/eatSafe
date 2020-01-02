@@ -26,6 +26,11 @@ gulp.task('html', function () {
         .pipe(connect.reload());
 })
 
+gulp.task('js', function () {
+    return gulp.src('./assets/js/main.js')
+        .pipe(connect.reload());
+})
+
 gulp.task('css-prod', () => {
     return gulp.src(styles)
         .pipe(plugins.sass())
@@ -39,6 +44,7 @@ gulp.task('css-prod', () => {
 
 gulp.task('watch', () => {
     gulp.watch('./*.html', gulp.series('html'))
+    gulp.watch('./assets/js/main.js', gulp.series('js'))
     gulp.watch(styles, gulp.series('css-prod'))
 })
 
