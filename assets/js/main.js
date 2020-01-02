@@ -113,34 +113,24 @@ function main() {
     // Creation / Adding of content & modals
     document.querySelector('.parent').textContent = ''
     Object.entries( happyMeals.propoWeek ).map( ( day, index ) => {
-
         const
-            week = [
-                'monday',
-                'tuesday',
-                'wednesday',
-                'thursday',
-                'friday',
-                'saturday',
-                'sunday'
-            ],
             todayNumber = new Date().getDay(),
             defaultDayClasses = 'dayName bg-gray-400 radius-md flex items-center justify-center transform-capitalize cursor-pointer'
 
         function isAPassedDay() {
             switch ( true ) {
-                case week.indexOf( day[0] ) < todayNumber - 1:
+                case happyMeals.jours.indexOf( day[0] ) < todayNumber - 1:
                     return `${defaultDayClasses} white`
-                case week.indexOf( day[0] ) === todayNumber - 1:
+                case happyMeals.jours.indexOf( day[0] ) === todayNumber - 1:
                     return `${defaultDayClasses} green-600`
-                case week.indexOf( day[0] ) > todayNumber - 1:
+                case happyMeals.jours.indexOf( day[0] ) > todayNumber - 1:
                     return `${defaultDayClasses} gray-600`
             }
         }
 
         const
             divContent = document.createElement( 'div' ),
-            textInDiv = document.createTextNode( week.indexOf( day[0] ) === todayNumber - 1 ? "Aujourd'hui" : day[0] )
+            textInDiv = document.createTextNode( happyMeals.jours.indexOf( day[0] ) === todayNumber - 1 ? "Aujourd'hui" : day[0] )
         divContent.className = isAPassedDay()
         divContent.id = day[0]
         divContent.appendChild( textInDiv )
