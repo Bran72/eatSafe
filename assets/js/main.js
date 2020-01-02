@@ -347,6 +347,10 @@ function main() {
                     console.log(alimDay)
                     console.log(alimMeal)
                     console.log(propoAliments)
+
+                    const menuStored = happyMeals.propoWeek
+                    const menuStoredAliment = happyMeals.propoWeek[alimDay][alimMeal]
+                    console.log(happyMeals.propoWeek[alimDay][alimMeal])
                 })
             })
         })
