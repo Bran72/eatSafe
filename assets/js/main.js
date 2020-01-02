@@ -111,29 +111,30 @@ function main() {
     }
 
     // Creation / Adding of content & modals
+    document.querySelector('.parent').textContent = ''
     Object.entries( happyMeals.propoWeek ).map( ( day, index ) => {
-        let divDay = document.querySelector( `.div${index + 1}` );
 
-        const week = [
-            'monday',
-            'tuesday',
-            'wednesday',
-            'thursday',
-            'friday',
-            'saturday',
-            'sunday'
-        ]
-
-        const todayNumber = new Date().getDay()
+        const
+            week = [
+                'monday',
+                'tuesday',
+                'wednesday',
+                'thursday',
+                'friday',
+                'saturday',
+                'sunday'
+            ],
+            todayNumber = new Date().getDay(),
+            defaultDayClasses = 'dayName bg-gray-400 radius-md flex items-center justify-center transform-capitalize cursor-pointer'
 
         function isAPassedDay() {
             switch ( true ) {
                 case week.indexOf( day[0] ) < todayNumber - 1:
-                    return 'dayName white'
+                    return `${defaultDayClasses} white`
                 case week.indexOf( day[0] ) === todayNumber - 1:
-                    return 'dayName green-600'
+                    return `${defaultDayClasses} green-600`
                 case week.indexOf( day[0] ) > todayNumber - 1:
-                    return 'dayName gray-600'
+                    return `${defaultDayClasses} gray-600`
             }
         }
 
@@ -185,7 +186,7 @@ function main() {
         modalDay += `<p class="edit-alim-actions text-center flex justify-space-around none"><button class="edit-day-cancel">Annuler</button><button class="edit-day-confirm">Confirmer</button></p>`;
         modalDay += '</div>';
 
-        divDay.appendChild( divContent );
+        document.querySelector( '.parent' ).appendChild( divContent );
         document.querySelector( ".right" ).innerHTML += modalDay;
     } );
 
@@ -204,12 +205,12 @@ function main() {
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
-    document.querySelectorAll( '.parent > div' ).forEach( ( el ) => {
+    document.querySelectorAll( '.parent > .dayName' ).forEach( ( el ) => {
         el.addEventListener( 'click', () => {
             document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
                 item.classList.remove( 'modalVisible' )
             } );
-            document.querySelector( ".modal-" + el.firstChild.id ).classList.toggle( 'modalVisible' )
+            document.querySelector( ".modal-" + el.id ).classList.toggle( 'modalVisible' )
             //el.innerHTML = 'toto';
         } );
     } );
