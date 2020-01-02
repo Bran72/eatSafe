@@ -32,39 +32,42 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body id="appWrapper" class="flex w-full h-screen overflow-hidden">
-    <div class="left relative w-1-2 h-full">
-        <div id="headLeft" class="shadow-md">
-            <h2 class="text-center font-xl p-1">Mes recommandations</h2>
+<body class="w-full h-screen overflow-hidden">
+    <section id="appWrapper" class="flex h-full">
+        <div class="left relative w-1-2 h-full">
+            <div id="headLeft" class="shadow-md">
+                <h2 class="text-center font-xl p-1">Mes recommandations</h2>
+            </div>
+            <div class="parent-reco flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200">
+            </div>
+            <div class="modal-recos"></div>
         </div>
-        <div class="parent-reco flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200"></div>
-        <div class="modal-recos"></div>
-    </div>
 
-    <div class="right w-1-2 h-full flex column relative">
-        <div id="headRight" class="shadow-md bg-gray-200">
-            <h2 class="text-center font-xl p-1">Mes repas de la semaine</h2>
-        </div>
-        <div class="flex items-center justify-center h-full">
-            <div class="parent w-full h-1-2 p-48">
-                <div class="div1 bg-gray-100"></div>
-                <div class="div2 bg-gray-100"></div>
-                <div class="div3 bg-gray-100"></div>
-                <div class="div4 bg-gray-100"></div>
-                <div class="div5 bg-gray-100"></div>
-                <div class="div6 bg-gray-100"></div>
-                <div class="div7 bg-gray-100"></div>
+        <div class="right w-1-2 h-full flex column relative">
+            <div id="headRight" class="shadow-md bg-gray-200">
+                <h2 class="text-center font-xl p-1">Mes repas de la semaine</h2>
+            </div>
+            <div class="flex items-center justify-center h-full">
+                <div class="parent w-full h-1-2 p-48">
+                    <div class="div1 bg-gray-100"></div>
+                    <div class="div2 bg-gray-100"></div>
+                    <div class="div3 bg-gray-100"></div>
+                    <div class="div4 bg-gray-100"></div>
+                    <div class="div5 bg-gray-100"></div>
+                    <div class="div6 bg-gray-100"></div>
+                    <div class="div7 bg-gray-100"></div>
+                </div>
+            </div>
+            <div class="add-item-modal shadow-xl none">
+                <div class="close-add-item-modal"></div>
+                <div class="add-aliment-content flex wrap"></div>
             </div>
         </div>
-        <div class="add-item-modal shadow-xl none">
-            <div class="close-add-item-modal"></div>
-            <div class="add-aliment-content flex wrap"></div>
-        </div>
-    </div>
+    </section>
     <nav id="menuWrapper">
         <button id="burger"
             class="absolute z10 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
-        <nav id="menu" class="bg-gray-900 white absolute left items-center select-none h-full w-full font-4xl">
+        <nav id="menu" class="bg-gray-900 white fixed left items-center select-none h-full w-full font-4xl top">
             <ul class="list-none cursor-pointer flex column h-full">
                 <li>Lien 01</li>
                 <li>Lien 02</li>
