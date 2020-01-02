@@ -10,20 +10,8 @@ html
     height: 50%
     > div
       --grid-sizing: calc(30% - var(--gap-size))
-    > .div1
-      grid-area: 1 / 2 / 2 / 3
-    > .div2
-      grid-area: 1 / 3 / 2 / 4
-    > .div3
-      grid-area: 2 / 1 / 3 / 2
-    > .div4
-      grid-area: 2 / 2 / 3 / 3
-    > .div5
-      grid-area: 2 / 3 / 3 / 4
-    > .div6
-      grid-area: 3 / 1 / 4 / 2
-    > .div7
-      grid-area: 3 / 2 / 4 / 3
+    >:first-child
+      grid-column-start: 2
   #menuWrapper
     #burger
       top: calc(50% - 1.5rem)
