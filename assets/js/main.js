@@ -391,10 +391,10 @@ function main() {
         document.querySelector( '.close-add-item-modal' ).addEventListener( 'click', ( el ) => {
             document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
         } )
-    }
+    } )
     handleClick()
 
-displayRecommandations();
+    displayRecommandations();
     function displayRecommandations() {
         console.log( 'Affichage / MAJ des recommandations' )
         // Ajout des recommandations dans la partie gauche
