@@ -183,7 +183,7 @@ function main() {
             document.querySelector( ".right" ).innerHTML += modalDay;
         } )
     }
-    createModalDays()
+    createModalDays();
 
     // Création des modals des recommandations de chaque jour
     /*let recoModalContainer = document.querySelector('.left .modal-recos');
@@ -200,199 +200,200 @@ function main() {
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
-    document.querySelectorAll( '.parent > .dayName' ).forEach( ( el ) => {
-        el.addEventListener( 'click', () => {
-            document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
-                item.classList.remove( 'modalVisible' )
-            } );
-            document.querySelector( ".modal-" + el.id ).classList.toggle( 'modalVisible' )
-            //el.innerHTML = 'toto';
-        } );
-
-        // Click listener to close modals
-        document.querySelectorAll( "div[class^='modal-'] .close-modal-aliments" ).forEach( ( el ) => {
+    (function handleClick() {
+        document.querySelectorAll( '.parent > .dayName' ).forEach( ( el ) => {
             el.addEventListener( 'click', () => {
                 document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
                     item.classList.remove( 'modalVisible' )
                 } );
-                el.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
-                el.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
-                el.parentNode.querySelectorAll( '.delete-aliment' ).forEach( item => {
-                    item.classList.add( 'none' )
-                } )
-                el.parentNode.querySelectorAll( "input" ).forEach( item => {
-                    item.setAttribute( 'disabled', true )
-                } );
-
-                createModalDays()
-                handleClick()
-                hideEdit()
+                document.querySelector( ".modal-" + el.id ).classList.toggle( 'modalVisible' )
+                //el.innerHTML = 'toto';
             } );
-        } );
 
-        // Click listener to edit aliments in modal day
-        document.querySelectorAll( "button.edit-day" ).forEach( ( el ) => {
-            el.addEventListener( 'click', () => {
-                showEdit()
-            } );
-        } );
-
-        // Click listener on cancel button in modal day (after having clicked on the edit button)
-        document.querySelectorAll( "button.edit-day-cancel" ).forEach( ( el ) => {
-            el.addEventListener( 'click', () => {
-                el.parentElement.classList.add( 'none' )
-                hideEdit()
-                // Actually, clicking on the 'Annuler' button remove the modal: this allow us to retrieve datas before editing
-                // (for example, if we edit, delete some aliments and cancel = before this, we don't retrieve datas)
-                createModalDays()
-                handleClick()
-            } );
-        } );
-
-        // Click listener on confirm button in modal day (after having clicked on the edit button)
-        document.querySelectorAll( "button.edit-day-confirm" ).forEach( ( el ) => {
-            el.addEventListener( 'click', () => {
-                //Updating data.js
-                let menuStored = happyMeals.propoWeek
-                let dayData = {
-                    0: [],
-                    1: [],
-                    2: [],
-                    3: []
-                };
-                el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
-                    const day = item.getAttribute( 'data-day' )
-                    const repas = item.getAttribute( 'data-repas' )
-                    const aliment = parseInt( item.getAttribute( 'data-aliment' ) )
-                    let alimentName = '';
-                    const portion = parseInt( item.value )
-
-                    //console.log(day, repas, aliment, portion)
-                    //console.log(weekUptake[day][repas])
-                    menu.reco.map( item => {
-                        if ( item.id === aliment )
-                            alimentName = item.name
+            // Click listener to close modals
+            document.querySelectorAll( "div[class^='modal-'] .close-modal-aliments" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
+                        item.classList.remove( 'modalVisible' )
+                    } );
+                    el.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
+                    el.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
+                    el.parentNode.querySelectorAll( '.delete-aliment' ).forEach( item => {
+                        item.classList.add( 'none' )
                     } )
+                    el.parentNode.querySelectorAll( "input" ).forEach( item => {
+                        item.setAttribute( 'disabled', true )
+                    } );
 
-                    if ( alimentName !== '' )
-                        dayData[repas].push( { id: aliment, name: alimentName, portions: portion } )
-
-                    menuStored[day] = dayData
+                    createModalDays()
+                    handleClick()
+                    hideEdit()
                 } );
-
-                happyMeals.propoWeek = menuStored
-                localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) )
-
-                menu = new HappyMeals( recommendations, mealsPattern, menuStored )
-                updateWeekRecos();
-                displayRecommandations();
-
-                //Toggle class, attr,...
-                hideEdit()
-
-                console.log( 'recreate all' )
-                createModalDays()
-                handleClick()
             } );
-        } );
 
-        // Click listener on 'delete aliment' button
-        document.querySelectorAll( ".delete-aliment" ).forEach( ( el ) => {
-            el.addEventListener( 'click', () => {
-                const alimentToDelete = el.parentNode
-                alimentToDelete.remove()
-            } );
-        } );
-
-        // Click listener on the "+" button to display the modal to add an aliment to the menu
-        document.querySelectorAll( ".add-item" ).forEach( ( el ) => {
-            el.addEventListener( 'click', () => {
-                console.log( '/!\\ Verifiying the notion of cumulative' )
-                console.log( 'Actuellement, si l\'aliment est déjà présent dans le repas et que le cumulative est === false, on ne l\'affiche pas dans la modal /!\\' )
-                const modalAdd = document.querySelector( ".add-item-modal" )
-                const modalAddItem = document.querySelector( ".add-item-modal .add-aliment-content" )
-                const itemDatas = el.getAttribute( 'id' ).split( '-' );
-                const itemDay = itemDatas[0];
-                const itemMeal = parseFloat( itemDatas[1] );
-
-                let modalContent = `<div>Jour: ${itemDay} <br> Repas: ${itemMeal}</div>`;
-
-                const propoAliments = happyMeals.propoWeek[itemDay][itemMeal]
-
-                // Let's create the clickable aliments
-                weekRecos.map( ( el ) => {
-                    if ( propoAliments.filter( aliment => ( aliment.id === el.id ) && !el.cumulative ).length !== 0 ) {
-                        //console.log('cumulative to false')
-                    } else if ( propoAliments.filter( aliment => ( aliment.id === el.id ) ).length !== 0 ) {
-                        //console.log('aliment already exists: ', el.name)
-                    } else {
-                        if ( el.min !== 0 ) {
-                            modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
-                            modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
-                        } else if ( el.totalPortionsDay[0].week < el.max ) {
-                            modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
-                            modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
-                        } else if ( el.totalPortionsDay[0].week >= el.max ) {
-                            modalContent += ''
-                        }
-                    }
+            // Click listener to edit aliments in modal day
+            document.querySelectorAll( "button.edit-day" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    showEdit()
                 } );
-                modalAddItem.innerHTML = modalContent;
-                modalAdd.classList.remove( 'none' );
+            } );
 
-                // Handle a click on this aliments and adding it - or not - to the menu
-                document.querySelectorAll( ".add-aliment-btn" ).forEach( ( itemAdd ) => {
-                    itemAdd.addEventListener( 'click', () => {
-                        const alimID = itemAdd.getAttribute( 'data-aliment' )
-                        const alimDay = itemAdd.getAttribute( 'data-day' )
-                        const alimMeal = itemAdd.getAttribute( 'data-meal' )
-                        const menuStored = happyMeals.propoWeek
-                        const menuStoredAliment = menuStored[alimDay][alimMeal]
+            // Click listener on cancel button in modal day (after having clicked on the edit button)
+            document.querySelectorAll( "button.edit-day-cancel" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    el.parentElement.classList.add( 'none' )
+                    hideEdit()
+                    // Actually, clicking on the 'Annuler' button remove the modal: this allow us to retrieve datas before editing
+                    // (for example, if we edit, delete some aliments and cancel = before this, we don't retrieve datas)
+                    createModalDays()
+                    handleClick()
+                } );
+            } );
 
-                        // Condition to handle multiple clicks on the same aliment
-                        if ( menuStoredAliment.filter( alim => alim.id === alimID ).length > 0 )
-                            return false
+            // Click listener on confirm button in modal day (after having clicked on the edit button)
+            document.querySelectorAll( "button.edit-day-confirm" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    //Updating data.js
+                    let menuStored = happyMeals.propoWeek
+                    let dayData = {
+                        0: [],
+                        1: [],
+                        2: [],
+                        3: []
+                    };
+                    el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
+                        const day = item.getAttribute( 'data-day' )
+                        const repas = item.getAttribute( 'data-repas' )
+                        const aliment = parseInt( item.getAttribute( 'data-aliment' ) )
+                        let alimentName = '';
+                        const portion = parseInt( item.value )
 
-                        // Let's add the aliment in the modal
-                        let alimName = '';
-                        weekRecos.map( item => {
-                            if ( item.id === parseInt( alimID ) ) {
-                                alimName = item.name;
+                        //console.log(day, repas, aliment, portion)
+                        //console.log(weekUptake[day][repas])
+                        menu.reco.map( item => {
+                            if ( item.id === aliment )
+                                alimentName = item.name
+                        } )
+
+                        if ( alimentName !== '' )
+                            dayData[repas].push( { id: aliment, name: alimentName, portions: portion } )
+
+                        menuStored[day] = dayData
+                    } );
+
+                    happyMeals.propoWeek = menuStored
+                    localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) )
+
+                    menu = new HappyMeals( recommendations, mealsPattern, menuStored )
+                    updateWeekRecos();
+                    displayRecommandations();
+
+                    //Toggle class, attr,...
+                    hideEdit()
+
+                    console.log( 'recreate all' )
+                    createModalDays()
+                    handleClick()
+                } );
+            } );
+
+            // Click listener on 'delete aliment' button
+            document.querySelectorAll( ".delete-aliment" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    const alimentToDelete = el.parentNode
+                    alimentToDelete.remove()
+                } );
+            } );
+
+            // Click listener on the "+" button to display the modal to add an aliment to the menu
+            document.querySelectorAll( ".add-item" ).forEach( ( el ) => {
+                el.addEventListener( 'click', () => {
+                    console.log( '/!\\ Verifiying the notion of cumulative' )
+                    console.log( 'Actuellement, si l\'aliment est déjà présent dans le repas et que le cumulative est === false, on ne l\'affiche pas dans la modal /!\\' )
+                    const modalAdd = document.querySelector( ".add-item-modal" )
+                    const modalAddItem = document.querySelector( ".add-item-modal .add-aliment-content" )
+                    const itemDatas = el.getAttribute( 'id' ).split( '-' );
+                    const itemDay = itemDatas[0];
+                    const itemMeal = parseFloat( itemDatas[1] );
+
+                    let modalContent = `<div>Jour: ${itemDay} <br> Repas: ${itemMeal}</div>`;
+
+                    const propoAliments = happyMeals.propoWeek[itemDay][itemMeal]
+
+                    // Let's create the clickable aliments
+                    weekRecos.map( ( el ) => {
+                        if ( propoAliments.filter( aliment => ( aliment.id === el.id ) && !el.cumulative ).length !== 0 ) {
+                            //console.log('cumulative to false')
+                        } else if ( propoAliments.filter( aliment => ( aliment.id === el.id ) ).length !== 0 ) {
+                            //console.log('aliment already exists: ', el.name)
+                        } else {
+                            if ( el.min !== 0 ) {
+                                modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
+                                modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
+                            } else if ( el.totalPortionsDay[0].week < el.max ) {
+                                modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
+                                modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
+                            } else if ( el.totalPortionsDay[0].week >= el.max ) {
+                                modalContent += ''
                             }
-                        } )
-                        let newAlimDiv = document.createElement( 'div' );
-                        newAlimDiv.classList = 'categAli text-center m-1';
-                        let newAlimDivContent = '<div class="delete-aliment"></div>\n';
-                        newAlimDivContent += `<p class="alim-title">${alimName}</p>`;
-                        newAlimDivContent += `<input type="number" min="1" value="1" data-day="${alimDay}" data-aliment=${alimID} data-repas="${alimMeal}" class="alim-input-portion" />`;
-                        newAlimDivContent += '</div>';
-                        newAlimDiv.innerHTML = newAlimDivContent;
-                        el.parentElement.insertBefore( newAlimDiv, el )
+                        }
+                    } );
+                    modalAddItem.innerHTML = modalContent;
+                    modalAdd.classList.remove( 'none' );
 
-                        // Let's store data locally
-                        menuStoredAliment.push( {
-                            id: alimID,
-                            name: alimName,
-                            portions: 1
-                        } )
-                        happyMeals.propoWeek = menuStored
-                        localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) )
-                        menu = new HappyMeals( recommendations, mealsPattern, menuStored )
-                        updateWeekRecos();
-                        displayRecommandations();
+                    // Handle a click on this aliments and adding it - or not - to the menu
+                    document.querySelectorAll( ".add-aliment-btn" ).forEach( ( itemAdd ) => {
+                        itemAdd.addEventListener( 'click', () => {
+                            const alimID = itemAdd.getAttribute( 'data-aliment' )
+                            const alimDay = itemAdd.getAttribute( 'data-day' )
+                            const alimMeal = itemAdd.getAttribute( 'data-meal' )
+                            const menuStored = happyMeals.propoWeek
+                            const menuStoredAliment = menuStored[alimDay][alimMeal]
 
-                        handleClick()
+                            // Condition to handle multiple clicks on the same aliment
+                            if ( menuStoredAliment.filter( alim => alim.id === alimID ).length > 0 )
+                                return false
+
+                            // Let's add the aliment in the modal
+                            let alimName = '';
+                            weekRecos.map( item => {
+                                if ( item.id === parseInt( alimID ) ) {
+                                    alimName = item.name;
+                                }
+                            } )
+                            let newAlimDiv = document.createElement( 'div' );
+                            newAlimDiv.classList = 'categAli text-center m-1';
+                            let newAlimDivContent = '<div class="delete-aliment"></div>\n';
+                            newAlimDivContent += `<p class="alim-title">${alimName}</p>`;
+                            newAlimDivContent += `<input type="number" min="1" value="1" data-day="${alimDay}" data-aliment=${alimID} data-repas="${alimMeal}" class="alim-input-portion" />`;
+                            newAlimDivContent += '</div>';
+                            newAlimDiv.innerHTML = newAlimDivContent;
+                            el.parentElement.insertBefore( newAlimDiv, el )
+
+                            // Let's store data locally
+                            menuStoredAliment.push( {
+                                id: alimID,
+                                name: alimName,
+                                portions: 1
+                            } )
+                            happyMeals.propoWeek = menuStored
+                            localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) )
+                            menu = new HappyMeals( recommendations, mealsPattern, menuStored )
+                            updateWeekRecos();
+                            displayRecommandations();
+
+                            handleClick()
+                        } )
                     } )
                 } )
-            } )
-        } );
+            } );
 
-        // Click listener to close modal to add an aliment to the menu
-        document.querySelector( '.close-add-item-modal' ).addEventListener( 'click', ( el ) => {
-            document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
+            // Click listener to close modal to add an aliment to the menu
+            document.querySelector( '.close-add-item-modal' ).addEventListener( 'click', ( el ) => {
+                document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
+            } )
         } )
-    } )
-    handleClick()
+    })()
 
     displayRecommandations();
     function displayRecommandations() {
