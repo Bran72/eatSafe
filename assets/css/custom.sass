@@ -7,9 +7,9 @@ html
     grid-template-rows: repeat(3, 1fr)
     grid-column-gap: var(--gap-size)
     grid-row-gap: var(--gap-size)
-    height: 50%
     > div
       --grid-sizing: calc(30% - var(--gap-size))
+      padding: 36% 0
     >:first-child
       grid-column-start: 2
   #menuWrapper
@@ -92,6 +92,13 @@ html
 
 
 
+%cross
+  content: "\2715"
+  color: #fff
+  position: relative
+  top: -.005rem
+  left: .025rem
+
 
 #appWrapper
   .dayName
@@ -106,7 +113,6 @@ html
       height: 100%
       right: -100vw
       background: #fff
-      padding: 2rem
       transition: opacity .25s, visibility .25s, right .25s ease-in-out
       &.modalVisible
         opacity: 1
@@ -128,15 +134,12 @@ html
         background: red
         cursor: pointer
         &:before
-          content: "\2715"
-          color: #fff
+          @extend %cross
       .alimentsList
         margin-bottom: 1rem
         .categAli
           position: relative
           border: 1px solid
-          border-radius: 8px
-          max-width: 25%
           .delete-aliment
             position: absolute
             top: -10px
@@ -149,14 +152,13 @@ html
             background: red
             cursor: pointer
             &:before
-              content: "\2715"
+              @extend %cross
               font-size: .75rem
-              color: #fff
           .alim-title
             padding: .75rem 0
-            border-bottom: 1px solid black
+            width: 80%
           input[type='number']
-            width: 100%
+            width: 20%
             border: none
         .add-item
           position: relative
@@ -167,7 +169,7 @@ html
           border: 1px solid black
           border-radius: 50%
       h3
-        text-decoration: underline
+        padding: 1.2%
       button:not(.add-item)
         text-align: center
         padding: .75rem 3rem
@@ -209,8 +211,7 @@ html
         background: red
         cursor: pointer
         &:before
-          content: "\2715"
-          color: #fff
+          @extend %cross
       .add-aliment-content
         a
           display: block

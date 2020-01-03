@@ -26,7 +26,7 @@ function main() {
         // BUG: LE SETITEM ICI NE STORE PAS UN OBJET COMPLET... IL STORE WEEKUPTAKE, MAIS POURQUOI ????
         localStorage.setItem( 'userMenu', JSON.stringify( menu.weekMap ) )
     } else {
-        console.log( 'Yay, userMenu founded in localStorage !' )
+        console.log( 'Yay, userMenu found in localStorage !' )
         menu = new HappyMeals( recommendations, mealsPattern, JSON.parse( userMenu ) )
     }
 
@@ -115,16 +115,16 @@ function main() {
     Object.entries( happyMeals.propoWeek ).map( ( day, index ) => {
         const
             todayNumber = new Date().getDay(),
-            defaultDayClasses = 'dayName bg-gray-400 radius-md flex items-center justify-center transform-capitalize cursor-pointer'
+            defaultDayClasses = 'dayName radius-md flex items-center justify-center transform-capitalize cursor-pointer'
 
         function isAPassedDay() {
             switch ( true ) {
                 case happyMeals.jours.indexOf( day[0] ) < todayNumber - 1:
-                    return `${defaultDayClasses} white`
+                    return `${defaultDayClasses} gray-500 bg-gray-300`
                 case happyMeals.jours.indexOf( day[0] ) === todayNumber - 1:
-                    return `${defaultDayClasses} green-600`
+                    return `${defaultDayClasses} white bg-green-600`
                 case happyMeals.jours.indexOf( day[0] ) > todayNumber - 1:
-                    return `${defaultDayClasses} gray-600`
+                    return `${defaultDayClasses} white bg-gray-600`
             }
         }
 
@@ -135,26 +135,28 @@ function main() {
         divContent.id = day[0]
         divContent.appendChild( textInDiv )
 
-        let modalDay = `<div class="modal-${day[0]}">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
+        let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
         Object.values( day[1] ).map( ( el, index ) => {
+            modalDay += '<details open>'
+            const defaultMealSummaryClasses = 'text-center font-3xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'
             switch ( index ) {
                 case 0:
-                    modalDay += '<h3>Petit-déjeuner</h3>';
+                    modalDay += `<summary class="${defaultMealSummaryClasses}">Petit-déjeuner</summary>`
                     break;
                 case 1:
-                    modalDay += '<h3>Déjeuner</h3>';
+                    modalDay += `<summary class="${defaultMealSummaryClasses}">Déjeuner</summary>`
                     break;
                 case 2:
-                    modalDay += '<h3>Goûter</h3>';
+                    modalDay += `<summary class="${defaultMealSummaryClasses}">Goûter</summary>`
                     break;
                 case 3:
-                    modalDay += '<h3>Dîner</h3>';
+                    modalDay += `<summary class="${defaultMealSummaryClasses}">Dîner</summary>`
                     break;
             }
 
-            modalDay += '<div class="alimentsList flex wrap">';
+            modalDay += '<div class="alimentsList flex wrap column">';
             el.forEach( aliment => {
-                modalDay += '<div class="categAli text-center">';
+                modalDay += '<div class="categAli text-center flex w-full">';
                 modalDay += '<div class="delete-aliment none"></div>\n';
                 modalDay += `<p class="alim-title">${aliment.name}</p>`;
                 modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
@@ -168,7 +170,7 @@ function main() {
             //console.log(el)
             //console.log(el.length)
 
-            modalDay += '</div>';
+            modalDay += '</div></details>';
         } );
 
         modalDay += '</div>';
