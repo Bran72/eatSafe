@@ -428,8 +428,8 @@ function main() {
     // Function to hide edit buttons, add item,...
     function showEdit() {
         document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
-            item.parentNode.parentNode.querySelector( '.edit-day' ).classList.add( 'none' )
-            item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.remove( 'none' )
+            item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.add( 'none' )
+            item.parentNode.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.remove( 'none' )
             item.querySelectorAll( '.delete-aliment' ).forEach( item => {
                 item.classList.remove( 'none' )
             } )
