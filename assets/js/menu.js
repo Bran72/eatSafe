@@ -14,7 +14,7 @@ function toggleIcon( init ) {
     if ( init !== true )
         burger.classList.toggle( 'actif' )
     burger.classList.contains( 'actif' )
-        ? burger.textContent = "⛌"
+        ? burger.textContent = "✖️"
         : burger.textContent = "☰"
 }
 toggleIcon( true )

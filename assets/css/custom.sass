@@ -83,10 +83,10 @@ html
         &:valid
           border-bottom: 1px solid var(--fill-green)
           ~
-            .bar
-              &::before,
-              &::after
-                background: var(--fill-green)
+          .bar
+            &::before,
+            &::after
+              background: var(--fill-green)
             label
               color: var(--fill-green)
 
@@ -193,7 +193,7 @@ html
       background: #c4c4c4
       border: 1px solid black
       transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      z-index: 1
+      z-index: 11
       &.none
         bottom: -150vh
         opacity: 0
