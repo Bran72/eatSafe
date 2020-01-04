@@ -10,8 +10,6 @@ function main() {
 
         CE QU'IL RESTE À FAIRE
         Il reste à prendre en compte:
-            - la notion de cumulative
-            - le respect du pattern (3 portions au petit dej, 5 au dej,...) --> ok pour le bouton d'ajout
             - la possibilité de supprimer / d'ajouter un aliment par repas (mais ATTENTION à la notion de cumulative et du pattern)
             - remettre les valeurs initiales lorsqu'on clique sur le bouton "Annuler"
               --> (par exemple, si on met 3 portions d'oeufs au lieu de 1, on clique sur annuler, on doit retrouver 1)
@@ -47,7 +45,7 @@ function main() {
 
     // Retrouver les arguments passés dans HappyMeals()
     //console.log(menu.reco)
-    console.log( menu.pattern )
+    //console.log( menu.pattern )
     //console.log(menu.uptake)
 
     // les jours de la semaine
@@ -91,17 +89,6 @@ function main() {
             recos.totalPortionsDay.push( menu.totalsWeek[el.id] );
             weekRecos.push( recos )
         } );
-
-        /*Object.entries(menu.totalsWeek).map((el) => {
-            weekRecos.forEach((reco) => {
-                console.log(el[0]);
-                if(reco.id === parseInt(el[0])) {
-                    //console.log(el[1]);
-                    reco.totalPortionsDay.push(el[1]);
-                }
-
-            })
-        });*/
 
         weekRecos.forEach( ( reco ) => {
             if ( !reco.totalPortionsDay[0] || reco.totalPortionsDay[0].length === 0 ) {
@@ -166,8 +153,6 @@ function main() {
                 } );
 
                 //détecter le nombre maximal d'aliments
-                console.log( 'max items' )
-                console.log( el, el.length, menu.pattern[index].portions )
                 if ( el.length < menu.pattern[index].portions )
                     modalDay += '<button class="add-item none" id="' + day[0] + '-' + index + '">+</button>';
 
@@ -184,19 +169,6 @@ function main() {
         } )
     }
     createModalDays();
-
-    // Création des modals des recommandations de chaque jour
-    /*let recoModalContainer = document.querySelector('.left .modal-recos');
-    let eachDayModal = '';
-    menu.nameDays.map(day => {
-        eachDayModal += `<div class="reco-${day} reco-modal flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200">`
-        Object.values(menu.totalsWeek).map(item => {
-            //console.log(item)
-        })
-        eachDayModal += '</div>'
-    })
-    recoModalContainer.innerHTML = eachDayModal*/
-
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
