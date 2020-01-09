@@ -124,7 +124,7 @@ function main() {
             divContent.id = day[0]
             divContent.appendChild( textInDiv )
 
-            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
+            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day='${day[0]}'>\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
             Object.values( day[1] ).map( ( el, index ) => {
                 modalDay += '<details>'
                 const defaultMealSummaryClasses = 'text-center font-xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'
@@ -172,7 +172,7 @@ function main() {
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
-    (function handleClick() {
+    function handleClick() {
         document.querySelectorAll( '.parent > .dayName' ).forEach( ( el ) => {
             el.addEventListener( 'click', () => {
                 document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
@@ -214,11 +214,11 @@ function main() {
             document.querySelectorAll( "button.edit-day-cancel" ).forEach( ( el ) => {
                 el.addEventListener( 'click', () => {
                     el.parentElement.classList.add( 'none' )
-                    hideEdit()
+                    hideEdit( el.parentElement.parentElement.getAttribute( 'data-day' ) )
                     // Actually, clicking on the 'Annuler' button remove the modal: this allow us to retrieve datas before editing
                     // (for example, if we edit, delete some aliments and cancel = before this, we don't retrieve datas)
-                    createModalDays()
-                    handleClick()
+                    // createModalDays()
+                    // handleClick()
                 } );
             } );
 
@@ -329,9 +329,8 @@ function main() {
                             // Let's add the aliment in the modal
                             let alimName = '';
                             weekRecos.map( item => {
-                                if ( item.id === parseInt( alimID ) ) {
-                                    alimName = item.name;
-                                }
+                                if ( item.id === parseInt( alimID ) )
+                                    alimName = item.name
                             } )
                             let newAlimDiv = document.createElement( 'div' );
                             newAlimDiv.classList = 'categAli text-center m-1';
@@ -365,7 +364,8 @@ function main() {
                 document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
             } )
         } )
-    })()
+    }
+    handleClick()
 
     displayRecommandations();
     function displayRecommandations() {
@@ -390,7 +390,7 @@ function main() {
     }
 
     // Function to hide edit buttons, add item,...
-    function hideEdit() {
+    function hideEdit( currentOpenDay ) {
         document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
             item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
             item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
@@ -406,6 +406,11 @@ function main() {
             // Just to be sure it's hidden
             const modalAddItem = document.querySelector( ".add-item-modal" )
             modalAddItem.classList.add( 'none' )
+        } )
+        Object.values( menu.weekMap[currentOpenDay] ).map( el => {
+            el.forEach( aliment => {
+                document.querySelectorAll( `.modal-${currentOpenDay} input[data-aliment="${aliment.id}"]` ).forEach( el => el.value = aliment.portions )
+            } )
         } )
     }
 
