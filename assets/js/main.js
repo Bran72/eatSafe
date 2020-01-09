@@ -126,8 +126,8 @@ function main() {
 
             let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
             Object.values( day[1] ).map( ( el, index ) => {
-                modalDay += '<details open>'
-                const defaultMealSummaryClasses = 'text-center font-3xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'
+                modalDay += '<details>'
+                const defaultMealSummaryClasses = 'text-center font-xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'
                 switch ( index ) {
                     case 0:
                         modalDay += `<summary class="${defaultMealSummaryClasses}">Petit-déjeuner</summary>`
@@ -147,7 +147,7 @@ function main() {
                 el.forEach( aliment => {
                     modalDay += '<div class="categAli text-center flex w-full">';
                     modalDay += '<div class="delete-aliment none"></div>\n';
-                    modalDay += `<p class="alim-title">${aliment.name}</p>`;
+                    modalDay += `<p class="alim-title font-md">${aliment.name}</p>`;
                     modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
                     modalDay += '</div>';
                 } );
@@ -384,7 +384,7 @@ function main() {
             else if ( el.totalPortionsDay[0].week >= el.max ) {
                 categAliments += '<div class="bg-red-400 w-auto-override h-auto-override">'
             }
-            categAliments += `<p class="p-1">${el.name}</p>\n</div>\n</div>`;
+            categAliments += `<p class="p-1 font-md ptb-2 prl-3">${el.name}</p>\n</div>\n</div>`;
         } )
         recoContent.innerHTML = categAliments
     }

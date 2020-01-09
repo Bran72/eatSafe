@@ -10,12 +10,13 @@ html
     > div
       --grid-sizing: calc(30% - var(--gap-size))
       padding: 36% 0
+      box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07)
     >:first-child
       grid-column-start: 2
   #menuWrapper
     #burger
-      top: calc(50% - 1.5rem)
-      left: calc(50% - 1.5rem)
+      top: .5rem
+      right: .5rem
       font-size: 2rem
       &.actif
         + #menu
@@ -91,7 +92,6 @@ html
               color: var(--fill-green)
 
 
-
 %cross
   content: "\2715"
   color: #fff
@@ -103,9 +103,24 @@ html
 #appWrapper
   .dayName
   width: 100%
+  min-width: 150px
+  .left
+    min-width: 18rem
+    .parent-reco
+      max-height: 60%
   .right
+    background: #3ed8a4
+    .title
+      margin: 3rem 0
+      text-align: center
+      font-size: 2.2rem
+    .parent
+      max-width: 700px
+      margin: 0 25%
     div[class^="modal-"]
       position: absolute
+      display: flex
+      align-items: center
       margin: auto
       opacity: 0
       visibility: hidden
@@ -215,6 +230,8 @@ html
       .add-aliment-content
         a
           display: block
+  .modalAliments
+    max-width: 600px
 div[class^="reco-modal"]
   position: absolute
   display: flex
@@ -228,3 +245,71 @@ div[class^="reco-modal"]
   width: auto !important
 .h-auto-override
   height: auto !important
+
+.font-55xl
+  font-size: 3.5rem
+
+.dayName
+  min-width: 150px
+
+details
+  min-width: 300px
+  margin-bottom: 1rem
+
+/* ====================== MEDIA QUERIES ====================== */
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px
+// Small tablets (portrait view)
+$screen-md-min: 768px
+// Tablets and small desktops
+$screen-lg-min: 992px
+// Large tablets and desktops
+$screen-xl-min: 1200px
+
+// Extra large devices max
+@media screen and (max-width: $screen-xl-min)
+  #appWrapper .right .parent
+    margin: 0 12%
+
+// Large devices
+@media screen and (max-width: $screen-lg-min)
+  #appWrapper .left
+    display: none
+  #appWrapper .right .parent
+    margin: 0 10%
+
+// Medium devices
+@media screen and (max-width: $screen-md-min)
+  #appWrapper .right .parent
+    margin: 0 8%
+
+// Small devices
+@media screen and (max-width: $screen-sm-min)
+  body
+    overflow-y: scroll !important
+    overflow-x: hidden !important
+  html .parent > :first-child
+    grid-column-start: 1
+  #appWrapper
+    height: auto
+    position: relative
+    overflow-x: hidden
+    .parent
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: repeat(2, 1fr)
+    .right
+      padding-bottom: 2rem
+      .parent
+        margin: 0
+      #headRight
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+      .title
+        margin: 6rem 0 3rem
+
+// Extra large devices min
+@media screen and (min-width: $screen-xl-min)
+  #appWrapper .right .parent
+    margin: 0 20%
