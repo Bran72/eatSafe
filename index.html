@@ -34,19 +34,26 @@
 
 <body class="w-full h-screen overflow-hidden">
     <section id="appWrapper" class="flex h-full">
-        <div class="left relative w-1-2 h-full flex column">
-            <div id="headLeft" class="shadow-md">
-                <h2 class="text-center font-xl p-1">Mes recommandations pour la semaine</h2>
+        <div class="left relative w-1-45 h-full flex column">
+            <div id="headLeft" class="shadow-md" style="background-color: #edf2f7">
+                <h2 class="text-center font-xl p-1" style="border-bottom: 1px solid #0000000d;">Recommandations</h2>
             </div>
             <div class="parent-reco flex column justify-space-between text-center w-full h-1-2 p-48 h-full bg-gray-200">
+            </div>
+            <div class="reommandations_bottom p-48">
+                <aside class="text-right font-100">
+                    <h2 class="font-900 font-55xl mb-8">About us</h2>
+                    <p>Fugiat Lorem fugiat amet<br /> consectetur irure tempor<br /> irure et ex adipisicing.</p>
+                </aside>
             </div>
             <div class="modal-recos"></div>
         </div>
 
-        <div class="right w-1-2 h-full flex column relative">
-            <div id="headRight" class="shadow-md bg-gray-200">
+        <div class="right w-full h-full flex column relative">
+            <div id="headRight" class="bg-gray-200" style="box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.1)">
                 <h2 class="text-center font-xl p-1">Mes repas de la semaine</h2>
             </div>
+            <div class="title">eatSafe, votre menu sur mesure et sain.</div>
             <div class="flex items-center justify-center h-full">
                 <div class="parent w-full h-1-2 p-48 font-xl">
                     <div class="div1 bg-gray-400 radius-md flex items-center justify-center transform-capitalize cursor-pointer"></div>
@@ -66,7 +73,7 @@
     </section>
     <nav id="menuWrapper">
         <button id="burger"
-            class="absolute z10 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
+            class="fixed z10 flex items-center justify-center w-12 h-12 radius-full white bg-green-600"></button>
         <nav id="menu" class="bg-gray-900 white fixed left items-center select-none h-full w-full font-4xl top">
             <ul class="list-none cursor-pointer flex column h-full">
                 <li>Lien 01</li>
