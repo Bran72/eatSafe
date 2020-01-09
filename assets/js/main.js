@@ -197,9 +197,9 @@ function main() {
                         item.setAttribute( 'disabled', true )
                     } );
 
-                    createModalDays()
-                    handleClick()
-                    hideEdit()
+                    // createModalDays()
+                    // handleClick()
+                    hideEdit( el.parentElement.getAttribute( 'data-day' ) )
                 } );
             } );
 
@@ -261,11 +261,11 @@ function main() {
                     displayRecommandations();
 
                     //Toggle class, attr,...
-                    hideEdit()
+                    hideEdit( el.parentElement.parentElement.getAttribute( 'data-day' ) )
 
-                    console.log( 'recreate all' )
-                    createModalDays()
-                    handleClick()
+                    // console.log( 'recreate all' )
+                    // createModalDays()
+                    // handleClick()
                 } );
             } );
 
