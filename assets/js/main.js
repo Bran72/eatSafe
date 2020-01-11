@@ -161,7 +161,7 @@ function main() {
 
             modalDay += '</div>';
             modalDay += `<p class="text-center"><button class="edit-day">Éditer mon menu</button></p>`;
-            modalDay += `<p class="edit-alim-actions text-center flex justify-space-around none"><button class="edit-day-cancel bg-red-400">Annuler</button><button class="edit-day-confirm bg-green-400">Confirmer</button></p>`;
+            modalDay += `<p class="edit-alim-actions text-center flex justify-space-between none"><button class="edit-day-cancel bg-red-400">Annuler</button><button class="edit-day-confirm bg-green-400">Confirmer</button></p>`;
             modalDay += '</div>';
 
             document.querySelector( '.parent' ).appendChild( divContent );

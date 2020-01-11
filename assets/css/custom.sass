@@ -109,7 +109,17 @@ html
   .left
     min-width: 18rem
     .parent-reco
-      max-height: 60%
+      height: 60%
+    .recommandations_bottom
+      height: 33.2%
+      aside
+        height: 100%
+        display: flex
+        flex-flow: column wrap
+        justify-content: center
+        p
+          max-width: 250px
+          margin-left: auto
   .right
     background: #3ed8a4
     .title
@@ -148,9 +158,11 @@ html
         background: #edf2f7
         cursor: pointer
         color: orangered
+        font-weight: bold
         &:before
           @extend %cross
           color: inherit
+          font-weight: inherit
       .alimentsList
         background: #edf2f7
         .categAli
@@ -203,6 +215,8 @@ html
         text-align: center
         padding: .75rem 3rem
         border-radius: 25px
+        &:nth-child(2)
+          margin-left: 2%
         &:only-child
           background: #3390ca
           color: #fff
