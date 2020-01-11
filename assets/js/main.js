@@ -146,7 +146,7 @@ function main() {
                 modalDay += '<div class="alimentsList flex wrap column">';
                 el.forEach( aliment => {
                     modalDay += '<div class="categAli text-center flex w-full">';
-                    modalDay += '<div class="delete-aliment none"></div>\n';
+                    modalDay += '<div class="delete-aliment bg-red-400 none"></div>\n';
                     modalDay += `<p class="alim-title font-md">${aliment.name}</p>`;
                     modalDay += `<input type="number" min="1" disabled value="${aliment.portions}" data-day="${day[0]}" data-aliment=${aliment.id} data-repas="${index}" class="alim-input-portion" />`;
                     modalDay += '</div>';
@@ -154,7 +154,7 @@ function main() {
 
                 //détecter le nombre maximal d'aliments
                 if ( el.length < menu.pattern[index].portions )
-                    modalDay += '<button class="add-item none" id="' + day[0] + '-' + index + '">+</button>';
+                    modalDay += '<button class="add-item desactived" id="' + day[0] + '-' + index + '">+</button>';
 
                 modalDay += '</div></details>';
             } );
