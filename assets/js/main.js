@@ -288,7 +288,7 @@ function main() {
                     const itemDay = itemDatas[0];
                     const itemMeal = parseFloat( itemDatas[1] );
 
-                    let modalContent = `<div>Jour: ${itemDay} <br> Repas: ${itemMeal}</div>`;
+                    let modalContent = ''
 
                     const propoAliments = happyMeals.propoWeek[itemDay][itemMeal]
 
@@ -300,18 +300,16 @@ function main() {
                             //console.log('aliment already exists: ', el.name)
                         } else {
                             if ( el.min !== 0 ) {
-                                modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
-                                modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
+                                modalContent += '<div class="bg-gray-400 w-auto-override h-auto-override">'
+                                    + `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`
                             } else if ( el.totalPortionsDay[0].week < el.max ) {
-                                modalContent += '<div class="bg-green-400 w-auto-override h-auto-override">'
-                                modalContent += `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`;
-                            } else if ( el.totalPortionsDay[0].week >= el.max ) {
-                                modalContent += ''
+                                modalContent += '<div class="bg-gray-400 w-auto-override h-auto-override">'
+                                    + `<a href="#" data-day="${itemDay}" data-meal="${itemMeal}" data-aliment="${el.id}" class="p-1 add-aliment-btn">${el.name}</a>\n</div>\n`
                             }
                         }
-                    } );
+                    } )
                     modalAddItem.innerHTML = modalContent;
-                    modalAdd.classList.remove( 'none' );
+                    modalAdd.classList.remove( 'closed' );
 
                     // Handle a click on this aliments and adding it - or not - to the menu
                     document.querySelectorAll( ".add-aliment-btn" ).forEach( ( itemAdd ) => {
@@ -361,7 +359,7 @@ function main() {
 
             // Click listener to close modal to add an aliment to the menu
             document.querySelector( '.close-add-item-modal' ).addEventListener( 'click', ( el ) => {
-                document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
+                document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'closed' )
             } )
         } )
     }
@@ -407,8 +405,7 @@ function main() {
             } )
 
             // Just to be sure it's hidden
-            const modalAddItem = document.querySelector( ".add-item-modal" )
-            modalAddItem.classList.add( 'none' )
+            document.querySelector( ".add-item-modal" ).classList.add( 'closed' )
         } )
         Object.values( menu.weekMap[currentOpenDay] ).map( el => {
             el.forEach( aliment => {

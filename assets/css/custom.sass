@@ -208,6 +208,7 @@ html
           border-radius: 50%
           transform: scale(0)
           transition: .3s
+          line-height: 1.5
           &:not(.desactived)
             transform: scale(1)
       h3
@@ -223,37 +224,58 @@ html
           color: #fff
     div.add-item-modal
       position: absolute
-      opacity: 1
-      visibility: visible
-      top: 25%
-      right: 0
-      left: -50%
       bottom: 0
-      max-width: 100%
-      max-height: 50%
-      background: #c4c4c4
-      border: 1px solid black
-      transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      z-index: 11
-      &.none
-        bottom: -150vh
-        opacity: 0
-        visibility: hidden
-        transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      .close-add-item-modal
+      width: 100%
+      border: 15px solid
+      z-index: 2
+      border-radius: 20% 20% 0 0
+      transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1)
+      &::before
+        content: ''
+        height: 100vh
+        width: 100vw
+        background: rgba(0,0,0,.37)
+        display: block
         position: absolute
-        top: -10px
+        bottom: -15px
+        right: -15px
+        z-index: -1
+        mix-blend-mode: color
+        transform: scale(1)
+        transform-origin: right bottom
+        transition: .5s ease-out
+        border-radius: 0
+      &.closed
+        bottom: -100%
+        &::before
+          transform: scale(0)
+          border-radius: 100% 0 0
+      .close-add-item-modal
+        position: relative
+        top: -28px
         right: -10px
         align-items: center
         justify-content: center
         width: 20px
         height: 20px
-        border-radius: 50%
+        border-radius: 50px
         background: red
         cursor: pointer
+        margin: 0 auto
+        display: flex
+        padding: 15px
         &:before
           @extend %cross
       .add-aliment-content
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        width: 80%
+        margin-left: 11.5%
+        gap: 8px
+        text-align: center
+        color: #000
+        > div
+          border-radius: 30px
         a
           display: block
   .modalAliments
