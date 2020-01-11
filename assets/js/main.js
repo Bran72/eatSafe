@@ -124,7 +124,7 @@ function main() {
             divContent.id = day[0]
             divContent.appendChild( textInDiv )
 
-            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day='${day[0]}'>\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
+            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day='${day[0]}'>\n<div class="close-modal-aliments">Retour</div>\n<div class="modalAliments">`;
             Object.values( day[1] ).map( ( el, index ) => {
                 modalDay += '<details>'
                 const defaultMealSummaryClasses = 'text-center font-xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'

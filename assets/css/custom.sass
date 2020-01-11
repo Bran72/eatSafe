@@ -122,34 +122,32 @@ html
       display: flex
       align-items: center
       margin: auto
-      opacity: 0
-      visibility: hidden
       width: 100%
       height: 100%
-      right: -100vw
+      right: -100%
       background: #fff
-      transition: opacity .25s, visibility .25s, right .25s ease-in-out
+      transition: right .4s cubic-bezier(0.4, 0, 0.2, 1)
       &.modalVisible
-        opacity: 1
-        visibility: visible
         top: 0
-        left: 0
         right: 0
         bottom: 0
       .close-modal-aliments
         position: absolute
-        top: .25rem
-        left: .25rem
         display: flex
-        align-items: center
         justify-content: center
-        width: 25px
-        height: 25px
-        border-radius: 50%
-        background: red
+        height: 100%
+        border-radius: 200% 0 0 200%
+        left: 0
+        top: 0
+        width: 4%;
+        transform: rotate(180deg)
+        writing-mode: tb-rl
+        background: #edf2f7
         cursor: pointer
+        color: orangered
         &:before
           @extend %cross
+          color: inherit
       .alimentsList
         margin-bottom: 1rem
         .categAli
