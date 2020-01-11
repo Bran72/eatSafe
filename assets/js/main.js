@@ -126,7 +126,7 @@ function main() {
 
             let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day='${day[0]}'>\n<div class="close-modal-aliments">Retour</div>\n<div class="modalAliments">`;
             Object.values( day[1] ).map( ( el, index ) => {
-                modalDay += '<details>'
+                modalDay += '<details open>'
                 const defaultMealSummaryClasses = 'text-center font-xl bg-gray-200 flex items-center justify-space-between row-reverse p-2'
                 switch ( index ) {
                     case 0:
@@ -160,7 +160,7 @@ function main() {
             } );
 
             modalDay += '</div>';
-            modalDay += `<p class="text-center"><button class="edit-day">Éditer</button></p>`;
+            modalDay += `<p class="text-center"><button class="edit-day">Éditer mon menu</button></p>`;
             modalDay += `<p class="edit-alim-actions text-center flex justify-space-around none"><button class="edit-day-cancel">Annuler</button><button class="edit-day-confirm">Confirmer</button></p>`;
             modalDay += '</div>';
 
@@ -394,15 +394,16 @@ function main() {
         document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
             item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
             item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
-            item.querySelectorAll( '.delete-aliment' ).forEach( item => {
-                item.classList.add( 'none' )
+
+            const arrayValues = ['.delete-aliment', '.add-item', 'input']
+            arrayValues.map( el => {
+                item.querySelectorAll( el ).forEach( item => {
+                    el === 'input'
+                        ? item.setAttribute( 'disabled', true )
+                        : item.classList.add( 'none' )
+                } )
             } )
-            item.querySelectorAll( "input" ).forEach( item => {
-                item.setAttribute( 'disabled', true );
-            } );
-            item.querySelectorAll( ".add-item" ).forEach( item => {
-                item.classList.add( 'none' )
-            } )
+
             // Just to be sure it's hidden
             const modalAddItem = document.querySelector( ".add-item-modal" )
             modalAddItem.classList.add( 'none' )
@@ -419,14 +420,14 @@ function main() {
         document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
             item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.add( 'none' )
             item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.remove( 'none' )
-            item.querySelectorAll( '.delete-aliment' ).forEach( item => {
-                item.classList.remove( 'none' )
-            } )
-            item.querySelectorAll( "input" ).forEach( item => {
-                item.removeAttribute( 'disabled' );
-            } );
-            item.querySelectorAll( ".add-item" ).forEach( item => {
-                item.classList.remove( 'none' )
+
+            const arrayValues = ['.delete-aliment', '.add-item', 'input']
+            arrayValues.map( el => {
+                item.querySelectorAll( el ).forEach( item => {
+                    el === 'input'
+                        ? item.removeAttribute( 'disabled' )
+                        : item.classList.remove( 'none' )
+                } )
             } )
         } )
     }
