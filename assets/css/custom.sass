@@ -149,10 +149,12 @@ html
           @extend %cross
           color: inherit
       .alimentsList
-        margin-bottom: 1rem
+        background: #edf2f7
         .categAli
-          position: relative
-          border: 1px solid
+          background: #cbd5e0
+          border-radius: 30px
+          margin: 10px 0
+          color: #000
           .delete-aliment
             position: absolute
             top: -10px
@@ -172,7 +174,6 @@ html
             width: 80%
           input[type='number']
             width: 20%
-            border: none
         .add-item
           position: relative
           width: 25px
@@ -231,7 +232,7 @@ html
         a
           display: block
   .modalAliments
-    max-width: 600px
+    width: 50%
 div[class^="reco-modal"]
   position: absolute
   display: flex
@@ -262,6 +263,11 @@ div[class^="reco-modal"]
 details
   min-width: 300px
   margin-bottom: 1rem
+  border: 15px solid #edf2f7
+  border-radius: 30px
+  summary
+    background: #edf2f7
+    cursor: pointer
 
 /* ====================== MEDIA QUERIES ====================== */
 // Small tablets and large smartphones (landscape view)
