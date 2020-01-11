@@ -161,7 +161,7 @@ function main() {
 
             modalDay += '</div>';
             modalDay += `<p class="text-center"><button class="edit-day">Éditer mon menu</button></p>`;
-            modalDay += `<p class="edit-alim-actions text-center flex justify-space-around none"><button class="edit-day-cancel">Annuler</button><button class="edit-day-confirm">Confirmer</button></p>`;
+            modalDay += `<p class="edit-alim-actions text-center flex justify-space-around none"><button class="edit-day-cancel bg-red-400">Annuler</button><button class="edit-day-confirm bg-green-400">Confirmer</button></p>`;
             modalDay += '</div>';
 
             document.querySelector( '.parent' ).appendChild( divContent );
@@ -400,7 +400,9 @@ function main() {
                 item.querySelectorAll( el ).forEach( item => {
                     el === 'input'
                         ? item.setAttribute( 'disabled', true )
-                        : item.classList.add( 'none' )
+                        : el === '.add-item'
+                            ? item.classList.add( 'desactived' )
+                            : item.classList.add( 'none' )
                 } )
             } )
 
@@ -426,7 +428,9 @@ function main() {
                 item.querySelectorAll( el ).forEach( item => {
                     el === 'input'
                         ? item.removeAttribute( 'disabled' )
-                        : item.classList.remove( 'none' )
+                        : el === '.add-item'
+                            ? item.classList.remove( 'desactived' )
+                            : item.classList.remove( 'none' )
                 } )
             } )
         } )

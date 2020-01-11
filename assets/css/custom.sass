@@ -195,7 +195,7 @@ html
           border-radius: 50%
           transform: scale(0)
           transition: .2s .5s
-          &:not(.none)
+          &:not(.desactived)
             transform: scale(1)
       h3
         padding: 1.2%
@@ -203,12 +203,9 @@ html
         text-align: center
         padding: .75rem 3rem
         border-radius: 25px
-        background: #3390ca
-        color: white
-        &.edit-day-cancel
-          background: red
-        &.edit-day-confirm
-          background: green
+        &:only-child
+          background: #3390ca
+          color: #fff
     div.add-item-modal
       position: absolute
       opacity: 1
