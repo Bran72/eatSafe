@@ -11,7 +11,7 @@ const
     signInterface = document.getElementById( 'SignInterface' )
 
 function toggleIcon( init ) {
-    if ( init !== true )
+    init !== true &&
         burger.classList.toggle( 'actif' )
     burger.classList.contains( 'actif' )
         ? burger.textContent = "✖️"
@@ -32,12 +32,10 @@ document.addEventListener( 'DOMContentLoaded', connectivity )
 function connectivity() {
     if ( !!localStorage.getItem( 'connected' ) === true )
         signInterface.style.bottom = '100%'
-        signInterface.style.display = 'none'
 }
 
 document.getElementById( 'disconnect' ).addEventListener( 'click', () => {
     localStorage.setItem( 'connected', false )
     signInterface.style.bottom = '0%'
-    signInterface.style.display = 'block'
     setTimeout( toggleIcon, 500 )
 } )
