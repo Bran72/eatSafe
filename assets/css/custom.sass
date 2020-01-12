@@ -189,6 +189,10 @@ html
           text-align: center
           border: 1px solid black
           border-radius: 50%
+          &.none_never
+            display: none
+            visibility: hidden
+            overflow: hidden
       h3
         padding: 1.2%
       button:not(.add-item)
@@ -207,9 +211,9 @@ html
       visibility: visible
       top: 25%
       right: 0
-      left: -50%
+      left: -12rem
       bottom: 0
-      max-width: 100%
+      max-width: 40%
       max-height: 50%
       background: #c4c4c4
       border: 1px solid black
@@ -268,6 +272,11 @@ div[class^="reco-modal"]
 details
   min-width: 300px
   margin-bottom: 1rem
+
+.none_never
+  display: none
+  visibility: hidden
+  overflow: hidden
 
 /* ====================== MEDIA QUERIES ====================== */
 // Small tablets and large smartphones (landscape view)

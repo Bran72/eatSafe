@@ -124,7 +124,7 @@ function main() {
             divContent.id = day[0]
             divContent.appendChild( textInDiv )
 
-            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day="${day[0]}">\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
+            let modalDay = `<div class="modal-${day[0]} p-48 flex column justify-space-evenly" data-day='${day[0]}'>\n<div class="close-modal-aliments"></div>\n<div class="modalAliments">`;
             Object.values( day[1] ).map( ( el, index ) => {
                 modalDay += '<details>'
                 const defaultMealSummaryClasses = 'text-center font-xl bg-orange-500 flex items-center justify-space-between row-reverse p-2'
@@ -153,8 +153,11 @@ function main() {
                 } );
 
                 //détecter le nombre maximal d'aliments
+                const mealPortion = el.map(aliment => aliment.portions).reduce((a,b) => a + b, 0)
                 if ( el.length < menu.pattern[index].portions )
                     modalDay += '<button class="add-item none" id="' + day[0] + '-' + index + '">+</button>';
+                else
+                    modalDay += '<button class="add-item none none_never" id="' + day[0] + '-' + index + '">+</button>';
 
                 modalDay += '</div></details>';
             } );
@@ -172,7 +175,7 @@ function main() {
 
     /* ===== Click Listeners ===== */
     // Click listener on each days
-    (function handleClick() {
+    function handleClick() {
         document.querySelectorAll( '.parent > .dayName' ).forEach( ( el ) => {
             el.addEventListener( 'click', () => {
                 document.querySelectorAll( "div[class^='modal-']" ).forEach( item => {
@@ -197,9 +200,9 @@ function main() {
                         item.setAttribute( 'disabled', true )
                     } );
 
-                    createModalDays()
-                    handleClick()
-                    hideEdit()
+                    // createModalDays()
+                    // handleClick()
+                    hideEdit( el.parentElement.getAttribute( 'data-day' ) )
                 } );
             } );
 
@@ -214,11 +217,11 @@ function main() {
             document.querySelectorAll( "button.edit-day-cancel" ).forEach( ( el ) => {
                 el.addEventListener( 'click', () => {
                     el.parentElement.classList.add( 'none' )
-                    hideEdit()
+                    hideEdit( el.parentElement.parentElement.getAttribute( 'data-day' ) )
                     // Actually, clicking on the 'Annuler' button remove the modal: this allow us to retrieve datas before editing
                     // (for example, if we edit, delete some aliments and cancel = before this, we don't retrieve datas)
-                    createModalDays()
-                    handleClick()
+                    // createModalDays()
+                    // handleClick()
                 } );
             } );
 
@@ -233,39 +236,43 @@ function main() {
                         2: [],
                         3: []
                     };
+                    console.log('click')
                     el.parentElement.parentNode.querySelectorAll( "input" ).forEach( item => {
-                        const day = item.getAttribute( 'data-day' )
-                        const repas = item.getAttribute( 'data-repas' )
-                        const aliment = parseInt( item.getAttribute( 'data-aliment' ) )
+                        const day = item.getAttribute( 'data-day' );
+                        const repas = item.getAttribute( 'data-repas' );
+                        const aliment = parseInt( item.getAttribute( 'data-aliment' ) );
                         let alimentName = '';
-                        const portion = parseInt( item.value )
+                        const portion = parseInt( item.value );
+
 
                         //console.log(day, repas, aliment, portion)
                         //console.log(weekUptake[day][repas])
                         menu.reco.map( item => {
                             if ( item.id === aliment )
                                 alimentName = item.name
-                        } )
+                        });
 
                         if ( alimentName !== '' )
-                            dayData[repas].push( { id: aliment, name: alimentName, portions: portion } )
+                            dayData[repas].push( { id: aliment, name: alimentName, portions: portion } );
 
                         menuStored[day] = dayData
                     } );
 
-                    happyMeals.propoWeek = menuStored
-                    localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) )
+                    console.log(menuStored['monday'])
 
-                    menu = new HappyMeals( recommendations, mealsPattern, menuStored )
+                    happyMeals.propoWeek = menuStored;
+                    localStorage.setItem( 'userMenu', JSON.stringify( happyMeals.propoWeek ) );
+
+                    menu = new HappyMeals( recommendations, mealsPattern, menuStored );
                     updateWeekRecos();
-                    displayRecommandations();
+                    //displayRecommandations();
 
                     //Toggle class, attr,...
-                    hideEdit()
+                    hideEditConfirm()
 
-                    console.log( 'recreate all' )
-                    createModalDays()
-                    handleClick()
+                    // console.log( 'recreate all' )
+                    // createModalDays()
+                    // handleClick()
                 } );
             } );
 
@@ -325,13 +332,24 @@ function main() {
                             // Condition to handle multiple clicks on the same aliment
                             if ( menuStoredAliment.filter( alim => alim.id === alimID ).length > 0 )
                                 return false
+                            if (menuStoredAliment.length >= menu.pattern[alimMeal].portions) {
+                                el.classList.add("none_never")
+                                return false
+                            } else {
+                                el.classList.remove("none_never")
+                            }
+
+                            console.log(menu.pattern[alimMeal])
+                            console.log(menuStored[alimDay], menuStoredAliment, menuStoredAliment.length)
+                            //détecter le nombre maximal d'aliments
+//                            if ( el.length < menu.pattern[index].portions )
+  //                              modalDay += '<button class="add-item none" id="' + day[0] + '-' + index + '">+</button>';
 
                             // Let's add the aliment in the modal
                             let alimName = '';
                             weekRecos.map( item => {
-                                if ( item.id === parseInt( alimID ) ) {
-                                    alimName = item.name;
-                                }
+                                if ( item.id === parseInt( alimID ) )
+                                    alimName = item.name
                             } )
                             let newAlimDiv = document.createElement( 'div' );
                             newAlimDiv.classList = 'categAli text-center m-1';
@@ -341,6 +359,8 @@ function main() {
                             newAlimDivContent += '</div>';
                             newAlimDiv.innerHTML = newAlimDivContent;
                             el.parentElement.insertBefore( newAlimDiv, el )
+
+                            itemAdd.remove()
 
                             // Let's store data locally
                             menuStoredAliment.push( {
@@ -354,6 +374,13 @@ function main() {
                             updateWeekRecos();
                             displayRecommandations();
 
+                            if (menuStoredAliment.length >= menu.pattern[alimMeal].portions) {
+                                el.classList.add("none_never")
+                                //return false
+                            } else {
+                                el.classList.remove("none_never")
+                            }
+
                             handleClick()
                         } )
                     } )
@@ -365,7 +392,8 @@ function main() {
                 document.querySelector( '.close-add-item-modal' ).parentElement.classList.add( 'none' )
             } )
         } )
-    })()
+    }
+    handleClick()
 
     displayRecommandations();
     function displayRecommandations() {
@@ -390,7 +418,7 @@ function main() {
     }
 
     // Function to hide edit buttons, add item,...
-    function hideEdit() {
+    function hideEdit( currentOpenDay ) {
         document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
             item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
             item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
@@ -408,13 +436,33 @@ function main() {
             modalAddItem.classList.add( 'none' )
         } )
 
+        Object.values(happyMeals.propoWeek[currentOpenDay]).map( el => {
+            el.forEach( aliment => {
+                document.querySelectorAll( `.modal-${currentOpenDay} input[data-aliment="${aliment.id}"]` ).forEach( el => {
+                    el.value = aliment.portions
+                } )
+            } )
+        } )
+    }
 
-        const currentDay = 'thursday'
-
-        //$(".modal-"+currentDay+" input[data-repa")
-
-        document.querySelector('.modal-'+currentOpenDay)
-
+    // Function to hide edit on 'confirm' button press
+    function hideEditConfirm() {
+        document.querySelectorAll( ".alimentsList" ).forEach( ( item ) => {
+            item.parentNode.parentNode.parentNode.querySelector( '.edit-day' ).classList.remove( 'none' )
+            item.parentNode.parentNode.parentNode.querySelector( '.edit-alim-actions' ).classList.add( 'none' )
+            item.querySelectorAll( '.delete-aliment' ).forEach( item => {
+                item.classList.add( 'none' )
+            } )
+            item.querySelectorAll( "input" ).forEach( item => {
+                item.setAttribute( 'disabled', true );
+            } );
+            item.querySelectorAll( ".add-item" ).forEach( item => {
+                item.classList.add( 'none' )
+            } )
+            // Just to be sure it's hidden
+            const modalAddItem = document.querySelector( ".add-item-modal" )
+            modalAddItem.classList.add( 'none' )
+        } );
     }
 
     // Function to hide edit buttons, add item,...
