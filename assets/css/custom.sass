@@ -1,5 +1,7 @@
 html
   font-family: 'Lato', sans-serif
+  *
+    user-select: none
   .parent
     --gap-size: 15px
     display: grid
@@ -111,7 +113,17 @@ html
       > h2
         border-bottom: 1px solid #0000000d
     .parent-reco
-      max-height: 60%
+      height: 60%
+    .recommandations_bottom
+      height: 33.2%
+      aside
+        height: 100%
+        display: flex
+        flex-flow: column wrap
+        justify-content: center
+        p
+          max-width: 250px
+          margin-left: auto
   .right
     background: #3ed8a4
     .title
@@ -126,59 +138,68 @@ html
       display: flex
       align-items: center
       margin: auto
-      opacity: 0
-      visibility: hidden
       width: 100%
       height: 100%
-      right: -100vw
+      right: -100%
       background: #fff
-      transition: opacity .25s, visibility .25s, right .25s ease-in-out
+      transition: right .4s cubic-bezier(0.4, 0, 0.2, 1)
+      padding-left: 6%
       &.modalVisible
-        opacity: 1
-        visibility: visible
         top: 0
-        left: 0
         right: 0
         bottom: 0
       .close-modal-aliments
         position: absolute
-        top: .25rem
-        left: .25rem
         display: flex
-        align-items: center
         justify-content: center
-        width: 25px
-        height: 25px
-        border-radius: 50%
-        background: red
+        height: 100%
+        border-radius: 200% 0 0 200%
+        left: 0
+        top: 0
+        width: 4%
+        transform: rotate(180deg)
+        writing-mode: tb-rl
+        background: #edf2f7
         cursor: pointer
-        &:before
+        color: orangered
+        font-weight: bold
+        &::before
           @extend %cross
+          color: inherit
+          font-weight: inherit
       .alimentsList
-        margin-bottom: 1rem
+        background: #edf2f7
         .categAli
-          position: relative
-          border: 1px solid
+          background: #cbd5e0
+          border-radius: 30px
+          margin: 10px 0
+          color: #000
           .delete-aliment
-            position: absolute
-            top: -10px
-            right: -10px
-            align-items: center
-            justify-content: center
-            width: 20px
-            height: 20px
-            border-radius: 50%
-            background: red
             cursor: pointer
-            &:before
+            align-items: center
+            padding: 0 5%
+            border-radius: 30px 0 0 30px
+            justify-content: center
+            margin-right: 2%
+            width: 20px
+            &:not(.none)
+              display: flex
+            &::before
               @extend %cross
               font-size: .75rem
+              padding-top: 3px
+              transition: .2s
+              color: #000
+              font-weight: bold
+            &:hover
+              &::before
+                transform: rotate(90deg)
           .alim-title
             padding: .75rem 0
             width: 80%
           input[type='number']
             width: 20%
-            border: none
+            padding-right: 2%
         .add-item
           position: relative
           width: 25px
@@ -189,6 +210,13 @@ html
           text-align: center
           border: 1px solid black
           border-radius: 50%
+          transform: scale(0)
+          transition: .3s
+          line-height: 1.5
+          display: none
+          &:not(.desactived)
+            display: block
+            transform: scale(1)
           &.none_never
             display: none
             visibility: hidden
@@ -199,49 +227,71 @@ html
         text-align: center
         padding: .75rem 3rem
         border-radius: 25px
-        background: #3390ca
-        color: white
-        &.edit-day-cancel
-          background: red
-        &.edit-day-confirm
-          background: green
+        &:nth-child(2)
+          margin-left: 2%
+        &:only-child
+          background: #3390ca
+          color: #fff
     div.add-item-modal
       position: absolute
-      opacity: 1
-      visibility: visible
-      top: 25%
-      right: 0
-      left: -12rem
       bottom: 0
-      max-width: 40%
-      max-height: 50%
-      background: #c4c4c4
-      border: 1px solid black
-      transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
-      z-index: 11
-      &.none
-        bottom: -150vh
-        opacity: 0
-        visibility: hidden
-        transition: opacity .25s, visibility .25s, bottom .25s ease-in-out
+      width: 100%
+      border: 15px solid
+      z-index: 2
+      border-radius: 20% 20% 0 0
+      transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1)
+      &::before
+        content: ''
+        height: 100vh
+        width: 100vw
+        background: rgba(0,0,0,.37)
+        display: block
+        position: fixed
+        bottom: 0
+        right: 0
+        z-index: -1
+        mix-blend-mode: color
+        transform: scale(1)
+        transform-origin: right bottom
+        transition: .5s ease-out
+        border-radius: 0
+      &.closed
+        bottom: -100%
+        &::before
+          transform: scale(0)
+          border-radius: 100% 0 0
       .close-add-item-modal
-        position: absolute
-        top: -10px
+        position: relative
+        top: -28px
         right: -10px
         align-items: center
         justify-content: center
         width: 20px
         height: 20px
-        border-radius: 50%
+        border-radius: 50px
         background: red
         cursor: pointer
+        margin: 0 auto
+        display: flex
+        padding: 15px
         &:before
           @extend %cross
       .add-aliment-content
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        width: 80%
+        margin-left: 11.5%
+        gap: 8px
+        text-align: center
+        color: #000
+        > div
+          border-radius: 30px
         a
           display: block
   .modalAliments
-    max-width: 600px
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 2%
 div[class^="reco-modal"]
   position: absolute
   display: flex
@@ -272,13 +322,29 @@ div[class^="reco-modal"]
 details
   min-width: 300px
   margin-bottom: 1rem
+  border: 15px solid #edf2f7
+  border-radius: 30px
+  height: min-content
+  background: #edf2f7
+  summary
+    background: #edf2f7
+    cursor: pointer
 
 .none_never
   display: none
   visibility: hidden
   overflow: hidden
 
+input:not([disabled]).alim-input-portion
+  &::-webkit-inner-spin-button
+    opacity: 1
+
+
 /* ====================== MEDIA QUERIES ====================== */
+// Very small mobile phones
+$screen-xxs-min: 400px
+// Very small mobile phones
+$screen-xs-min: 475px
 // Small tablets and large smartphones (landscape view)
 $screen-sm-min: 576px
 // Small tablets (portrait view)
@@ -295,6 +361,8 @@ $screen-xl-min: 1200px
 
 // Large devices
 @media screen and (max-width: $screen-lg-min)
+  html #menuWrapper #menu
+    grid-template-columns: 1fr
   #appWrapper .left
     display: none
   #appWrapper .right .parent
@@ -302,8 +370,41 @@ $screen-xl-min: 1200px
 
 // Medium devices
 @media screen and (max-width: $screen-md-min)
+  html #menuWrapper #menu
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: space-between
+  aside:not(#SignInterface)
+    width: 100%
+    text-align: right
+    margin-bottom: 1rem
+  aside#SignInterface > section
+    h2
+      font-size: 3rem
+  :last-child
+    justify-content: space-between
   #appWrapper .right .parent
     margin: 0 8%
+
+// Custom size
+@media screen and (max-width: 675px)
+  #appWrapper
+    .modalAliments
+      grid-template-columns: repeat(1, 1fr)
+    .right div[class^="modal-"]
+      position: fixed
+      height: 100vh
+      margin: 0
+      .close-modal-aliments
+        width: 2rem
+  details
+    background: #edf2f7
+    border-radius: 10px
+    border: 1px solid #edf2f7
+    padding: 0 .5rem
+    summary
+      font-size: 1rem !important
 
 // Small devices
 @media screen and (max-width: $screen-sm-min)
@@ -312,6 +413,31 @@ $screen-xl-min: 1200px
     overflow-x: hidden !important
   html .parent > :first-child
     grid-column-start: 1
+  aside#SignInterface
+    position: fixed
+    overflow-x: scroll
+    > section
+      padding: 0
+    > section:first-child
+      img
+        max-height: 6rem
+    > section:last-child
+      flex-direction: column-reverse
+      > section
+        padding: 1rem
+        h2
+          font-size: 2rem
+          padding: 1rem
+  html #menuWrapper #menu
+    aside
+      h2
+        font-size: 2rem
+      p
+        font-size: 1.5rem
+    ul
+      max-height: 40%
+      li
+        font-size: 1.75rem
   #appWrapper
     height: auto
     position: relative
@@ -320,6 +446,8 @@ $screen-xl-min: 1200px
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: repeat(2, 1fr)
     .right
+      overflow: hidden
+      height: max-content
       padding-bottom: 2rem
       .parent
         margin: 0
@@ -330,8 +458,42 @@ $screen-xl-min: 1200px
         right: 0
       .title
         margin: 6rem 0 3rem
+        font-size: 2rem
+
+// Extra small devices
+@media screen and (max-width: $screen-xs-min)
+  #appWrapper
+    .right
+      div[class^="modal-"] .alimentsList .categAli
+        margin: 5px 0
+        .alim-title
+          width: 80%
+          font-size: .85rem
+    details
+      max-width: 150px
+
+// Extra Extra small devices
+@media screen and (max-width: $screen-xxs-min)
+  #appWrapper
+    .parent
+      margin: 0 10% !important
+      grid-template-columns: repeat(1, 1fr)
+      grid-template-rows: repeat(1, 1fr)
 
 // Extra large devices min
 @media screen and (min-width: $screen-xl-min)
   #appWrapper .right .parent
     margin: 0 20%
+
+@media only screen and (max-height: 900px)
+  #appWrapper .left .recommandations_bottom
+    height: auto
+
+@media only screen and (max-height: 700px)
+  #appWrapper .left .parent-reco
+    height: 100%
+  #appWrapper .right .title
+    margin: 1rem 0 0
+    font-size: 1.5rem
+  #appWrapper .left .recommandations_bottom
+    display: none
