@@ -30,7 +30,7 @@ signInterface.addEventListener( 'submit', e => {
 document.addEventListener( 'DOMContentLoaded', connectivity )
 
 function connectivity() {
-    if ( !!localStorage.getItem( 'connected' ) === true )
+    if ( localStorage.getItem( 'connected' ) )
         signInterface.style.bottom = '100%'
 }
 
