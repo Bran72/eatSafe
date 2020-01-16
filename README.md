@@ -16,9 +16,10 @@ Next, you can copy this repo:
 git clone https://github.com/Bran72/eatSafe.git
 ```
 
-To run the project, you simply have to run the following command *(please make sure you're on the root path of the project)*:
+To run the project, you simply have to run the following commands *(please make sure you're on the root path of the project)*:
 ```
 cd eatSafe
+npm install
 gulp
 ```
 
