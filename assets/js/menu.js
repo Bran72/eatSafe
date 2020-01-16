@@ -32,6 +32,8 @@ document.addEventListener( 'DOMContentLoaded', connectivity )
 function connectivity() {
     if (localStorage.getItem('connected') === true || localStorage.getItem('connected') === 'true') {
         signInterface.style.bottom = '100%'
+        signInterface.style.display = 'flex'
+        signInterface.style.flexDirection = 'column'
     } else {
         signInterface.style.bottom = '0%'
         signInterface.style.display = 'flex'
@@ -41,8 +43,8 @@ function connectivity() {
 
 document.getElementById( 'disconnect' ).addEventListener( 'click', () => {
     localStorage.setItem( 'connected', false )
-    signInterface.style.bottom = '0'
     signInterface.style.display = 'flex'
     signInterface.style.flexDirection = 'column'
+    signInterface.style.bottom = '0%'
     setTimeout( toggleIcon, 500 )
 } )
