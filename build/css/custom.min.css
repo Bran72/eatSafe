@@ -1,0 +1,506 @@
+html {
+  font-family: 'Lato', sans-serif; }
+  html * {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  html .parent {
+    --gap-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: var(--gap-size);
+    grid-row-gap: var(--gap-size); }
+    html .parent > div {
+      --grid-sizing: calc(30% - var(--gap-size));
+      padding: 36% 0;
+      box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07); }
+    html .parent > :first-child {
+      grid-column-start: 2; }
+  html #menuWrapper #burger {
+    top: .5rem;
+    right: .5rem;
+    font-size: 2rem; }
+    html #menuWrapper #burger.actif + #menu {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      border-radius: 0; }
+  html #menuWrapper #menu {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    border-radius: 100vw;
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+    display: grid;
+    grid-template-columns: 1fr 5rem 1fr;
+    padding: 0 5vw; }
+    html #menuWrapper #menu ul {
+      -webkit-box-pack: space-evenly;
+              justify-content: space-evenly;
+      max-height: 450px; }
+    html #menuWrapper #menu aside {
+      grid-column-start: 3; }
+  html #SignInterface {
+    --fill-blue: #2196F3;
+    --fill-green: #00E676;
+    -webkit-transition: .4s ease;
+    transition: .4s ease; }
+    html #SignInterface fieldset {
+      height: 70px;
+      margin: 0 auto;
+      max-width: 350px; }
+      html #SignInterface fieldset input {
+        color: #888;
+        border: none;
+        outline: none;
+        padding: 10px;
+        background: transparent;
+        -webkit-transition: .1s ease-in-out;
+        transition: .1s ease-in-out;
+        border-bottom: 1px solid #fff; }
+      html #SignInterface fieldset label {
+        bottom: 10px;
+        -webkit-transition: .1s ease-in-out;
+        transition: .1s ease-in-out; }
+      html #SignInterface fieldset .bar {
+        bottom: 2px; }
+      html #SignInterface fieldset input.filled {
+        border-bottom: 1px solid var(--fill-blue); }
+      html #SignInterface fieldset input:focus ~ label,
+      html #SignInterface fieldset input.filled ~ label {
+        bottom: 40px;
+        color: var(--fill-blue);
+        font-size: 16px; }
+      html #SignInterface fieldset .bar::before, html #SignInterface fieldset .bar::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        background: var(--fill-blue);
+        -webkit-transition: .2s ease-in-out;
+        transition: .2s ease-in-out; }
+      html #SignInterface fieldset .bar::before {
+        left: 50%; }
+      html #SignInterface fieldset .bar::after {
+        right: 50%; }
+      html #SignInterface fieldset input:focus ~ .bar::before, html #SignInterface fieldset input:focus ~ .bar::after {
+        width: 50%; }
+      html #SignInterface fieldset input:valid {
+        border-bottom: 1px solid var(--fill-green); }
+        html #SignInterface fieldset input:valid .bar::before, html #SignInterface fieldset input:valid .bar::after {
+          background: var(--fill-green); }
+        html #SignInterface fieldset input:valid .bar label {
+          color: var(--fill-green); }
+
+#appWrapper .right div[class^="modal-"] .close-modal-aliments::before, #appWrapper .right div[class^="modal-"] .alimentsList .categAli .delete-aliment::before, #appWrapper .right div.add-item-modal .close-add-item-modal:before {
+  content: "\2715";
+  color: #fff;
+  position: relative;
+  top: -.005rem;
+  left: .025rem; }
+
+#appWrapper {
+  width: 100%;
+  min-width: 150px; }
+  #appWrapper .left {
+    min-width: 18rem; }
+    #appWrapper .left #headLeft {
+      background-color: #edf2f7; }
+      #appWrapper .left #headLeft > h2 {
+        border-bottom: 1px solid #0000000d; }
+    #appWrapper .left .parent-reco {
+      height: 60%; }
+    #appWrapper .left .recommandations_bottom {
+      height: 33.2%; }
+      #appWrapper .left .recommandations_bottom aside {
+        height: 100%;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+                flex-flow: column wrap;
+        -webkit-box-pack: center;
+                justify-content: center; }
+        #appWrapper .left .recommandations_bottom aside p {
+          max-width: 250px;
+          margin-left: auto; }
+  #appWrapper .right {
+    background: #3ed8a4; }
+    #appWrapper .right .title {
+      margin: 3rem 0;
+      text-align: center;
+      font-size: 2.2rem; }
+    #appWrapper .right .parent {
+      max-width: 700px;
+      margin: 0 25%; }
+    #appWrapper .right div[class^="modal-"] {
+      position: absolute;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      right: -100%;
+      background: #fff;
+      -webkit-transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-left: 6%; }
+      #appWrapper .right div[class^="modal-"].modalVisible {
+        top: 0;
+        right: 0;
+        bottom: 0; }
+      #appWrapper .right div[class^="modal-"] .close-modal-aliments {
+        position: absolute;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+                justify-content: center;
+        height: 100%;
+        border-radius: 200% 0 0 200%;
+        left: 0;
+        top: 0;
+        width: 4%;
+        -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+        -webkit-writing-mode: tb-rl;
+            -ms-writing-mode: tb-rl;
+                writing-mode: tb-rl;
+        background: #edf2f7;
+        cursor: pointer;
+        color: orangered;
+        font-weight: bold; }
+        #appWrapper .right div[class^="modal-"] .close-modal-aliments::before {
+          color: inherit;
+          font-weight: inherit; }
+      #appWrapper .right div[class^="modal-"] .alimentsList {
+        background: #edf2f7; }
+        #appWrapper .right div[class^="modal-"] .alimentsList .categAli {
+          background: #cbd5e0;
+          border-radius: 30px;
+          margin: 10px 0;
+          color: #000; }
+          #appWrapper .right div[class^="modal-"] .alimentsList .categAli .delete-aliment {
+            cursor: pointer;
+            -webkit-box-align: center;
+                    align-items: center;
+            padding: 0 5%;
+            border-radius: 30px 0 0 30px;
+            -webkit-box-pack: center;
+                    justify-content: center;
+            margin-right: 2%;
+            width: 20px; }
+            #appWrapper .right div[class^="modal-"] .alimentsList .categAli .delete-aliment:not(.none) {
+              display: -webkit-box;
+              display: flex; }
+            #appWrapper .right div[class^="modal-"] .alimentsList .categAli .delete-aliment::before {
+              font-size: .75rem;
+              padding-top: 3px;
+              -webkit-transition: .2s;
+              transition: .2s;
+              color: #000;
+              font-weight: bold; }
+            #appWrapper .right div[class^="modal-"] .alimentsList .categAli .delete-aliment:hover::before {
+              -webkit-transform: rotate(90deg);
+                      transform: rotate(90deg); }
+          #appWrapper .right div[class^="modal-"] .alimentsList .categAli .alim-title {
+            padding: .75rem 0;
+            width: 80%; }
+          #appWrapper .right div[class^="modal-"] .alimentsList .categAli input[type='number'] {
+            width: 20%;
+            padding-right: 2%; }
+        #appWrapper .right div[class^="modal-"] .alimentsList .add-item {
+          position: relative;
+          width: 25px;
+          height: 25px;
+          margin-top: 2%;
+          margin-bottom: 8%;
+          left: calc(50% - 12.5px);
+          text-align: center;
+          border: 1px solid black;
+          border-radius: 50%;
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          -webkit-transition: .3s;
+          transition: .3s;
+          line-height: 1.5;
+          display: none; }
+          #appWrapper .right div[class^="modal-"] .alimentsList .add-item:not(.desactived) {
+            display: block;
+            -webkit-transform: scale(1);
+                    transform: scale(1); }
+          #appWrapper .right div[class^="modal-"] .alimentsList .add-item.none_never {
+            display: none;
+            visibility: hidden;
+            overflow: hidden; }
+      #appWrapper .right div[class^="modal-"] h3 {
+        padding: 1.2%; }
+      #appWrapper .right div[class^="modal-"] button:not(.add-item) {
+        text-align: center;
+        padding: .75rem 3rem;
+        border-radius: 25px; }
+        #appWrapper .right div[class^="modal-"] button:not(.add-item):nth-child(2) {
+          margin-left: 2%; }
+        #appWrapper .right div[class^="modal-"] button:not(.add-item):only-child {
+          background: #3390ca;
+          color: #fff; }
+    #appWrapper .right div.add-item-modal {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border: 15px solid;
+      z-index: 2;
+      border-radius: 20% 20% 0 0;
+      -webkit-transition: 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+      transition: 0.4s cubic-bezier(0.65, 0.05, 0.36, 1); }
+      #appWrapper .right div.add-item-modal::before {
+        content: '';
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.37);
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        mix-blend-mode: color;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-transform-origin: right bottom;
+                transform-origin: right bottom;
+        -webkit-transition: .5s ease-out;
+        transition: .5s ease-out;
+        border-radius: 0; }
+      #appWrapper .right div.add-item-modal.closed {
+        bottom: -100%; }
+        #appWrapper .right div.add-item-modal.closed::before {
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          border-radius: 100% 0 0; }
+      #appWrapper .right div.add-item-modal .close-add-item-modal {
+        position: relative;
+        top: -28px;
+        right: -10px;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+                justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        background: red;
+        cursor: pointer;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: flex;
+        padding: 15px; }
+      #appWrapper .right div.add-item-modal .add-aliment-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 80%;
+        margin-left: 11.5%;
+        gap: 8px;
+        text-align: center;
+        color: #000; }
+        #appWrapper .right div.add-item-modal .add-aliment-content > div {
+          border-radius: 30px; }
+        #appWrapper .right div.add-item-modal .add-aliment-content a {
+          display: block; }
+  #appWrapper .modalAliments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2%; }
+
+div[class^="reco-modal"] {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  top: 0;
+  z-index: -1;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: opacity .25s, visibility .25s, right .25s ease-in-out;
+  transition: opacity .25s, visibility .25s, right .25s ease-in-out; }
+
+.w-auto-override {
+  width: auto !important; }
+
+.h-auto-override {
+  height: auto !important; }
+
+.reommandations_bottom {
+  height: 40%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  background-color: #edf2f7; }
+
+.font-55xl {
+  font-size: 3.5rem; }
+
+.dayName {
+  min-width: 150px; }
+
+details {
+  min-width: 300px;
+  margin-bottom: 1rem;
+  border: 15px solid #edf2f7;
+  border-radius: 30px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  background: #edf2f7; }
+  details summary {
+    background: #edf2f7;
+    cursor: pointer; }
+
+.none_never {
+  display: none;
+  visibility: hidden;
+  overflow: hidden; }
+
+input:not([disabled]).alim-input-portion::-webkit-inner-spin-button {
+  opacity: 1; }
+
+/* ====================== MEDIA QUERIES ====================== */
+@media screen and (max-width: 1200px) {
+  #appWrapper .right .parent {
+    margin: 0 12%; } }
+
+@media screen and (max-width: 992px) {
+  html #menuWrapper #menu {
+    grid-template-columns: 1fr; }
+  #appWrapper .left {
+    display: none; }
+  #appWrapper .right .parent {
+    margin: 0 10%; } }
+
+@media screen and (max-width: 768px) {
+  html #menuWrapper #menu {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+            justify-content: space-between; }
+  aside:not(#SignInterface) {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 1rem; }
+  aside#SignInterface > section h2 {
+    font-size: 3rem; }
+  last-child-justify-content: space-between;
+  #appWrapper .right .parent {
+    margin: 0 8%; } }
+
+@media screen and (max-width: 675px) {
+  #appWrapper .modalAliments {
+    grid-template-columns: repeat(1, 1fr); }
+  #appWrapper .right div[class^="modal-"] {
+    position: fixed;
+    height: 100vh;
+    margin: 0; }
+    #appWrapper .right div[class^="modal-"] .close-modal-aliments {
+      width: 2rem; }
+  details {
+    background: #edf2f7;
+    border-radius: 10px;
+    border: 1px solid #edf2f7;
+    padding: 0 .5rem; }
+    details summary {
+      font-size: 1rem !important; } }
+
+@media screen and (max-width: 576px) {
+  body {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important; }
+  html .parent > :first-child {
+    grid-column-start: 1; }
+  aside#SignInterface {
+    position: fixed;
+    overflow-x: scroll; }
+    aside#SignInterface > section {
+      padding: 0; }
+    aside#SignInterface > section:first-child img {
+      max-height: 6rem; }
+    aside#SignInterface > section:last-child {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+              flex-direction: column-reverse; }
+      aside#SignInterface > section:last-child > section {
+        padding: 1rem; }
+        aside#SignInterface > section:last-child > section h2 {
+          font-size: 2rem;
+          padding: 1rem; }
+  html #menuWrapper #menu aside h2 {
+    font-size: 2rem; }
+  html #menuWrapper #menu aside p {
+    font-size: 1.5rem; }
+  html #menuWrapper #menu ul {
+    max-height: 40%; }
+    html #menuWrapper #menu ul li {
+      font-size: 1.75rem; }
+  #appWrapper {
+    height: auto;
+    position: relative;
+    overflow-x: hidden; }
+    #appWrapper .parent {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr); }
+    #appWrapper .right {
+      overflow: hidden;
+      height: -webkit-max-content;
+      height: -moz-max-content;
+      height: max-content;
+      padding-bottom: 2rem; }
+      #appWrapper .right .parent {
+        margin: 0; }
+      #appWrapper .right #headRight {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0; }
+      #appWrapper .right .title {
+        margin: 6rem 0 3rem;
+        font-size: 2rem; } }
+
+@media screen and (max-width: 475px) {
+  #appWrapper .right div[class^="modal-"] .alimentsList .categAli {
+    margin: 5px 0; }
+    #appWrapper .right div[class^="modal-"] .alimentsList .categAli .alim-title {
+      width: 80%;
+      font-size: .85rem; }
+  #appWrapper details {
+    max-width: 150px; } }
+
+@media screen and (max-width: 400px) {
+  #appWrapper .parent {
+    margin: 0 10% !important;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr); } }
+
+@media screen and (min-width: 1200px) {
+  #appWrapper .right .parent {
+    margin: 0 20%; } }
+
+@media only screen and (max-height: 900px) {
+  #appWrapper .left .recommandations_bottom {
+    height: auto; } }
+
+@media only screen and (max-height: 700px) {
+  #appWrapper .left .parent-reco {
+    height: 100%; }
+  #appWrapper .right .title {
+    margin: 1rem 0 0;
+    font-size: 1.5rem; }
+  #appWrapper .left .recommandations_bottom {
+    display: none; } }

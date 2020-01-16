@@ -1,0 +1,40 @@
+Rapport d'assemblage
+
+-----------------------------------------------------------------------------
+Document :
+Nom : avocado.ai
+Mode : Couleurs RVB
+Profil colorimétrique : Sans
+Unité : pixels
+Dimensions : 901 px x 358 px
+Afficher les images en mode Tracés : INACTIF
+Mettre en évidence les polices substituées : INACTIF
+Mettre en évidence les glyphes substitués : INACTIF
+Conserver le caractère modifiable du texte
+Simuler le papier couleur : INACTIF
+
+-----------------------------------------------------------------------------
+Objets en tons directs :
+
+-----------------------------------------------------------------------------
+Polices manquantes :SANS
+
+-----------------------------------------------------------------------------
+Polices protégées non assemblées :SANS
+
+-----------------------------------------------------------------------------
+Polices :
+Athelas Regular (TrueType)
+Avenir Next Regular (TrueType)
+
+-----------------------------------------------------------------------------
+Polices incorporées :
+SANS
+
+-----------------------------------------------------------------------------
+Liens manquants :
+SANS
+
+-----------------------------------------------------------------------------
+Images liées :
+SANS
