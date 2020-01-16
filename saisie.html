@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eatSafe | Saisie du menu</title>
+    <link rel="stylesheet" href="./build/css/piodjio.min.css">
+    <link rel="stylesheet" href="./build/css/custom.min.css">
+    <script src="./assets/js/happymeal/HappyMeals.js" charset="utf-8"></script>
+    <script src="./assets/js/happymeal/data.js" charset="utf-8"></script>
+    <script src="./assets/js/main.js" charset="utf-8"></script>
+</head>
+
+<body id="appWrapper" class="flex w-full h-screen overflow-hidden">
+<div class="left relative w-1-2 h-full">
+    <div id="headLeft" class="shadow-md">
+        <h2 class="text-center font-xl p-1">Mes recommandations</h2>
+    </div>
+    <div class="parent-reco flex items-center wrap justify-space-around w-full h-1-2 p-48 h-full bg-gray-200"></div>
+    <div class="modal-recos"></div>
+</div>
+<div class="right w-1-2 h-full flex column relative">
+    <div id="headRight" class="shadow-md bg-gray-200">
+        <h2 class="text-center font-xl p-1">Mes repas de la semaine</h2>
+    </div>
+    <div class="flex items-center justify-center h-full">
+        <div class="parent w-full h-1-2 p-48">
+            <div class="div1 bg-gray-100"></div>
+            <div class="div2 bg-gray-100"></div>
+            <div class="div3 bg-gray-100"></div>
+            <div class="div4 bg-gray-100"></div>
+            <div class="div5 bg-gray-100"></div>
+            <div class="div6 bg-gray-100"></div>
+            <div class="div7 bg-gray-100"></div>
+        </div>
+    </div>
+</div>
+<aside id="burgerMenu" class="absolute cursor-pointer font-xl p-1"></aside>
+</body>
+
+</html>

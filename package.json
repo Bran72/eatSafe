@@ -1,10 +1,14 @@
 {
-  "name": "eatSafe",
-  "version": "1.0.0",
-  "description": "",
+  "name": "eatsafe",
+  "version": "1.2.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bran72/eatSafe.git"
+  },
+  "bugs": "https://github.com/Bran72/eatSafe/issues",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -12,14 +16,18 @@
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-connect": "^5.7.0",
     "gulp-cssbeautify": "^2.0.0",
-    "gulp-csso": "^3.0.1",
+    "gulp-csso": "^4.0.1",
     "gulp-imagemin": "^6.2.0",
+    "gulp-less": "^4.0.1",
+    "gulp-livereload": "^4.0.2",
     "gulp-load-plugins": "latest",
-    "webpack-dev-server": "^3.9.0"
+    "gulp-open": "^3.0.1",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2"
   }
 }

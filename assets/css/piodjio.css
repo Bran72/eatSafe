@@ -1,0 +1,6454 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent
+}
+
+body {
+    margin: 0
+}
+
+main {
+    display: block
+}
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+    margin: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    margin: 0
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+dt {
+    font-weight: bold
+}
+
+dd {
+    margin-left: 0
+}
+
+hr {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    border: 0;
+    border-top: 1px solid;
+    margin: 0;
+    clear: both
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: inherit
+}
+
+address {
+    font-style: inherit
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    -webkit-text-decoration: underline dotted;
+    -moz-text-decoration: underline dotted;
+    text-decoration: underline dotted
+}
+
+b,
+strong {
+    font-weight: bolder
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: inherit
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -0.25em
+}
+
+sup {
+    top: -0.5em
+}
+
+img {
+    border-style: none;
+    vertical-align: bottom
+}
+
+embed,
+object,
+iframe {
+    border: 0;
+    vertical-align: bottom
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    vertical-align: middle;
+    color: inherit;
+    font: inherit;
+    border: inherit;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    text-align: inherit
+}
+
+[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox
+}
+
+[type="radio"] {
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+    appearance: radio
+}
+
+button,
+input {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+button[disabled],
+[type="button"][disabled],
+[type="reset"][disabled],
+[type="submit"][disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0
+}
+
+legend {
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+
+progress {
+    vertical-align: baseline
+}
+
+textarea {
+    overflow: auto
+}
+
+[type="checkbox"],
+[type="radio"] {
+    padding: 0
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+[type="search"] {
+    outline-offset: -2px
+}
+
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+::-webkit-input-placeholder {
+    font: inherit
+}
+
+::-ms-input-placeholder {
+    font: inherit
+}
+
+::-ms-input-placeholder {
+    font: inherit
+}
+
+:-moz-placeholder {
+    font: inherit
+}
+
+::-moz-placeholder {
+    font: inherit
+}
+
+:-ms-input-placeholder {
+    font: inherit
+}
+
+::placeholder {
+    font: inherit
+}
+
+label[for] {
+    cursor: pointer
+}
+
+details {
+    display: block
+}
+
+summary {
+    display: list-item
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption {
+    text-align: left
+}
+
+td,
+th {
+    vertical-align: top
+}
+
+th {
+    text-align: left;
+    font-weight: bold
+}
+
+template {
+    display: none
+}
+
+[hidden] {
+    display: none
+}
+
+.container {
+    width: 86%;
+    margin: 0 auto
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px
+    }
+}
+
+.container-full {
+    width: 100%
+}
+
+.block {
+    display: block
+}
+
+.inline-block {
+    display: inline-block
+}
+
+.inline {
+    display: inline
+}
+
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.inline-flex {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.none {
+    display: none
+}
+
+.obj-contain {
+    -o-object-fit: contain;
+    object-fit: contain
+}
+
+.obj-cover {
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.obj-fill {
+    -o-object-fit: fill;
+    object-fit: fill
+}
+
+.obj-scale-down {
+    -o-object-fit: scale-down;
+    object-fit: scale-down
+}
+
+.obj-none {
+    -o-object-fit: none;
+    object-fit: none
+}
+
+.obj-static {
+    -o-object-position: static;
+    object-position: static
+}
+
+.obj-fixed {
+    -o-object-position: fixed;
+    object-position: fixed
+}
+
+.obj-absolute {
+    -o-object-position: absolute;
+    object-position: absolute
+}
+
+.obj-relative {
+    -o-object-position: relative;
+    object-position: relative
+}
+
+.obj-sticky {
+    -o-object-position: sticky;
+    object-position: sticky
+}
+
+.overflow-auto {
+    overflow: auto
+}
+
+.overflow-hidden {
+    overflow: hidden
+}
+
+.overflow-visible {
+    overflow: visible
+}
+
+.overflow-scroll {
+    overflow: scroll
+}
+
+.overflow-x-auto {
+    overflow-x: auto
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden
+}
+
+.overflow-x-visible {
+    overflow-x: visible
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll
+}
+
+.overflow-y-auto {
+    overflow-y: auto
+}
+
+.overflow-y-hidden {
+    overflow-y: hidden
+}
+
+.overflow-y-visible {
+    overflow-y: visible
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll
+}
+
+.static {
+    position: static
+}
+
+.fixed {
+    position: fixed
+}
+
+.absolute {
+    position: absolute
+}
+
+.relative {
+    position: relative
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky
+}
+
+.top {
+    top: 0
+}
+
+.right {
+    right: 0
+}
+
+.bottom {
+    bottom: 0
+}
+
+.left {
+    left: 0
+}
+
+.visible {
+    visibility: visible
+}
+
+.hidden {
+    visibility: hidden
+}
+
+.z0 {
+    z-index: 0
+}
+
+.z10 {
+    z-index: 10
+}
+
+.z20 {
+    z-index: 20
+}
+
+.z25 {
+    z-index: 25
+}
+
+.z30 {
+    z-index: 30
+}
+
+.z40 {
+    z-index: 40
+}
+
+.z50 {
+    z-index: 50
+}
+
+.z75 {
+    z-index: 75
+}
+
+.z100 {
+    z-index: 100
+}
+
+.zauto {
+    z-index: auto
+}
+
+.z-1 {
+    z-index: -1
+}
+
+.row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+.row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse
+}
+
+.column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.column-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse
+}
+
+.nowrap {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+.wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.wrap-reverse {
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse
+}
+
+.items-stretch {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch
+}
+
+.items-flex-start {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start
+}
+
+.items-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.items-flex-end {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end
+}
+
+.items-baseline {
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.content-flex-start {
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start
+}
+
+.content-center {
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center
+}
+
+.content-flex-end {
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end
+}
+
+.content-space-between {
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between
+}
+
+.content-space-around {
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around
+}
+
+.self-auto {
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto
+}
+
+.self-flex-start {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start
+}
+
+.self-center {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center
+}
+
+.self-flex-end {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end
+}
+
+.self-stretch {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch
+}
+
+.justify-flex-start {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start
+}
+
+.justify-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.justify-flex-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end
+}
+
+.justify-space-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.justify-space-around {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around
+}
+
+.justify-space-evenly {
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly
+}
+
+.flex-initial {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -moz-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto
+}
+
+.flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 0%;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%
+}
+
+.flex-auto {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+.flex-none {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -moz-box-flex: 0;
+    -ms-flex: none;
+    flex: none
+}
+
+.grow-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -moz-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.grow-0 {
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -moz-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0
+}
+
+.shrink-1 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1
+}
+
+.shrink-0 {
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+
+.order-first {
+    -webkit-box-ordinal-group: -9998;
+    -webkit-order: -9999;
+    -moz-box-ordinal-group: -9998;
+    -ms-flex-order: -9999;
+    order: -9999
+}
+
+.order-last {
+    -webkit-box-ordinal-group: 10000;
+    -webkit-order: 9999;
+    -moz-box-ordinal-group: 10000;
+    -ms-flex-order: 9999;
+    order: 9999
+}
+
+.order-none {
+    -webkit-box-ordinal-group: none;
+    -webkit-order: none;
+    -moz-box-ordinal-group: none;
+    -ms-flex-order: none;
+    order: none
+}
+
+.order-1 {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1
+}
+
+.order-2 {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -moz-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2
+}
+
+.order-3 {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -moz-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3
+}
+
+.order-4 {
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+    -moz-box-ordinal-group: 5;
+    -ms-flex-order: 4;
+    order: 4
+}
+
+.order-5 {
+    -webkit-box-ordinal-group: 6;
+    -webkit-order: 5;
+    -moz-box-ordinal-group: 6;
+    -ms-flex-order: 5;
+    order: 5
+}
+
+.order-6 {
+    -webkit-box-ordinal-group: 7;
+    -webkit-order: 6;
+    -moz-box-ordinal-group: 7;
+    -ms-flex-order: 6;
+    order: 6
+}
+
+.order-7 {
+    -webkit-box-ordinal-group: 8;
+    -webkit-order: 7;
+    -moz-box-ordinal-group: 8;
+    -ms-flex-order: 7;
+    order: 7
+}
+
+.order-8 {
+    -webkit-box-ordinal-group: 9;
+    -webkit-order: 8;
+    -moz-box-ordinal-group: 9;
+    -ms-flex-order: 8;
+    order: 8
+}
+
+.order-9 {
+    -webkit-box-ordinal-group: 10;
+    -webkit-order: 9;
+    -moz-box-ordinal-group: 10;
+    -ms-flex-order: 9;
+    order: 9
+}
+
+.order-10 {
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+    -moz-box-ordinal-group: 11;
+    -ms-flex-order: 10;
+    order: 10
+}
+
+.order-11 {
+    -webkit-box-ordinal-group: 12;
+    -webkit-order: 11;
+    -moz-box-ordinal-group: 12;
+    -ms-flex-order: 11;
+    order: 11
+}
+
+.order-12 {
+    -webkit-box-ordinal-group: 13;
+    -webkit-order: 12;
+    -moz-box-ordinal-group: 13;
+    -ms-flex-order: 12;
+    order: 12
+}
+
+.w-0 {
+    width: 0
+}
+
+.w-1 {
+    width: .25rem
+}
+
+.w-2 {
+    width: .5rem
+}
+
+.w-3 {
+    width: .75rem
+}
+
+.w-4 {
+    width: 1rem
+}
+
+.w-5 {
+    width: 1.25rem
+}
+
+.w-6 {
+    width: 1.5rem
+}
+
+.w-8 {
+    width: 2rem
+}
+
+.w-10 {
+    width: 2.5rem
+}
+
+.w-12 {
+    width: 3rem
+}
+
+.w-16 {
+    width: 4rem
+}
+
+.w-20 {
+    width: 5rem
+}
+
+.w-24 {
+    width: 6rem
+}
+
+.w-32 {
+    width: 8rem
+}
+
+.w-40 {
+    width: 10rem
+}
+
+.w-48 {
+    width: 12rem
+}
+
+.w-56 {
+    width: 14rem
+}
+
+.w-64 {
+    width: 16rem
+}
+
+.w-auto {
+    width: auto
+}
+
+.w-px {
+    width: 1px
+}
+
+.w-full {
+    width: 100%
+}
+
+.w-screen {
+    width: 100vw
+}
+
+.h-0 {
+    height: 0
+}
+
+.h-1 {
+    height: .25rem
+}
+
+.h-2 {
+    height: .5rem
+}
+
+.h-3 {
+    height: .75rem
+}
+
+.h-4 {
+    height: 1rem
+}
+
+.h-5 {
+    height: 1.25rem
+}
+
+.h-6 {
+    height: 1.5rem
+}
+
+.h-8 {
+    height: 2rem
+}
+
+.h-10 {
+    height: 2.5rem
+}
+
+.h-12 {
+    height: 3rem
+}
+
+.h-16 {
+    height: 4rem
+}
+
+.h-20 {
+    height: 5rem
+}
+
+.h-24 {
+    height: 6rem
+}
+
+.h-32 {
+    height: 8rem
+}
+
+.h-40 {
+    height: 10rem
+}
+
+.h-48 {
+    height: 12rem
+}
+
+.h-56 {
+    height: 14rem
+}
+
+.h-64 {
+    height: 16rem
+}
+
+.h-auto {
+    height: auto
+}
+
+.h-px {
+    height: 1px
+}
+
+.h-full {
+    height: 100%
+}
+
+.h-screen {
+    height: 100vh
+}
+
+.w-1-2 {
+    width: -webkit-calc(1 / 2 * 100%);
+    width: -moz-calc(1 / 2 * 100%);
+    width: calc(1 / 2 * 100%)
+}
+
+.w-1-3 {
+    width: -webkit-calc(1 / 3 * 100%);
+    width: -moz-calc(1 / 3 * 100%);
+    width: calc(1 / 3 * 100%)
+}
+
+.w-2-3 {
+    width: -webkit-calc(2 / 3 * 100%);
+    width: -moz-calc(2 / 3 * 100%);
+    width: calc(2 / 3 * 100%)
+}
+
+.w-1-4 {
+    width: -webkit-calc(1 / 4 * 100%);
+    width: -moz-calc(1 / 4 * 100%);
+    width: calc(1 / 4 * 100%)
+}
+
+.w-2-4 {
+    width: -webkit-calc(2 / 4 * 100%);
+    width: -moz-calc(2 / 4 * 100%);
+    width: calc(2 / 4 * 100%)
+}
+
+.w-3-4 {
+    width: -webkit-calc(3 / 4 * 100%);
+    width: -moz-calc(3 / 4 * 100%);
+    width: calc(3 / 4 * 100%)
+}
+
+.w-1-5 {
+    width: -webkit-calc(1 / 5 * 100%);
+    width: -moz-calc(1 / 5 * 100%);
+    width: calc(1 / 5 * 100%)
+}
+
+.w-2-5 {
+    width: -webkit-calc(2 / 5 * 100%);
+    width: -moz-calc(2 / 5 * 100%);
+    width: calc(2 / 5 * 100%)
+}
+
+.w-3-5 {
+    width: -webkit-calc(3 / 5 * 100%);
+    width: -moz-calc(3 / 5 * 100%);
+    width: calc(3 / 5 * 100%)
+}
+
+.w-4-5 {
+    width: -webkit-calc(4 / 5 * 100%);
+    width: -moz-calc(4 / 5 * 100%);
+    width: calc(4 / 5 * 100%)
+}
+
+.w-1-6 {
+    width: -webkit-calc(1 / 6 * 100%);
+    width: -moz-calc(1 / 6 * 100%);
+    width: calc(1 / 6 * 100%)
+}
+
+.w-2-6 {
+    width: -webkit-calc(2 / 6 * 100%);
+    width: -moz-calc(2 / 6 * 100%);
+    width: calc(2 / 6 * 100%)
+}
+
+.w-3-6 {
+    width: -webkit-calc(3 / 6 * 100%);
+    width: -moz-calc(3 / 6 * 100%);
+    width: calc(3 / 6 * 100%)
+}
+
+.w-4-6 {
+    width: -webkit-calc(4 / 6 * 100%);
+    width: -moz-calc(4 / 6 * 100%);
+    width: calc(4 / 6 * 100%)
+}
+
+.w-5-6 {
+    width: -webkit-calc(5 / 6 * 100%);
+    width: -moz-calc(5 / 6 * 100%);
+    width: calc(5 / 6 * 100%)
+}
+
+.w-1-12 {
+    width: -webkit-calc(1 / 12 * 100%);
+    width: -moz-calc(1 / 12 * 100%);
+    width: calc(1 / 12 * 100%)
+}
+
+.w-2-12 {
+    width: -webkit-calc(2 / 12 * 100%);
+    width: -moz-calc(2 / 12 * 100%);
+    width: calc(2 / 12 * 100%)
+}
+
+.w-3-12 {
+    width: -webkit-calc(3 / 12 * 100%);
+    width: -moz-calc(3 / 12 * 100%);
+    width: calc(3 / 12 * 100%)
+}
+
+.w-4-12 {
+    width: -webkit-calc(4 / 12 * 100%);
+    width: -moz-calc(4 / 12 * 100%);
+    width: calc(4 / 12 * 100%)
+}
+
+.w-5-12 {
+    width: -webkit-calc(5 / 12 * 100%);
+    width: -moz-calc(5 / 12 * 100%);
+    width: calc(5 / 12 * 100%)
+}
+
+.w-6-12 {
+    width: -webkit-calc(6 / 12 * 100%);
+    width: -moz-calc(6 / 12 * 100%);
+    width: calc(6 / 12 * 100%)
+}
+
+.w-7-12 {
+    width: -webkit-calc(7 / 12 * 100%);
+    width: -moz-calc(7 / 12 * 100%);
+    width: calc(7 / 12 * 100%)
+}
+
+.w-8-12 {
+    width: -webkit-calc(8 / 12 * 100%);
+    width: -moz-calc(8 / 12 * 100%);
+    width: calc(8 / 12 * 100%)
+}
+
+.w-9-12 {
+    width: -webkit-calc(9 / 12 * 100%);
+    width: -moz-calc(9 / 12 * 100%);
+    width: calc(9 / 12 * 100%)
+}
+
+.w-10-12 {
+    width: -webkit-calc(10 / 12 * 100%);
+    width: -moz-calc(10 / 12 * 100%);
+    width: calc(10 / 12 * 100%)
+}
+
+.w-11-12 {
+    width: -webkit-calc(11 / 12 * 100%);
+    width: -moz-calc(11 / 12 * 100%);
+    width: calc(11 / 12 * 100%)
+}
+
+.min-w-0 {
+    min-width: 0
+}
+
+.max-w-0 {
+    max-width: 0
+}
+
+.min-h-0 {
+    min-height: 0
+}
+
+.max-h-0 {
+    min-height: 0
+}
+
+.min-w-1-4 {
+    min-width: 25%
+}
+
+.max-w-1-4 {
+    max-width: 25%
+}
+
+.min-h-1-4 {
+    min-height: 25%
+}
+
+.max-h-1-4 {
+    min-height: 25%
+}
+
+.min-w-1-2 {
+    min-width: 50%
+}
+
+.max-w-1-2 {
+    max-width: 50%
+}
+
+.min-h-1-2 {
+    min-height: 50%
+}
+
+.max-h-1-2 {
+    min-height: 50%
+}
+
+.min-w-3-4 {
+    min-width: 75%
+}
+
+.max-w-3-4 {
+    max-width: 75%
+}
+
+.min-h-3-4 {
+    min-height: 75%
+}
+
+.max-h-3-4 {
+    min-height: 75%
+}
+
+.min-w-full {
+    min-width: 100%
+}
+
+.max-w-full {
+    max-width: 100%
+}
+
+.min-h-full {
+    min-height: 100%
+}
+
+.max-h-full {
+    min-height: 100%
+}
+
+.p-0 {
+    padding: 0
+}
+
+.pt-0 {
+    padding-top: 0
+}
+
+.pr-0 {
+    padding-right: 0
+}
+
+.pb-0 {
+    padding-bottom: 0
+}
+
+.pl-0 {
+    padding-left: 0
+}
+
+.ptb-0 {
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+.prl-0 {
+    padding-right: 0;
+    padding-left: 0
+}
+
+.p-1 {
+    padding: 1.25rem
+}
+
+.pt-1 {
+    padding-top: 1.25rem
+}
+
+.pr-1 {
+    padding-right: 1.25rem
+}
+
+.pb-1 {
+    padding-bottom: 1.25rem
+}
+
+.pl-1 {
+    padding-left: 1.25rem
+}
+
+.ptb-1 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem
+}
+
+.prl-1 {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem
+}
+
+.p-2 {
+    padding: .5rem
+}
+
+.pt-2 {
+    padding-top: .5rem
+}
+
+.pr-2 {
+    padding-right: .5rem
+}
+
+.pb-2 {
+    padding-bottom: .5rem
+}
+
+.pl-2 {
+    padding-left: .5rem
+}
+
+.ptb-2 {
+    padding-top: .5rem;
+    padding-bottom: .5rem
+}
+
+.prl-2 {
+    padding-right: .5rem;
+    padding-left: .5rem
+}
+
+.p-3 {
+    padding: .75rem
+}
+
+.pt-3 {
+    padding-top: .75rem
+}
+
+.pr-3 {
+    padding-right: .75rem
+}
+
+.pb-3 {
+    padding-bottom: .75rem
+}
+
+.pl-3 {
+    padding-left: .75rem
+}
+
+.ptb-3 {
+    padding-top: .75rem;
+    padding-bottom: .75rem
+}
+
+.prl-3 {
+    padding-right: .75rem;
+    padding-left: .75rem
+}
+
+.p-4 {
+    padding: 1rem
+}
+
+.pt-4 {
+    padding-top: 1rem
+}
+
+.pr-4 {
+    padding-right: 1rem
+}
+
+.pb-4 {
+    padding-bottom: 1rem
+}
+
+.pl-4 {
+    padding-left: 1rem
+}
+
+.ptb-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem
+}
+
+.prl-4 {
+    padding-right: 1rem;
+    padding-left: 1rem
+}
+
+.p-5 {
+    padding: 1.25rem
+}
+
+.pt-5 {
+    padding-top: 1.25rem
+}
+
+.pr-5 {
+    padding-right: 1.25rem
+}
+
+.pb-5 {
+    padding-bottom: 1.25rem
+}
+
+.pl-5 {
+    padding-left: 1.25rem
+}
+
+.ptb-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem
+}
+
+.prl-5 {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem
+}
+
+.p-6 {
+    padding: 1.5rem
+}
+
+.pt-6 {
+    padding-top: 1.5rem
+}
+
+.pr-6 {
+    padding-right: 1.5rem
+}
+
+.pb-6 {
+    padding-bottom: 1.5rem
+}
+
+.pl-6 {
+    padding-left: 1.5rem
+}
+
+.ptb-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem
+}
+
+.prl-6 {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem
+}
+
+.p-8 {
+    padding: 2rem
+}
+
+.pt-8 {
+    padding-top: 2rem
+}
+
+.pr-8 {
+    padding-right: 2rem
+}
+
+.pb-8 {
+    padding-bottom: 2rem
+}
+
+.pl-8 {
+    padding-left: 2rem
+}
+
+.ptb-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem
+}
+
+.prl-8 {
+    padding-right: 2rem;
+    padding-left: 2rem
+}
+
+.p-10 {
+    padding: 2.5rem
+}
+
+.pt-10 {
+    padding-top: 2.5rem
+}
+
+.pr-10 {
+    padding-right: 2.5rem
+}
+
+.pb-10 {
+    padding-bottom: 2.5rem
+}
+
+.pl-10 {
+    padding-left: 2.5rem
+}
+
+.ptb-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem
+}
+
+.prl-10 {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem
+}
+
+.p-12 {
+    padding: 3rem
+}
+
+.pt-12 {
+    padding-top: 3rem
+}
+
+.pr-12 {
+    padding-right: 3rem
+}
+
+.pb-12 {
+    padding-bottom: 3rem
+}
+
+.pl-12 {
+    padding-left: 3rem
+}
+
+.ptb-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem
+}
+
+.prl-12 {
+    padding-right: 3rem;
+    padding-left: 3rem
+}
+
+.p-16 {
+    padding: 4rem
+}
+
+.pt-16 {
+    padding-top: 4rem
+}
+
+.pr-16 {
+    padding-right: 4rem
+}
+
+.pb-16 {
+    padding-bottom: 4rem
+}
+
+.pl-16 {
+    padding-left: 4rem
+}
+
+.ptb-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem
+}
+
+.prl-16 {
+    padding-right: 4rem;
+    padding-left: 4rem
+}
+
+.p-20 {
+    padding: 5rem
+}
+
+.pt-20 {
+    padding-top: 5rem
+}
+
+.pr-20 {
+    padding-right: 5rem
+}
+
+.pb-20 {
+    padding-bottom: 5rem
+}
+
+.pl-20 {
+    padding-left: 5rem
+}
+
+.ptb-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem
+}
+
+.prl-20 {
+    padding-right: 5rem;
+    padding-left: 5rem
+}
+
+.p-24 {
+    padding: 6rem
+}
+
+.pt-24 {
+    padding-top: 6rem
+}
+
+.pr-24 {
+    padding-right: 6rem
+}
+
+.pb-24 {
+    padding-bottom: 6rem
+}
+
+.pl-24 {
+    padding-left: 6rem
+}
+
+.ptb-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem
+}
+
+.prl-24 {
+    padding-right: 6rem;
+    padding-left: 6rem
+}
+
+.p-32 {
+    padding: 8rem
+}
+
+.pt-32 {
+    padding-top: 8rem
+}
+
+.pr-32 {
+    padding-right: 8rem
+}
+
+.pb-32 {
+    padding-bottom: 8rem
+}
+
+.pl-32 {
+    padding-left: 8rem
+}
+
+.ptb-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem
+}
+
+.prl-32 {
+    padding-right: 8rem;
+    padding-left: 8rem
+}
+
+.p-40 {
+    padding: 10rem
+}
+
+.pt-40 {
+    padding-top: 10rem
+}
+
+.pr-40 {
+    padding-right: 10rem
+}
+
+.pb-40 {
+    padding-bottom: 10rem
+}
+
+.pl-40 {
+    padding-left: 10rem
+}
+
+.ptb-40 {
+    padding-top: 10rem;
+    padding-bottom: 10rem
+}
+
+.prl-40 {
+    padding-right: 10rem;
+    padding-left: 10rem
+}
+
+.p-48 {
+    padding: 1.25rem
+}
+
+.pt-48 {
+    padding-top: 1.25rem
+}
+
+.pr-48 {
+    padding-right: 1.25rem
+}
+
+.pb-48 {
+    padding-bottom: 1.25rem
+}
+
+.pl-48 {
+    padding-left: 1.25rem
+}
+
+.ptb-48 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem
+}
+
+.prl-48 {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem
+}
+
+.p-56 {
+    padding: 14rem
+}
+
+.pt-56 {
+    padding-top: 14rem
+}
+
+.pr-56 {
+    padding-right: 14rem
+}
+
+.pb-56 {
+    padding-bottom: 14rem
+}
+
+.pl-56 {
+    padding-left: 14rem
+}
+
+.ptb-56 {
+    padding-top: 14rem;
+    padding-bottom: 14rem
+}
+
+.prl-56 {
+    padding-right: 14rem;
+    padding-left: 14rem
+}
+
+.p-64 {
+    padding: 16rem
+}
+
+.pt-64 {
+    padding-top: 16rem
+}
+
+.pr-64 {
+    padding-right: 16rem
+}
+
+.pb-64 {
+    padding-bottom: 16rem
+}
+
+.pl-64 {
+    padding-left: 16rem
+}
+
+.ptb-64 {
+    padding-top: 16rem;
+    padding-bottom: 16rem
+}
+
+.prl-64 {
+    padding-right: 16rem;
+    padding-left: 16rem
+}
+
+.p-px {
+    padding: 1px
+}
+
+.pt-px {
+    padding-top: 1px
+}
+
+.pr-px {
+    padding-right: 1px
+}
+
+.pb-px {
+    padding-bottom: 1px
+}
+
+.pl-px {
+    padding-left: 1px
+}
+
+.ptb-px {
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+
+.prl-px {
+    padding-right: 1px;
+    padding-left: 1px
+}
+
+.m-0 {
+    margin: 0
+}
+
+.mt-0 {
+    margin-top: 0
+}
+
+.mr-0 {
+    margin-right: 0
+}
+
+.mb-0 {
+    margin-bottom: 0
+}
+
+.ml-0 {
+    margin-left: 0
+}
+
+.mtb-0 {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.mrl-0 {
+    margin-right: 0;
+    margin-left: 0
+}
+
+.m-1 {
+    margin: 1.25rem
+}
+
+.mt-1 {
+    margin-top: 1.25rem
+}
+
+.mr-1 {
+    margin-right: 1.25rem
+}
+
+.mb-1 {
+    margin-bottom: 1.25rem
+}
+
+.ml-1 {
+    margin-left: 1.25rem
+}
+
+.mtb-1 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem
+}
+
+.mrl-1 {
+    margin-right: 1.25rem;
+    margin-left: 1.25rem
+}
+
+.m-2 {
+    margin: .5rem
+}
+
+.mt-2 {
+    margin-top: .5rem
+}
+
+.mr-2 {
+    margin-right: .5rem
+}
+
+.mb-2 {
+    margin-bottom: .5rem
+}
+
+.ml-2 {
+    margin-left: .5rem
+}
+
+.mtb-2 {
+    margin-top: .5rem;
+    margin-bottom: .5rem
+}
+
+.mrl-2 {
+    margin-right: .5rem;
+    margin-left: .5rem
+}
+
+.m-3 {
+    margin: .75rem
+}
+
+.mt-3 {
+    margin-top: .75rem
+}
+
+.mr-3 {
+    margin-right: .75rem
+}
+
+.mb-3 {
+    margin-bottom: .75rem
+}
+
+.ml-3 {
+    margin-left: .75rem
+}
+
+.mtb-3 {
+    margin-top: .75rem;
+    margin-bottom: .75rem
+}
+
+.mrl-3 {
+    margin-right: .75rem;
+    margin-left: .75rem
+}
+
+.m-4 {
+    margin: 1rem
+}
+
+.mt-4 {
+    margin-top: 1rem
+}
+
+.mr-4 {
+    margin-right: 1rem
+}
+
+.mb-4 {
+    margin-bottom: 1rem
+}
+
+.ml-4 {
+    margin-left: 1rem
+}
+
+.mtb-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem
+}
+
+.mrl-4 {
+    margin-right: 1rem;
+    margin-left: 1rem
+}
+
+.m-5 {
+    margin: 1.25rem
+}
+
+.mt-5 {
+    margin-top: 1.25rem
+}
+
+.mr-5 {
+    margin-right: 1.25rem
+}
+
+.mb-5 {
+    margin-bottom: 1.25rem
+}
+
+.ml-5 {
+    margin-left: 1.25rem
+}
+
+.mtb-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem
+}
+
+.mrl-5 {
+    margin-right: 1.25rem;
+    margin-left: 1.25rem
+}
+
+.m-6 {
+    margin: 1.5rem
+}
+
+.mt-6 {
+    margin-top: 1.5rem
+}
+
+.mr-6 {
+    margin-right: 1.5rem
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem
+}
+
+.ml-6 {
+    margin-left: 1.5rem
+}
+
+.mtb-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem
+}
+
+.mrl-6 {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem
+}
+
+.m-8 {
+    margin: 2rem
+}
+
+.mt-8 {
+    margin-top: 2rem
+}
+
+.mr-8 {
+    margin-right: 2rem
+}
+
+.mb-8 {
+    margin-bottom: 2rem
+}
+
+.ml-8 {
+    margin-left: 2rem
+}
+
+.mtb-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem
+}
+
+.mrl-8 {
+    margin-right: 2rem;
+    margin-left: 2rem
+}
+
+.m-10 {
+    margin: 2.5rem
+}
+
+.mt-10 {
+    margin-top: 2.5rem
+}
+
+.mr-10 {
+    margin-right: 2.5rem
+}
+
+.mb-10 {
+    margin-bottom: 2.5rem
+}
+
+.ml-10 {
+    margin-left: 2.5rem
+}
+
+.mtb-10 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem
+}
+
+.mrl-10 {
+    margin-right: 2.5rem;
+    margin-left: 2.5rem
+}
+
+.m-12 {
+    margin: 3rem
+}
+
+.mt-12 {
+    margin-top: 3rem
+}
+
+.mr-12 {
+    margin-right: 3rem
+}
+
+.mb-12 {
+    margin-bottom: 3rem
+}
+
+.ml-12 {
+    margin-left: 3rem
+}
+
+.mtb-12 {
+    margin-top: 3rem;
+    margin-bottom: 3rem
+}
+
+.mrl-12 {
+    margin-right: 3rem;
+    margin-left: 3rem
+}
+
+.m-16 {
+    margin: 4rem
+}
+
+.mt-16 {
+    margin-top: 4rem
+}
+
+.mr-16 {
+    margin-right: 4rem
+}
+
+.mb-16 {
+    margin-bottom: 4rem
+}
+
+.ml-16 {
+    margin-left: 4rem
+}
+
+.mtb-16 {
+    margin-top: 4rem;
+    margin-bottom: 4rem
+}
+
+.mrl-16 {
+    margin-right: 4rem;
+    margin-left: 4rem
+}
+
+.m-20 {
+    margin: 5rem
+}
+
+.mt-20 {
+    margin-top: 5rem
+}
+
+.mr-20 {
+    margin-right: 5rem
+}
+
+.mb-20 {
+    margin-bottom: 5rem
+}
+
+.ml-20 {
+    margin-left: 5rem
+}
+
+.mtb-20 {
+    margin-top: 5rem;
+    margin-bottom: 5rem
+}
+
+.mrl-20 {
+    margin-right: 5rem;
+    margin-left: 5rem
+}
+
+.m-24 {
+    margin: 6rem
+}
+
+.mt-24 {
+    margin-top: 6rem
+}
+
+.mr-24 {
+    margin-right: 6rem
+}
+
+.mb-24 {
+    margin-bottom: 6rem
+}
+
+.ml-24 {
+    margin-left: 6rem
+}
+
+.mtb-24 {
+    margin-top: 6rem;
+    margin-bottom: 6rem
+}
+
+.mrl-24 {
+    margin-right: 6rem;
+    margin-left: 6rem
+}
+
+.m-32 {
+    margin: 8rem
+}
+
+.mt-32 {
+    margin-top: 8rem
+}
+
+.mr-32 {
+    margin-right: 8rem
+}
+
+.mb-32 {
+    margin-bottom: 8rem
+}
+
+.ml-32 {
+    margin-left: 8rem
+}
+
+.mtb-32 {
+    margin-top: 8rem;
+    margin-bottom: 8rem
+}
+
+.mrl-32 {
+    margin-right: 8rem;
+    margin-left: 8rem
+}
+
+.m-40 {
+    margin: 10rem
+}
+
+.mt-40 {
+    margin-top: 10rem
+}
+
+.mr-40 {
+    margin-right: 10rem
+}
+
+.mb-40 {
+    margin-bottom: 10rem
+}
+
+.ml-40 {
+    margin-left: 10rem
+}
+
+.mtb-40 {
+    margin-top: 10rem;
+    margin-bottom: 10rem
+}
+
+.mrl-40 {
+    margin-right: 10rem;
+    margin-left: 10rem
+}
+
+.m-48 {
+    margin: 1.25rem
+}
+
+.mt-48 {
+    margin-top: 1.25rem
+}
+
+.mr-48 {
+    margin-right: 1.25rem
+}
+
+.mb-48 {
+    margin-bottom: 1.25rem
+}
+
+.ml-48 {
+    margin-left: 1.25rem
+}
+
+.mtb-48 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem
+}
+
+.mrl-48 {
+    margin-right: 1.25rem;
+    margin-left: 1.25rem
+}
+
+.m-56 {
+    margin: 14rem
+}
+
+.mt-56 {
+    margin-top: 14rem
+}
+
+.mr-56 {
+    margin-right: 14rem
+}
+
+.mb-56 {
+    margin-bottom: 14rem
+}
+
+.ml-56 {
+    margin-left: 14rem
+}
+
+.mtb-56 {
+    margin-top: 14rem;
+    margin-bottom: 14rem
+}
+
+.mrl-56 {
+    margin-right: 14rem;
+    margin-left: 14rem
+}
+
+.m-64 {
+    margin: 16rem
+}
+
+.mt-64 {
+    margin-top: 16rem
+}
+
+.mr-64 {
+    margin-right: 16rem
+}
+
+.mb-64 {
+    margin-bottom: 16rem
+}
+
+.ml-64 {
+    margin-left: 16rem
+}
+
+.mtb-64 {
+    margin-top: 16rem;
+    margin-bottom: 16rem
+}
+
+.mrl-64 {
+    margin-right: 16rem;
+    margin-left: 16rem
+}
+
+.m-px {
+    margin: 1px
+}
+
+.mt-px {
+    margin-top: 1px
+}
+
+.mr-px {
+    margin-right: 1px
+}
+
+.mb-px {
+    margin-bottom: 1px
+}
+
+.ml-px {
+    margin-left: 1px
+}
+
+.mtb-px {
+    margin-top: 1px;
+    margin-bottom: 1px
+}
+
+.mrl-px {
+    margin-right: 1px;
+    margin-left: 1px
+}
+
+.sans-serif {
+    font-family: sans-serif
+}
+
+.serif {
+    font-family: serif
+}
+
+.monospace {
+    font-family: monospace
+}
+
+.font-xs {
+    font-size: .75rem
+}
+
+.font-sm {
+    font-size: .875rem
+}
+
+.font-md {
+    font-size: 1rem
+}
+
+.font-lg {
+    font-size: 1.125rem
+}
+
+.font-xl {
+    font-size: 1.25rem
+}
+
+.font-2xl {
+    font-size: 1.5rem
+}
+
+.font-3xl {
+    font-size: 1.875rem
+}
+
+.font-4xl {
+    font-size: 2.25rem
+}
+
+.font-5xl {
+    font-size: 3rem
+}
+
+.font-6xl {
+    font-size: 4rem
+}
+
+.italic {
+    font-style: italic
+}
+
+.normal {
+    font-style: normal
+}
+
+.font-100 {
+    font-weight: 100
+}
+
+.font-200 {
+    font-weight: 200
+}
+
+.font-300 {
+    font-weight: 300
+}
+
+.font-400 {
+    font-weight: 400
+}
+
+.font-500 {
+    font-weight: 500
+}
+
+.font-600 {
+    font-weight: 600
+}
+
+.font-700 {
+    font-weight: 700
+}
+
+.font-800 {
+    font-weight: 800
+}
+
+.font-900 {
+    font-weight: 900
+}
+
+.letter-xs {
+    letter-spacing: -.05em
+}
+
+.letter-sm {
+    letter-spacing: -.025em
+}
+
+.letter-md {
+    letter-spacing: 0
+}
+
+.letter-lg {
+    letter-spacing: .025em
+}
+
+.letter-xl {
+    letter-spacing: .05em
+}
+
+.letter-2xl {
+    letter-spacing: .1em
+}
+
+.line-xs {
+    line-height: 1
+}
+
+.line-sm {
+    line-height: 1.25
+}
+
+.line-md {
+    line-height: 1.375
+}
+
+.line-lg {
+    line-height: 1.5
+}
+
+.line-xl {
+    line-height: 1.625
+}
+
+.line-2xl {
+    line-height: 2
+}
+
+.list-none {
+    list-style-type: none
+}
+
+.list-disc {
+    list-style-type: disc
+}
+
+.list-decimal {
+    list-style-type: decimal
+}
+
+.list-inside {
+    list-style-position: inside
+}
+
+.list-outside {
+    list-style-position: outside
+}
+
+.placeholder-transparent::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-transparent:-moz-placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-transparent::-moz-placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-transparent:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-transparent::-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-transparent::placeholder {
+    color: rgba(0, 0, 0, 0)
+}
+
+.placeholder-black::-webkit-input-placeholder {
+    color: #000
+}
+
+.placeholder-black:-moz-placeholder {
+    color: #000
+}
+
+.placeholder-black::-moz-placeholder {
+    color: #000
+}
+
+.placeholder-black:-ms-input-placeholder {
+    color: #000
+}
+
+.placeholder-black::-ms-input-placeholder {
+    color: #000
+}
+
+.placeholder-black::placeholder {
+    color: #000
+}
+
+.placeholder-white::-webkit-input-placeholder {
+    color: #fff
+}
+
+.placeholder-white:-moz-placeholder {
+    color: #fff
+}
+
+.placeholder-white::-moz-placeholder {
+    color: #fff
+}
+
+.placeholder-white:-ms-input-placeholder {
+    color: #fff
+}
+
+.placeholder-white::-ms-input-placeholder {
+    color: #fff
+}
+
+.placeholder-white::placeholder {
+    color: #fff
+}
+
+.placeholder-gray-100::-webkit-input-placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-100:-moz-placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-100::-moz-placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-100:-ms-input-placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-100::-ms-input-placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-100::placeholder {
+    color: #f7fafc
+}
+
+.placeholder-gray-200::-webkit-input-placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-200:-moz-placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-200::-moz-placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-200:-ms-input-placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-200::-ms-input-placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-200::placeholder {
+    color: #edf2f7
+}
+
+.placeholder-gray-300::-webkit-input-placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-300:-moz-placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-300::-moz-placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-300:-ms-input-placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-300::-ms-input-placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-300::placeholder {
+    color: #e2e8f0
+}
+
+.placeholder-gray-400::-webkit-input-placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-400:-moz-placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-400::-moz-placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-400:-ms-input-placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-400::-ms-input-placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-400::placeholder {
+    color: #cbd5e0
+}
+
+.placeholder-gray-500::-webkit-input-placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-500:-moz-placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-500::-moz-placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-500:-ms-input-placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-500::-ms-input-placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-500::placeholder {
+    color: #a0aec0
+}
+
+.placeholder-gray-600::-webkit-input-placeholder {
+    color: #718096
+}
+
+.placeholder-gray-600:-moz-placeholder {
+    color: #718096
+}
+
+.placeholder-gray-600::-moz-placeholder {
+    color: #718096
+}
+
+.placeholder-gray-600:-ms-input-placeholder {
+    color: #718096
+}
+
+.placeholder-gray-600::-ms-input-placeholder {
+    color: #718096
+}
+
+.placeholder-gray-600::placeholder {
+    color: #718096
+}
+
+.placeholder-gray-700::-webkit-input-placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-700:-moz-placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-700::-moz-placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-700:-ms-input-placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-700::-ms-input-placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-700::placeholder {
+    color: #4a5568
+}
+
+.placeholder-gray-800::-webkit-input-placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-800:-moz-placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-800::-moz-placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-800:-ms-input-placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-800::-ms-input-placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-800::placeholder {
+    color: #2d3748
+}
+
+.placeholder-gray-900::-webkit-input-placeholder {
+    color: #1a202c
+}
+
+.placeholder-gray-900:-moz-placeholder {
+    color: #1a202c
+}
+
+.placeholder-gray-900::-moz-placeholder {
+    color: #1a202c
+}
+
+.placeholder-gray-900:-ms-input-placeholder {
+    color: #1a202c
+}
+
+.placeholder-gray-900::-ms-input-placeholder {
+    color: #1a202c
+}
+
+.placeholder-gray-900::placeholder {
+    color: #1a202c
+}
+
+.placeholder-red-100::-webkit-input-placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-100:-moz-placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-100::-moz-placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-100:-ms-input-placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-100::-ms-input-placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-100::placeholder {
+    color: #fff5f5
+}
+
+.placeholder-red-200::-webkit-input-placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-200:-moz-placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-200::-moz-placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-200:-ms-input-placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-200::-ms-input-placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-200::placeholder {
+    color: #fed7d7
+}
+
+.placeholder-red-300::-webkit-input-placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-300:-moz-placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-300::-moz-placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-300:-ms-input-placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-300::-ms-input-placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-300::placeholder {
+    color: #feb2b2
+}
+
+.placeholder-red-400::-webkit-input-placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-400:-moz-placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-400::-moz-placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-400:-ms-input-placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-400::-ms-input-placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-400::placeholder {
+    color: #fc8181
+}
+
+.placeholder-red-500::-webkit-input-placeholder {
+    color: #f56565
+}
+
+.placeholder-red-500:-moz-placeholder {
+    color: #f56565
+}
+
+.placeholder-red-500::-moz-placeholder {
+    color: #f56565
+}
+
+.placeholder-red-500:-ms-input-placeholder {
+    color: #f56565
+}
+
+.placeholder-red-500::-ms-input-placeholder {
+    color: #f56565
+}
+
+.placeholder-red-500::placeholder {
+    color: #f56565
+}
+
+.placeholder-red-600::-webkit-input-placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-600:-moz-placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-600::-moz-placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-600:-ms-input-placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-600::-ms-input-placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-600::placeholder {
+    color: #e53e3e
+}
+
+.placeholder-red-700::-webkit-input-placeholder {
+    color: #c53030
+}
+
+.placeholder-red-700:-moz-placeholder {
+    color: #c53030
+}
+
+.placeholder-red-700::-moz-placeholder {
+    color: #c53030
+}
+
+.placeholder-red-700:-ms-input-placeholder {
+    color: #c53030
+}
+
+.placeholder-red-700::-ms-input-placeholder {
+    color: #c53030
+}
+
+.placeholder-red-700::placeholder {
+    color: #c53030
+}
+
+.placeholder-red-800::-webkit-input-placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-800:-moz-placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-800::-moz-placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-800:-ms-input-placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-800::-ms-input-placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-800::placeholder {
+    color: #9b2c2c
+}
+
+.placeholder-red-900::-webkit-input-placeholder {
+    color: #742a2a
+}
+
+.placeholder-red-900:-moz-placeholder {
+    color: #742a2a
+}
+
+.placeholder-red-900::-moz-placeholder {
+    color: #742a2a
+}
+
+.placeholder-red-900:-ms-input-placeholder {
+    color: #742a2a
+}
+
+.placeholder-red-900::-ms-input-placeholder {
+    color: #742a2a
+}
+
+.placeholder-red-900::placeholder {
+    color: #742a2a
+}
+
+.placeholder-orange-100::-webkit-input-placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-100:-moz-placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-100::-moz-placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-100:-ms-input-placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-100::-ms-input-placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-100::placeholder {
+    color: #fffaf0
+}
+
+.placeholder-orange-200::-webkit-input-placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-200:-moz-placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-200::-moz-placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-200:-ms-input-placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-200::-ms-input-placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-200::placeholder {
+    color: #feebc8
+}
+
+.placeholder-orange-300::-webkit-input-placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-300:-moz-placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-300::-moz-placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-300:-ms-input-placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-300::-ms-input-placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-300::placeholder {
+    color: #fbd38d
+}
+
+.placeholder-orange-400::-webkit-input-placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-400:-moz-placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-400::-moz-placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-400:-ms-input-placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-400::-ms-input-placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-400::placeholder {
+    color: #f6ad55
+}
+
+.placeholder-orange-500::-webkit-input-placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-500:-moz-placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-500::-moz-placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-500:-ms-input-placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-500::-ms-input-placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-500::placeholder {
+    color: #ed8936
+}
+
+.placeholder-orange-600::-webkit-input-placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-600:-moz-placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-600::-moz-placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-600:-ms-input-placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-600::-ms-input-placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-600::placeholder {
+    color: #dd6b20
+}
+
+.placeholder-orange-700::-webkit-input-placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-700:-moz-placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-700::-moz-placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-700:-ms-input-placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-700::-ms-input-placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-700::placeholder {
+    color: #c05621
+}
+
+.placeholder-orange-800::-webkit-input-placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-800:-moz-placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-800::-moz-placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-800:-ms-input-placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-800::-ms-input-placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-800::placeholder {
+    color: #9c4221
+}
+
+.placeholder-orange-900::-webkit-input-placeholder {
+    color: #7b341e
+}
+
+.placeholder-orange-900:-moz-placeholder {
+    color: #7b341e
+}
+
+.placeholder-orange-900::-moz-placeholder {
+    color: #7b341e
+}
+
+.placeholder-orange-900:-ms-input-placeholder {
+    color: #7b341e
+}
+
+.placeholder-orange-900::-ms-input-placeholder {
+    color: #7b341e
+}
+
+.placeholder-orange-900::placeholder {
+    color: #7b341e
+}
+
+.placeholder-yellow-100::-webkit-input-placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-100:-moz-placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-100::-moz-placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-100:-ms-input-placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-100::-ms-input-placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-100::placeholder {
+    color: ivory
+}
+
+.placeholder-yellow-200::-webkit-input-placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-200:-moz-placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-200::-moz-placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-200:-ms-input-placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-200::-ms-input-placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-200::placeholder {
+    color: #fefcbf
+}
+
+.placeholder-yellow-300::-webkit-input-placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-300:-moz-placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-300::-moz-placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-300:-ms-input-placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-300::-ms-input-placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-300::placeholder {
+    color: #faf089
+}
+
+.placeholder-yellow-400::-webkit-input-placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-400:-moz-placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-400::-moz-placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-400:-ms-input-placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-400::-ms-input-placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-400::placeholder {
+    color: #f6e05e
+}
+
+.placeholder-yellow-500::-webkit-input-placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-500:-moz-placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-500::-moz-placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-500:-ms-input-placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-500::-ms-input-placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-500::placeholder {
+    color: #ecc94b
+}
+
+.placeholder-yellow-600::-webkit-input-placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-600:-moz-placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-600::-moz-placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-600:-ms-input-placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-600::-ms-input-placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-600::placeholder {
+    color: #d69e2e
+}
+
+.placeholder-yellow-700::-webkit-input-placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-700:-moz-placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-700::-moz-placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-700:-ms-input-placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-700::-ms-input-placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-700::placeholder {
+    color: #b7791f
+}
+
+.placeholder-yellow-800::-webkit-input-placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-800:-moz-placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-800::-moz-placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-800:-ms-input-placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-800::-ms-input-placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-800::placeholder {
+    color: #975a16
+}
+
+.placeholder-yellow-900::-webkit-input-placeholder {
+    color: #744210
+}
+
+.placeholder-yellow-900:-moz-placeholder {
+    color: #744210
+}
+
+.placeholder-yellow-900::-moz-placeholder {
+    color: #744210
+}
+
+.placeholder-yellow-900:-ms-input-placeholder {
+    color: #744210
+}
+
+.placeholder-yellow-900::-ms-input-placeholder {
+    color: #744210
+}
+
+.placeholder-yellow-900::placeholder {
+    color: #744210
+}
+
+.placeholder-green-100::-webkit-input-placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-100:-moz-placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-100::-moz-placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-100:-ms-input-placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-100::-ms-input-placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-100::placeholder {
+    color: #f0fff4
+}
+
+.placeholder-green-200::-webkit-input-placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-200:-moz-placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-200::-moz-placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-200:-ms-input-placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-200::-ms-input-placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-200::placeholder {
+    color: #c6f6d5
+}
+
+.placeholder-green-300::-webkit-input-placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-300:-moz-placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-300::-moz-placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-300:-ms-input-placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-300::-ms-input-placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-300::placeholder {
+    color: #9ae6b4
+}
+
+.placeholder-green-400::-webkit-input-placeholder {
+    color: #68d391
+}
+
+.placeholder-green-400:-moz-placeholder {
+    color: #68d391
+}
+
+.placeholder-green-400::-moz-placeholder {
+    color: #68d391
+}
+
+.placeholder-green-400:-ms-input-placeholder {
+    color: #68d391
+}
+
+.placeholder-green-400::-ms-input-placeholder {
+    color: #68d391
+}
+
+.placeholder-green-400::placeholder {
+    color: #68d391
+}
+
+.placeholder-green-500::-webkit-input-placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-500:-moz-placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-500::-moz-placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-500:-ms-input-placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-500::-ms-input-placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-500::placeholder {
+    color: #48bb78
+}
+
+.placeholder-green-600::-webkit-input-placeholder {
+    color: #38a169
+}
+
+.placeholder-green-600:-moz-placeholder {
+    color: #38a169
+}
+
+.placeholder-green-600::-moz-placeholder {
+    color: #38a169
+}
+
+.placeholder-green-600:-ms-input-placeholder {
+    color: #38a169
+}
+
+.placeholder-green-600::-ms-input-placeholder {
+    color: #38a169
+}
+
+.placeholder-green-600::placeholder {
+    color: #38a169
+}
+
+.placeholder-green-700::-webkit-input-placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-700:-moz-placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-700::-moz-placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-700:-ms-input-placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-700::-ms-input-placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-700::placeholder {
+    color: #2f855a
+}
+
+.placeholder-green-800::-webkit-input-placeholder {
+    color: #276749
+}
+
+.placeholder-green-800:-moz-placeholder {
+    color: #276749
+}
+
+.placeholder-green-800::-moz-placeholder {
+    color: #276749
+}
+
+.placeholder-green-800:-ms-input-placeholder {
+    color: #276749
+}
+
+.placeholder-green-800::-ms-input-placeholder {
+    color: #276749
+}
+
+.placeholder-green-800::placeholder {
+    color: #276749
+}
+
+.placeholder-green-900::-webkit-input-placeholder {
+    color: #22543d
+}
+
+.placeholder-green-900:-moz-placeholder {
+    color: #22543d
+}
+
+.placeholder-green-900::-moz-placeholder {
+    color: #22543d
+}
+
+.placeholder-green-900:-ms-input-placeholder {
+    color: #22543d
+}
+
+.placeholder-green-900::-ms-input-placeholder {
+    color: #22543d
+}
+
+.placeholder-green-900::placeholder {
+    color: #22543d
+}
+
+.placeholder-teal-100::-webkit-input-placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-100:-moz-placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-100::-moz-placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-100:-ms-input-placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-100::-ms-input-placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-100::placeholder {
+    color: #e6fffa
+}
+
+.placeholder-teal-200::-webkit-input-placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-200:-moz-placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-200::-moz-placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-200:-ms-input-placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-200::-ms-input-placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-200::placeholder {
+    color: #b2f5ea
+}
+
+.placeholder-teal-300::-webkit-input-placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-300:-moz-placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-300::-moz-placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-300:-ms-input-placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-300::-ms-input-placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-300::placeholder {
+    color: #81e6d9
+}
+
+.placeholder-teal-400::-webkit-input-placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-400:-moz-placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-400::-moz-placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-400:-ms-input-placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-400::-ms-input-placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-400::placeholder {
+    color: #4fd1c5
+}
+
+.placeholder-teal-500::-webkit-input-placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-500:-moz-placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-500::-moz-placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-500:-ms-input-placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-500::-ms-input-placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-500::placeholder {
+    color: #38b2ac
+}
+
+.placeholder-teal-600::-webkit-input-placeholder {
+    color: #319795
+}
+
+.placeholder-teal-600:-moz-placeholder {
+    color: #319795
+}
+
+.placeholder-teal-600::-moz-placeholder {
+    color: #319795
+}
+
+.placeholder-teal-600:-ms-input-placeholder {
+    color: #319795
+}
+
+.placeholder-teal-600::-ms-input-placeholder {
+    color: #319795
+}
+
+.placeholder-teal-600::placeholder {
+    color: #319795
+}
+
+.placeholder-teal-700::-webkit-input-placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-700:-moz-placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-700::-moz-placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-700:-ms-input-placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-700::-ms-input-placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-700::placeholder {
+    color: #2c7a7b
+}
+
+.placeholder-teal-800::-webkit-input-placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-800:-moz-placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-800::-moz-placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-800:-ms-input-placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-800::-ms-input-placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-800::placeholder {
+    color: #285e61
+}
+
+.placeholder-teal-900::-webkit-input-placeholder {
+    color: #234e52
+}
+
+.placeholder-teal-900:-moz-placeholder {
+    color: #234e52
+}
+
+.placeholder-teal-900::-moz-placeholder {
+    color: #234e52
+}
+
+.placeholder-teal-900:-ms-input-placeholder {
+    color: #234e52
+}
+
+.placeholder-teal-900::-ms-input-placeholder {
+    color: #234e52
+}
+
+.placeholder-teal-900::placeholder {
+    color: #234e52
+}
+
+.placeholder-blue-100::-webkit-input-placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-100:-moz-placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-100::-moz-placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-100:-ms-input-placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-100::-ms-input-placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-100::placeholder {
+    color: #ebf8ff
+}
+
+.placeholder-blue-200::-webkit-input-placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-200:-moz-placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-200::-moz-placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-200:-ms-input-placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-200::-ms-input-placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-200::placeholder {
+    color: #bee3f8
+}
+
+.placeholder-blue-300::-webkit-input-placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-300:-moz-placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-300::-moz-placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-300:-ms-input-placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-300::-ms-input-placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-300::placeholder {
+    color: #90cdf4
+}
+
+.placeholder-blue-400::-webkit-input-placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-400:-moz-placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-400::-moz-placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-400:-ms-input-placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-400::-ms-input-placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-400::placeholder {
+    color: #63b3ed
+}
+
+.placeholder-blue-500::-webkit-input-placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-500:-moz-placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-500::-moz-placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-500:-ms-input-placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-500::-ms-input-placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-500::placeholder {
+    color: #4299e1
+}
+
+.placeholder-blue-600::-webkit-input-placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-600:-moz-placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-600::-moz-placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-600:-ms-input-placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-600::-ms-input-placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-600::placeholder {
+    color: #3182ce
+}
+
+.placeholder-blue-700::-webkit-input-placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-700:-moz-placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-700::-moz-placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-700:-ms-input-placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-700::-ms-input-placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-700::placeholder {
+    color: #2b6cb0
+}
+
+.placeholder-blue-800::-webkit-input-placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-800:-moz-placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-800::-moz-placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-800:-ms-input-placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-800::-ms-input-placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-800::placeholder {
+    color: #2c5282
+}
+
+.placeholder-blue-900::-webkit-input-placeholder {
+    color: #2a4365
+}
+
+.placeholder-blue-900:-moz-placeholder {
+    color: #2a4365
+}
+
+.placeholder-blue-900::-moz-placeholder {
+    color: #2a4365
+}
+
+.placeholder-blue-900:-ms-input-placeholder {
+    color: #2a4365
+}
+
+.placeholder-blue-900::-ms-input-placeholder {
+    color: #2a4365
+}
+
+.placeholder-blue-900::placeholder {
+    color: #2a4365
+}
+
+.placeholder-indigo-100::-webkit-input-placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-100:-moz-placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-100::-moz-placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-100:-ms-input-placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-100::-ms-input-placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-100::placeholder {
+    color: #ebf4ff
+}
+
+.placeholder-indigo-200::-webkit-input-placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-200:-moz-placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-200::-moz-placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-200:-ms-input-placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-200::-ms-input-placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-200::placeholder {
+    color: #c3dafe
+}
+
+.placeholder-indigo-300::-webkit-input-placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-300:-moz-placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-300::-moz-placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-300:-ms-input-placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-300::-ms-input-placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-300::placeholder {
+    color: #a3bffa
+}
+
+.placeholder-indigo-400::-webkit-input-placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-400:-moz-placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-400::-moz-placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-400:-ms-input-placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-400::-ms-input-placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-400::placeholder {
+    color: #7f9cf5
+}
+
+.placeholder-indigo-500::-webkit-input-placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-500:-moz-placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-500::-moz-placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-500:-ms-input-placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-500::-ms-input-placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-500::placeholder {
+    color: #667eea
+}
+
+.placeholder-indigo-600::-webkit-input-placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-600:-moz-placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-600::-moz-placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-600:-ms-input-placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-600::-ms-input-placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-600::placeholder {
+    color: #5a67d8
+}
+
+.placeholder-indigo-700::-webkit-input-placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-700:-moz-placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-700::-moz-placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-700:-ms-input-placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-700::-ms-input-placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-700::placeholder {
+    color: #4c51bf
+}
+
+.placeholder-indigo-800::-webkit-input-placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-800:-moz-placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-800::-moz-placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-800:-ms-input-placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-800::-ms-input-placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-800::placeholder {
+    color: #434190
+}
+
+.placeholder-indigo-900::-webkit-input-placeholder {
+    color: #3c366b
+}
+
+.placeholder-indigo-900:-moz-placeholder {
+    color: #3c366b
+}
+
+.placeholder-indigo-900::-moz-placeholder {
+    color: #3c366b
+}
+
+.placeholder-indigo-900:-ms-input-placeholder {
+    color: #3c366b
+}
+
+.placeholder-indigo-900::-ms-input-placeholder {
+    color: #3c366b
+}
+
+.placeholder-indigo-900::placeholder {
+    color: #3c366b
+}
+
+.placeholder-purple-100::-webkit-input-placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-100:-moz-placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-100::-moz-placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-100:-ms-input-placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-100::-ms-input-placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-100::placeholder {
+    color: #faf5ff
+}
+
+.placeholder-purple-200::-webkit-input-placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-200:-moz-placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-200::-moz-placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-200:-ms-input-placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-200::-ms-input-placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-200::placeholder {
+    color: #e9d8fd
+}
+
+.placeholder-purple-300::-webkit-input-placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-300:-moz-placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-300::-moz-placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-300:-ms-input-placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-300::-ms-input-placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-300::placeholder {
+    color: #d6bcfa
+}
+
+.placeholder-purple-400::-webkit-input-placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-400:-moz-placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-400::-moz-placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-400:-ms-input-placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-400::-ms-input-placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-400::placeholder {
+    color: #b794f4
+}
+
+.placeholder-purple-500::-webkit-input-placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-500:-moz-placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-500::-moz-placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-500:-ms-input-placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-500::-ms-input-placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-500::placeholder {
+    color: #9f7aea
+}
+
+.placeholder-purple-600::-webkit-input-placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-600:-moz-placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-600::-moz-placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-600:-ms-input-placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-600::-ms-input-placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-600::placeholder {
+    color: #805ad5
+}
+
+.placeholder-purple-700::-webkit-input-placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-700:-moz-placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-700::-moz-placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-700:-ms-input-placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-700::-ms-input-placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-700::placeholder {
+    color: #6b46c1
+}
+
+.placeholder-purple-800::-webkit-input-placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-800:-moz-placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-800::-moz-placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-800:-ms-input-placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-800::-ms-input-placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-800::placeholder {
+    color: #553c9a
+}
+
+.placeholder-purple-900::-webkit-input-placeholder {
+    color: #44337a
+}
+
+.placeholder-purple-900:-moz-placeholder {
+    color: #44337a
+}
+
+.placeholder-purple-900::-moz-placeholder {
+    color: #44337a
+}
+
+.placeholder-purple-900:-ms-input-placeholder {
+    color: #44337a
+}
+
+.placeholder-purple-900::-ms-input-placeholder {
+    color: #44337a
+}
+
+.placeholder-purple-900::placeholder {
+    color: #44337a
+}
+
+.placeholder-pink-100::-webkit-input-placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-100:-moz-placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-100::-moz-placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-100:-ms-input-placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-100::-ms-input-placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-100::placeholder {
+    color: #fff5f7
+}
+
+.placeholder-pink-200::-webkit-input-placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-200:-moz-placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-200::-moz-placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-200:-ms-input-placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-200::-ms-input-placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-200::placeholder {
+    color: #fed7e2
+}
+
+.placeholder-pink-300::-webkit-input-placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-300:-moz-placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-300::-moz-placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-300:-ms-input-placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-300::-ms-input-placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-300::placeholder {
+    color: #fbb6ce
+}
+
+.placeholder-pink-400::-webkit-input-placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-400:-moz-placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-400::-moz-placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-400:-ms-input-placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-400::-ms-input-placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-400::placeholder {
+    color: #f687b3
+}
+
+.placeholder-pink-500::-webkit-input-placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-500:-moz-placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-500::-moz-placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-500:-ms-input-placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-500::-ms-input-placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-500::placeholder {
+    color: #ed64a6
+}
+
+.placeholder-pink-600::-webkit-input-placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-600:-moz-placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-600::-moz-placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-600:-ms-input-placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-600::-ms-input-placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-600::placeholder {
+    color: #d53f8c
+}
+
+.placeholder-pink-700::-webkit-input-placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-700:-moz-placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-700::-moz-placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-700:-ms-input-placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-700::-ms-input-placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-700::placeholder {
+    color: #b83280
+}
+
+.placeholder-pink-800::-webkit-input-placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-800:-moz-placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-800::-moz-placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-800:-ms-input-placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-800::-ms-input-placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-800::placeholder {
+    color: #97266d
+}
+
+.placeholder-pink-900::-webkit-input-placeholder {
+    color: #702459
+}
+
+.placeholder-pink-900:-moz-placeholder {
+    color: #702459
+}
+
+.placeholder-pink-900::-moz-placeholder {
+    color: #702459
+}
+
+.placeholder-pink-900:-ms-input-placeholder {
+    color: #702459
+}
+
+.placeholder-pink-900::-ms-input-placeholder {
+    color: #702459
+}
+
+.placeholder-pink-900::placeholder {
+    color: #702459
+}
+
+.text-left {
+    text-align: left
+}
+
+.text-center {
+    text-align: center
+}
+
+.text-right {
+    text-align: right
+}
+
+.text-justify {
+    text-align: justify
+}
+
+.transparent {
+    color: rgba(0, 0, 0, 0)
+}
+
+.black {
+    color: #000
+}
+
+.white {
+    color: #fff
+}
+
+.gray-100 {
+    color: #f7fafc
+}
+
+.gray-200 {
+    color: #edf2f7
+}
+
+.gray-300 {
+    color: #e2e8f0
+}
+
+.gray-400 {
+    color: #cbd5e0
+}
+
+.gray-500 {
+    color: #a0aec0
+}
+
+.gray-600 {
+    color: #718096
+}
+
+.gray-700 {
+    color: #4a5568
+}
+
+.gray-800 {
+    color: #2d3748
+}
+
+.gray-900 {
+    color: #1a202c
+}
+
+.red-100 {
+    color: #fff5f5
+}
+
+.red-200 {
+    color: #fed7d7
+}
+
+.red-300 {
+    color: #feb2b2
+}
+
+.red-400 {
+    color: #fc8181
+}
+
+.red-500 {
+    color: #f56565
+}
+
+.red-600 {
+    color: #e53e3e
+}
+
+.red-700 {
+    color: #c53030
+}
+
+.red-800 {
+    color: #9b2c2c
+}
+
+.red-900 {
+    color: #742a2a
+}
+
+.orange-100 {
+    color: #fffaf0
+}
+
+.orange-200 {
+    color: #feebc8
+}
+
+.orange-300 {
+    color: #fbd38d
+}
+
+.orange-400 {
+    color: #f6ad55
+}
+
+.orange-500 {
+    color: #ed8936
+}
+
+.orange-600 {
+    color: #dd6b20
+}
+
+.orange-700 {
+    color: #c05621
+}
+
+.orange-800 {
+    color: #9c4221
+}
+
+.orange-900 {
+    color: #7b341e
+}
+
+.yellow-100 {
+    color: ivory
+}
+
+.yellow-200 {
+    color: #fefcbf
+}
+
+.yellow-300 {
+    color: #faf089
+}
+
+.yellow-400 {
+    color: #f6e05e
+}
+
+.yellow-500 {
+    color: #ecc94b
+}
+
+.yellow-600 {
+    color: #d69e2e
+}
+
+.yellow-700 {
+    color: #b7791f
+}
+
+.yellow-800 {
+    color: #975a16
+}
+
+.yellow-900 {
+    color: #744210
+}
+
+.green-100 {
+    color: #f0fff4
+}
+
+.green-200 {
+    color: #c6f6d5
+}
+
+.green-300 {
+    color: #9ae6b4
+}
+
+.green-400 {
+    color: #68d391
+}
+
+.green-500 {
+    color: #48bb78
+}
+
+.green-600 {
+    color: #38a169
+}
+
+.green-700 {
+    color: #2f855a
+}
+
+.green-800 {
+    color: #276749
+}
+
+.green-900 {
+    color: #22543d
+}
+
+.teal-100 {
+    color: #e6fffa
+}
+
+.teal-200 {
+    color: #b2f5ea
+}
+
+.teal-300 {
+    color: #81e6d9
+}
+
+.teal-400 {
+    color: #4fd1c5
+}
+
+.teal-500 {
+    color: #38b2ac
+}
+
+.teal-600 {
+    color: #319795
+}
+
+.teal-700 {
+    color: #2c7a7b
+}
+
+.teal-800 {
+    color: #285e61
+}
+
+.teal-900 {
+    color: #234e52
+}
+
+.blue-100 {
+    color: #ebf8ff
+}
+
+.blue-200 {
+    color: #bee3f8
+}
+
+.blue-300 {
+    color: #90cdf4
+}
+
+.blue-400 {
+    color: #63b3ed
+}
+
+.blue-500 {
+    color: #4299e1
+}
+
+.blue-600 {
+    color: #3182ce
+}
+
+.blue-700 {
+    color: #2b6cb0
+}
+
+.blue-800 {
+    color: #2c5282
+}
+
+.blue-900 {
+    color: #2a4365
+}
+
+.indigo-100 {
+    color: #ebf4ff
+}
+
+.indigo-200 {
+    color: #c3dafe
+}
+
+.indigo-300 {
+    color: #a3bffa
+}
+
+.indigo-400 {
+    color: #7f9cf5
+}
+
+.indigo-500 {
+    color: #667eea
+}
+
+.indigo-600 {
+    color: #5a67d8
+}
+
+.indigo-700 {
+    color: #4c51bf
+}
+
+.indigo-800 {
+    color: #434190
+}
+
+.indigo-900 {
+    color: #3c366b
+}
+
+.purple-100 {
+    color: #faf5ff
+}
+
+.purple-200 {
+    color: #e9d8fd
+}
+
+.purple-300 {
+    color: #d6bcfa
+}
+
+.purple-400 {
+    color: #b794f4
+}
+
+.purple-500 {
+    color: #9f7aea
+}
+
+.purple-600 {
+    color: #805ad5
+}
+
+.purple-700 {
+    color: #6b46c1
+}
+
+.purple-800 {
+    color: #553c9a
+}
+
+.purple-900 {
+    color: #44337a
+}
+
+.pink-100 {
+    color: #fff5f7
+}
+
+.pink-200 {
+    color: #fed7e2
+}
+
+.pink-300 {
+    color: #fbb6ce
+}
+
+.pink-400 {
+    color: #f687b3
+}
+
+.pink-500 {
+    color: #ed64a6
+}
+
+.pink-600 {
+    color: #d53f8c
+}
+
+.pink-700 {
+    color: #b83280
+}
+
+.pink-800 {
+    color: #97266d
+}
+
+.pink-900 {
+    color: #702459
+}
+
+.decoration-underline {
+    text-decoration: underline
+}
+
+.decoration-line-through {
+    text-decoration: line-through
+}
+
+.decoration-none {
+    text-decoration: none
+}
+
+.transform-uppercase {
+    text-transform: uppercase
+}
+
+.transform-lowercase {
+    text-transform: lowercase
+}
+
+.transform-capitalize {
+    text-transform: capitalize
+}
+
+.transform-none {
+    text-transform: none
+}
+
+.vertical-baseline {
+    vertical-align: baseline
+}
+
+.vertical-top {
+    vertical-align: top
+}
+
+.vertical-middle {
+    vertical-align: middle
+}
+
+.vertical-bottom {
+    vertical-align: bottom
+}
+
+.vertical-text-top {
+    vertical-align: text-top
+}
+
+.vertical-text-bottom {
+    vertical-align: text-bottom
+}
+
+.whitespace-normal {
+    white-space: normal
+}
+
+.whitespace-nowrap {
+    white-space: nowrap
+}
+
+.whitespace-pre {
+    white-space: pre
+}
+
+.whitespace-pre-line {
+    white-space: pre-line
+}
+
+.whitespace-pre-wrap {
+    white-space: pre-wrap
+}
+
+.border-transparent {
+    border-color: rgba(0, 0, 0, 0)
+}
+
+.border-black {
+    border-color: #000
+}
+
+.border-white {
+    border-color: #fff
+}
+
+.border-gray-100 {
+    border-color: #f7fafc
+}
+
+.border-gray-200 {
+    border-color: #edf2f7
+}
+
+.border-gray-300 {
+    border-color: #e2e8f0
+}
+
+.border-gray-400 {
+    border-color: #cbd5e0
+}
+
+.border-gray-500 {
+    border-color: #a0aec0
+}
+
+.border-gray-600 {
+    border-color: #718096
+}
+
+.border-gray-700 {
+    border-color: #4a5568
+}
+
+.border-gray-800 {
+    border-color: #2d3748
+}
+
+.border-gray-900 {
+    border-color: #1a202c
+}
+
+.border-red-100 {
+    border-color: #fff5f5
+}
+
+.border-red-200 {
+    border-color: #fed7d7
+}
+
+.border-red-300 {
+    border-color: #feb2b2
+}
+
+.border-red-400 {
+    border-color: #fc8181
+}
+
+.border-red-500 {
+    border-color: #f56565
+}
+
+.border-red-600 {
+    border-color: #e53e3e
+}
+
+.border-red-700 {
+    border-color: #c53030
+}
+
+.border-red-800 {
+    border-color: #9b2c2c
+}
+
+.border-red-900 {
+    border-color: #742a2a
+}
+
+.border-orange-100 {
+    border-color: #fffaf0
+}
+
+.border-orange-200 {
+    border-color: #feebc8
+}
+
+.border-orange-300 {
+    border-color: #fbd38d
+}
+
+.border-orange-400 {
+    border-color: #f6ad55
+}
+
+.border-orange-500 {
+    border-color: #ed8936
+}
+
+.border-orange-600 {
+    border-color: #dd6b20
+}
+
+.border-orange-700 {
+    border-color: #c05621
+}
+
+.border-orange-800 {
+    border-color: #9c4221
+}
+
+.border-orange-900 {
+    border-color: #7b341e
+}
+
+.border-yellow-100 {
+    border-color: ivory
+}
+
+.border-yellow-200 {
+    border-color: #fefcbf
+}
+
+.border-yellow-300 {
+    border-color: #faf089
+}
+
+.border-yellow-400 {
+    border-color: #f6e05e
+}
+
+.border-yellow-500 {
+    border-color: #ecc94b
+}
+
+.border-yellow-600 {
+    border-color: #d69e2e
+}
+
+.border-yellow-700 {
+    border-color: #b7791f
+}
+
+.border-yellow-800 {
+    border-color: #975a16
+}
+
+.border-yellow-900 {
+    border-color: #744210
+}
+
+.border-green-100 {
+    border-color: #f0fff4
+}
+
+.border-green-200 {
+    border-color: #c6f6d5
+}
+
+.border-green-300 {
+    border-color: #9ae6b4
+}
+
+.border-green-400 {
+    border-color: #68d391
+}
+
+.border-green-500 {
+    border-color: #48bb78
+}
+
+.border-green-600 {
+    border-color: #38a169
+}
+
+.border-green-700 {
+    border-color: #2f855a
+}
+
+.border-green-800 {
+    border-color: #276749
+}
+
+.border-green-900 {
+    border-color: #22543d
+}
+
+.border-teal-100 {
+    border-color: #e6fffa
+}
+
+.border-teal-200 {
+    border-color: #b2f5ea
+}
+
+.border-teal-300 {
+    border-color: #81e6d9
+}
+
+.border-teal-400 {
+    border-color: #4fd1c5
+}
+
+.border-teal-500 {
+    border-color: #38b2ac
+}
+
+.border-teal-600 {
+    border-color: #319795
+}
+
+.border-teal-700 {
+    border-color: #2c7a7b
+}
+
+.border-teal-800 {
+    border-color: #285e61
+}
+
+.border-teal-900 {
+    border-color: #234e52
+}
+
+.border-blue-100 {
+    border-color: #ebf8ff
+}
+
+.border-blue-200 {
+    border-color: #bee3f8
+}
+
+.border-blue-300 {
+    border-color: #90cdf4
+}
+
+.border-blue-400 {
+    border-color: #63b3ed
+}
+
+.border-blue-500 {
+    border-color: #4299e1
+}
+
+.border-blue-600 {
+    border-color: #3182ce
+}
+
+.border-blue-700 {
+    border-color: #2b6cb0
+}
+
+.border-blue-800 {
+    border-color: #2c5282
+}
+
+.border-blue-900 {
+    border-color: #2a4365
+}
+
+.border-indigo-100 {
+    border-color: #ebf4ff
+}
+
+.border-indigo-200 {
+    border-color: #c3dafe
+}
+
+.border-indigo-300 {
+    border-color: #a3bffa
+}
+
+.border-indigo-400 {
+    border-color: #7f9cf5
+}
+
+.border-indigo-500 {
+    border-color: #667eea
+}
+
+.border-indigo-600 {
+    border-color: #5a67d8
+}
+
+.border-indigo-700 {
+    border-color: #4c51bf
+}
+
+.border-indigo-800 {
+    border-color: #434190
+}
+
+.border-indigo-900 {
+    border-color: #3c366b
+}
+
+.border-purple-100 {
+    border-color: #faf5ff
+}
+
+.border-purple-200 {
+    border-color: #e9d8fd
+}
+
+.border-purple-300 {
+    border-color: #d6bcfa
+}
+
+.border-purple-400 {
+    border-color: #b794f4
+}
+
+.border-purple-500 {
+    border-color: #9f7aea
+}
+
+.border-purple-600 {
+    border-color: #805ad5
+}
+
+.border-purple-700 {
+    border-color: #6b46c1
+}
+
+.border-purple-800 {
+    border-color: #553c9a
+}
+
+.border-purple-900 {
+    border-color: #44337a
+}
+
+.border-pink-100 {
+    border-color: #fff5f7
+}
+
+.border-pink-200 {
+    border-color: #fed7e2
+}
+
+.border-pink-300 {
+    border-color: #fbb6ce
+}
+
+.border-pink-400 {
+    border-color: #f687b3
+}
+
+.border-pink-500 {
+    border-color: #ed64a6
+}
+
+.border-pink-600 {
+    border-color: #d53f8c
+}
+
+.border-pink-700 {
+    border-color: #b83280
+}
+
+.border-pink-800 {
+    border-color: #97266d
+}
+
+.border-pink-900 {
+    border-color: #702459
+}
+
+.border-solid {
+    border-style: solid
+}
+
+.border-dashed {
+    border-style: dashed
+}
+
+.border-dotted {
+    border-style: dotted
+}
+
+.border-double {
+    border-style: double
+}
+
+.border-none {
+    border-style: none
+}
+
+.border-px {
+    border-width: 1px
+}
+
+.border-0 {
+    border-width: 0
+}
+
+.border-2 {
+    border-width: 2px
+}
+
+.border-4 {
+    border-width: 4px
+}
+
+.border-8 {
+    border-width: 8px
+}
+
+.radius-none {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+}
+
+.radius-sm {
+    -webkit-border-radius: .125rem;
+    -moz-border-radius: .125rem;
+    border-radius: .125rem
+}
+
+.radius-md {
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    border-radius: .25rem
+}
+
+.radius-lg {
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    border-radius: .5rem
+}
+
+.radius-xl {
+    -webkit-border-radius: .75rem;
+    -moz-border-radius: .75rem;
+    border-radius: .75rem
+}
+
+.radius-2xl {
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    border-radius: 1rem
+}
+
+.radius-full {
+    -webkit-border-radius: 9999px;
+    -moz-border-radius: 9999px;
+    border-radius: 9999px
+}
+
+.bg-fixed {
+    background-attachment: fixed
+}
+
+.bg-local {
+    background-attachment: local
+}
+
+.bg-scroll {
+    background-attachment: scroll
+}
+
+.bg-bottom {
+    background-attachment: bottom
+}
+
+.bg-center {
+    background-attachment: center
+}
+
+.bg-left {
+    background-attachment: left
+}
+
+.bg-left-bottom {
+    background-attachment: left bottom
+}
+
+.bg-left-top {
+    background-attachment: left top
+}
+
+.bg-right {
+    background-attachment: right
+}
+
+.bg-right-bottom {
+    background-attachment: right bottom
+}
+
+.bg-right {
+    background-attachment: right
+}
+
+.bg-right-bottom {
+    background-attachment: right bottom
+}
+
+.bg-right-top {
+    background-attachment: right top
+}
+
+.bg-top {
+    background-attachment: top
+}
+
+.bg-repeat {
+    background-repeat: repeat
+}
+
+.bg-no-repeat {
+    background-repeat: no-repeat
+}
+
+.bg-repeat-x {
+    background-repeat: repeat-x
+}
+
+.bg-repeat-y {
+    background-repeat: repeat-y
+}
+
+.bg-round {
+    background-repeat: round
+}
+
+.bg-space {
+    background-repeat: space
+}
+
+.bg-auto {
+    -webkit-background-size: auto auto;
+    -moz-background-size: auto;
+    background-size: auto
+}
+
+.bg-cover {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover
+}
+
+.bg-contain {
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    background-size: contain
+}
+
+.bg-transparent {
+    background-color: rgba(0, 0, 0, 0)
+}
+
+.bg-black {
+    background-color: #000
+}
+
+.bg-white {
+    background-color: #fff
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc
+}
+
+.bg-gray-200 {
+    background-color: #edf2f7
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0
+}
+
+.bg-gray-400 {
+    background-color: #cbd5e0
+}
+
+.bg-gray-500 {
+    background-color: #a0aec0
+}
+
+.bg-gray-600 {
+    background-color: #718096
+}
+
+.bg-gray-700 {
+    background-color: #4a5568
+}
+
+.bg-gray-800 {
+    background-color: #2d3748
+}
+
+.bg-gray-900 {
+    background-color: #1a202c
+}
+
+.bg-red-100 {
+    background-color: #fff5f5
+}
+
+.bg-red-200 {
+    background-color: #fed7d7
+}
+
+.bg-red-300 {
+    background-color: #feb2b2
+}
+
+.bg-red-400 {
+    background-color: #fc8181
+}
+
+.bg-red-500 {
+    background-color: #f56565
+}
+
+.bg-red-600 {
+    background-color: #e53e3e
+}
+
+.bg-red-700 {
+    background-color: #c53030
+}
+
+.bg-red-800 {
+    background-color: #9b2c2c
+}
+
+.bg-red-900 {
+    background-color: #742a2a
+}
+
+.bg-orange-100 {
+    background-color: #fffaf0
+}
+
+.bg-orange-200 {
+    background-color: #feebc8
+}
+
+.bg-orange-300 {
+    background-color: #fbd38d
+}
+
+.bg-orange-400 {
+    background-color: #f6ad55
+}
+
+.bg-orange-500 {
+    background-color: #ed8936
+}
+
+.bg-orange-600 {
+    background-color: #dd6b20
+}
+
+.bg-orange-700 {
+    background-color: #c05621
+}
+
+.bg-orange-800 {
+    background-color: #9c4221
+}
+
+.bg-orange-900 {
+    background-color: #7b341e
+}
+
+.bg-yellow-100 {
+    background-color: ivory
+}
+
+.bg-yellow-200 {
+    background-color: #fefcbf
+}
+
+.bg-yellow-300 {
+    background-color: #faf089
+}
+
+.bg-yellow-400 {
+    background-color: #f6e05e
+}
+
+.bg-yellow-500 {
+    background-color: #ecc94b
+}
+
+.bg-yellow-600 {
+    background-color: #d69e2e
+}
+
+.bg-yellow-700 {
+    background-color: #b7791f
+}
+
+.bg-yellow-800 {
+    background-color: #975a16
+}
+
+.bg-yellow-900 {
+    background-color: #744210
+}
+
+.bg-green-100 {
+    background-color: #f0fff4
+}
+
+.bg-green-200 {
+    background-color: #c6f6d5
+}
+
+.bg-green-300 {
+    background-color: #9ae6b4
+}
+
+.bg-green-400 {
+    background-color: #68d391
+}
+
+.bg-green-500 {
+    background-color: #48bb78
+}
+
+.bg-green-600 {
+    background-color: #38a169
+}
+
+.bg-green-700 {
+    background-color: #2f855a
+}
+
+.bg-green-800 {
+    background-color: #276749
+}
+
+.bg-green-900 {
+    background-color: #22543d
+}
+
+.bg-teal-100 {
+    background-color: #e6fffa
+}
+
+.bg-teal-200 {
+    background-color: #b2f5ea
+}
+
+.bg-teal-300 {
+    background-color: #81e6d9
+}
+
+.bg-teal-400 {
+    background-color: #4fd1c5
+}
+
+.bg-teal-500 {
+    background-color: #38b2ac
+}
+
+.bg-teal-600 {
+    background-color: #319795
+}
+
+.bg-teal-700 {
+    background-color: #2c7a7b
+}
+
+.bg-teal-800 {
+    background-color: #285e61
+}
+
+.bg-teal-900 {
+    background-color: #234e52
+}
+
+.bg-blue-100 {
+    background-color: #ebf8ff
+}
+
+.bg-blue-200 {
+    background-color: #bee3f8
+}
+
+.bg-blue-300 {
+    background-color: #90cdf4
+}
+
+.bg-blue-400 {
+    background-color: #63b3ed
+}
+
+.bg-blue-500 {
+    background-color: #4299e1
+}
+
+.bg-blue-600 {
+    background-color: #3182ce
+}
+
+.bg-blue-700 {
+    background-color: #2b6cb0
+}
+
+.bg-blue-800 {
+    background-color: #2c5282
+}
+
+.bg-blue-900 {
+    background-color: #2a4365
+}
+
+.bg-indigo-100 {
+    background-color: #ebf4ff
+}
+
+.bg-indigo-200 {
+    background-color: #c3dafe
+}
+
+.bg-indigo-300 {
+    background-color: #a3bffa
+}
+
+.bg-indigo-400 {
+    background-color: #7f9cf5
+}
+
+.bg-indigo-500 {
+    background-color: #667eea
+}
+
+.bg-indigo-600 {
+    background-color: #5a67d8
+}
+
+.bg-indigo-700 {
+    background-color: #4c51bf
+}
+
+.bg-indigo-800 {
+    background-color: #434190
+}
+
+.bg-indigo-900 {
+    background-color: #3c366b
+}
+
+.bg-purple-100 {
+    background-color: #faf5ff
+}
+
+.bg-purple-200 {
+    background-color: #e9d8fd
+}
+
+.bg-purple-300 {
+    background-color: #d6bcfa
+}
+
+.bg-purple-400 {
+    background-color: #b794f4
+}
+
+.bg-purple-500 {
+    background-color: #9f7aea
+}
+
+.bg-purple-600 {
+    background-color: #805ad5
+}
+
+.bg-purple-700 {
+    background-color: #6b46c1
+}
+
+.bg-purple-800 {
+    background-color: #553c9a
+}
+
+.bg-purple-900 {
+    background-color: #44337a
+}
+
+.bg-pink-100 {
+    background-color: #fff5f7
+}
+
+.bg-pink-200 {
+    background-color: #fed7e2
+}
+
+.bg-pink-300 {
+    background-color: #fbb6ce
+}
+
+.bg-pink-400 {
+    background-color: #f687b3
+}
+
+.bg-pink-500 {
+    background-color: #ed64a6
+}
+
+.bg-pink-600 {
+    background-color: #d53f8c
+}
+
+.bg-pink-700 {
+    background-color: #b83280
+}
+
+.bg-pink-800 {
+    background-color: #97266d
+}
+
+.bg-pink-900 {
+    background-color: #702459
+}
+
+.opacity-100 {
+    opacity: 1
+}
+
+.opacity-75 {
+    opacity: .75
+}
+
+.opacity-50 {
+    opacity: .5
+}
+
+.opacity-25 {
+    opacity: .25
+}
+
+.opacity-0 {
+    opacity: 0
+}
+
+.shadow-100 {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1)
+}
+
+.shadow-md {
+    -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)
+}
+
+.shadow-lg {
+    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1)
+}
+
+.shadow-xl {
+    -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1)
+}
+
+.shadow-2xl {
+    -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
+}
+
+.shadow-inner {
+    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)
+}
+
+.shadow-outline {
+    -webkit-box-shadow: 0 0 0 3px rgba(66, 152, 225, 0.5);
+    -moz-box-shadow: 0 0 0 3px rgba(66, 152, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(66, 152, 225, 0.5)
+}
+
+.shadow-none {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+}
+
+.cursor-auto {
+    cursor: auto
+}
+
+.cursor-default {
+    cursor: default
+}
+
+.cursor-pointer {
+    cursor: pointer
+}
+
+.cursor-wait {
+    cursor: wait
+}
+
+.cursor-text {
+    cursor: text
+}
+
+.cursor-move {
+    cursor: move
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed
+}
+
+.event-none {
+    pointer-events: none
+}
+
+.event-auto {
+    pointer-events: auto
+}
+
+.resize-none {
+    resize: none
+}
+
+.resize-both {
+    resize: both
+}
+
+.resize-vertical {
+    resize: vertical
+}
+
+.resize-horizontal {
+    resize: horizontal
+}
+
+.select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.select-text {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text
+}
+
+.select-all {
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all
+}
+
+.select-auto {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto
+}
+
+.outline-none {
+    outline: 0
+}
+

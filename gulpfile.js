@@ -1,58 +1,57 @@
-const gulp = require('gulp');
-const plugins = require('gulp-load-plugins')();
-const imagemin = require('gulp-imagemin');
+const
+    gulp = require('gulp'),
+    plugins = require('gulp-load-plugins')(),
+    imagemin = require('gulp-imagemin'),
+    connect = require('gulp-connect'),
+    open = require('gulp-open'),
+    destination = './build/css/',
+    styles = ['./assets/css/custom.sass', './assets/css/piodjio.css'];
 
-const srcJS = './js';
-const srcCSS = './css';
-const destination = './build';
-
-gulp.task('css-dev', function () {
-    return gulp.src([srcCSS + '/css_framework/sass/main.scss', srcCSS + '/custom.scss'])
-        .pipe(plugins.sass())
-        .pipe(plugins.autoprefixer())
-        .pipe(gulp.dest(destination + '/css/'));
+gulp.task('connect', function () {
+    connect.server({
+        root: './',
+        port: 8001,
+        livereload: true
+    });
 });
 
-gulp.task('css-prod', function () {
-    return gulp.src(srcCSS + '/css_framework/sass/main.scss')
+gulp.task('open', function () {
+    gulp.src('./index.html')
+        .pipe(open({uri: 'http://localhost:8001/'}));
+});
+
+gulp.task('html', function () {
+    return gulp.src('./*.html')
+        .pipe(gulp.dest('./build'))
+        .pipe(connect.reload());
+})
+
+gulp.task('js', function () {
+    return gulp.src('./assets/js/*.js')
+        .pipe(connect.reload());
+})
+
+gulp.task('css-prod', () => {
+    return gulp.src(styles)
         .pipe(plugins.sass())
         .pipe(plugins.autoprefixer())
-        .pipe(plugins.css())
         .pipe(plugins.rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest(destination + '/css/'));
-});
+        .pipe(gulp.dest(destination))
+        .pipe(connect.reload());
+})
 
-gulp.task('watch:css', () => {
-    gulp.watch(['./css/css_framework/sass/main.scss', './css/custom.scss'], gulp.series('css-dev'));
-});
+gulp.task('watch', () => {
+    gulp.watch('./*.html', gulp.series('html'))
+    gulp.watch('./assets/js/*.js', gulp.series('js'))
+    gulp.watch(styles, gulp.series('css-prod'))
+})
 
-gulp.task('images', function(){
-    return gulp.src('./src/assets/img/*')
+gulp.task('images', () => {
+    return gulp.src('./assets/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/assets/img'))
-});
+})
 
-/*
-let browsersync = false;
-gulp.task('default', () => {
-    if (browsersync === false) {
-        browsersync = require('browser-sync').create();
-        browsersync.init({
-            proxy: 'localhost' + __dirname.replace('/home/ben/Docker/www',''),
-            files       : [
-                'src/!*'
-            ],
-            watchEvents : ['add', 'change', 'unlink', 'addDir', 'unlinkDir'],
-            open        : true,
-            notify      : false,
-            ghostMode   : false,
-            ui: {
-                port: 8001
-            }
-        });
-    }
-});*/
-
-gulp.task('default', gulp.parallel('watch:css','images'));
+gulp.task('default', gulp.parallel('html', 'css-prod', 'watch', 'images', 'connect', 'open'))
